@@ -684,6 +684,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 559068494386217643, guid: 8993d22ed91566946b3b68bfdaeb05f6, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 7598806387033652509}
     - target: {fileID: 2026082905766782479, guid: 8993d22ed91566946b3b68bfdaeb05f6, type: 3}
       propertyPath: m_Name
       value: Enemy Bullet (Rapid)
@@ -735,3 +739,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8993d22ed91566946b3b68bfdaeb05f6, type: 3}
+--- !u!54 &7598806387033652509 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2885176726445918785, guid: 8993d22ed91566946b3b68bfdaeb05f6, type: 3}
+  m_PrefabInstance: {fileID: 7598806387033652508}
+  m_PrefabAsset: {fileID: 0}
