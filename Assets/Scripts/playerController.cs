@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour, IDamagable
+public class playerController : MonoBehaviour, IDamageable
 {
     [SerializeField] CharacterController controller;
 
@@ -67,7 +67,7 @@ public class playerController : MonoBehaviour, IDamagable
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    public void TakeDamage(int _damage)
+    public void takeDamage(int _damage)
     {
         currentHP -= _damage;
         UpdatePlayerHPBar();
@@ -97,9 +97,9 @@ public class playerController : MonoBehaviour, IDamagable
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
             {
-                if (hit.collider.GetComponent<IDamagable>() != null)
+                if (hit.collider.GetComponent<IDamageable>() != null)
                 {
-                    hit.collider.GetComponent<IDamagable>().TakeDamage(playerDamage);
+                    hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
                 }
             }
 
