@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour, IDamageable
+public class playerController : MonoBehaviour , IDamageable
 {
     [SerializeField] CharacterController controller;
 
@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int jumpsMax;
 
     [SerializeField] float fireRate;
-    [SerializeField] GameObject cube;
+    //[SerializeField] GameObject cube;
     [SerializeField] int shootDistance;
     [SerializeField] int playerDamage;
     bool isShooting;
@@ -39,7 +39,7 @@ public class playerController : MonoBehaviour, IDamageable
             MovePlayer();
 
             StartCoroutine(Shoot());
-            StartCoroutine(Build());
+            //StartCoroutine(Build());
         }
     }
 
@@ -108,23 +108,23 @@ public class playerController : MonoBehaviour, IDamageable
             isShooting = false;
         }
     }
-    IEnumerator Build()
-    {
-        if (!isShooting && Input.GetButtonDown("Fire2"))
-        {
-            isShooting = true;
+    //IEnumerator Build()
+    //{
+    //    if (!isShooting && Input.GetButtonDown("Fire2"))
+    //    {
+    //        isShooting = true;
 
-            RaycastHit hit;
+    //        RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
-            {
-                Instantiate(cube, hit.point, cube.transform.rotation);
-            }
+    //        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
+    //        {
+    //            Instantiate(cube, hit.point, cube.transform.rotation);
+    //        }
 
-            yield return new WaitForSeconds(fireRate);
-            isShooting = false;
-        }
-    }
+    //        yield return new WaitForSeconds(fireRate);
+    //        isShooting = false;
+    //    }
+    //}
 
     public void Respawn()
     {
@@ -154,7 +154,3 @@ public class playerController : MonoBehaviour, IDamageable
         playerSpeed += _amount;
     }
 }
-
-
-
-

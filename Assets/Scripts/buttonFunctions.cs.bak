@@ -21,21 +21,19 @@ public class buttonFunctions : MonoBehaviour
         if (gameManager.instance.isPaused)
         {
             gameManager.instance.isPaused = !gameManager.instance.isPaused;
-            gameManager.instance.CursorUnlockUnpause();
+           // gameManager.instance.cursorUnlockUnpause();
         }
     }
 
     public void restart()
     {
-		gameManager.instance.isPaused = false;
-        gameManager.instance.CursorUnlockUnpause();
+       // gameManager.instance.cursorUnlockUnpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void playerRespawn()
     {
-        gameManager.instance.playerController.Respawn();
-		gameManager.instance.isPaused = false;
+       // gameManager.instance.playerScript.respawn();
     }
 
     public void quit()
@@ -46,16 +44,16 @@ public class buttonFunctions : MonoBehaviour
     //button to give player HP
     public void giveHP(int amount)
     {
-       gameManager.instance.playerController.GiveHP(amount);
+       // gameManager.instance.playerScript.giveHP(amount);
     }
 
     public void giveJump(int amount)
     {
-       gameManager.instance.playerController.GiveJump(amount);
+       // gameManager.instance.playerScript.giveJump(amount);
     }
 
     public void giveSpeed(int amount)
     {
-       gameManager.instance.playerController.GiveSpeed(amount);
+       // gameManager.instance.playerScript.giveSpeed(amount);
     }
 }

@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour
     public static gameManager instance;
 
     public GameObject player;
-    public playerController playerScript;
+    public playerController playerController;
     public GameObject playerSpawnPosition;
 
     public GameObject currentMenu;
@@ -35,7 +35,7 @@ public class gameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<playerController>();
+        playerController = player.GetComponent<playerController>();
         playerSpawnPosition = GameObject.Find("Player Spawn Position");
 
         timeScaleOrig = Time.timeScale;
