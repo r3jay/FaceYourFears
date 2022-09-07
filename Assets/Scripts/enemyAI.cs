@@ -9,6 +9,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Header("----- Components -----")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer rend;
+    [SerializeField] GameObject destination;
 
     [Header("----- Enemy Stats -----")]
     [Range(0, 10)] [SerializeField] int HP;
@@ -16,9 +17,10 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
+    [SerializeField] float shootDist;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
-    
+
     Vector3 playerDir;
     bool isShooting;
 
@@ -36,12 +38,16 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         agent.SetDestination(gameManager.instance.player.transform.position); //get the enemy to go to a point in the level. (player)
 
-        if (agent.remainingDistance <= agent.stoppingDistance) //only do this when inside the stopping distance.
+        if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < shootDist) //checking the vector distance of player, getting position, checking if within shooting distance.
         {
+
             if (!isShooting)
                 StartCoroutine(shoot());
             facePlayer();
+
         }
+
+
     }
 
     //get enemy to face the player
@@ -62,7 +68,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             gameManager.instance.enemyDecrement();
             Destroy(gameObject);
         }
-            
+
     }
 
     IEnumerator flashColor() //changes the color of the enemy.
@@ -76,7 +82,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         isShooting = true;
 
-        Instantiate(bullet, shootPos.position, transform.rotation); //when enemy shoot, instantiate the bullet where enemy is located, in the bullets rotation
+        Instantiate(bullet, shootPos.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
