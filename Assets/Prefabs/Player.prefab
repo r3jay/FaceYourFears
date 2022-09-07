@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8747165057816580892}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8405328609735391987}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &869981957249352496
 MeshFilter:
@@ -135,8 +135,8 @@ MonoBehaviour:
   currentHP: 3
   maxHP: 3
   playerSpeed: 5
-  jumpHeight: 5
-  gravityValue: 1
+  jumpHeight: 10
+  gravityValue: 25
   jumpsMax: 2
   fireRate: 0.1
   shootDistance: 1000
@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 8405328609735391987}
   - component: {fileID: 8405328609735391980}
   - component: {fileID: 8405328609735391981}
+  - component: {fileID: 8328626555225246680}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -167,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8405328609735391982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -225,3 +226,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8405328609735391982}
   m_Enabled: 1
+--- !u!114 &8328626555225246680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405328609735391982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd139f98ad0d83d4983e9eb7b979855c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensHori: 350
+  sensVert: 350
+  lockVertMin: -75
+  lockVertMax: 75
+  invert: 0
