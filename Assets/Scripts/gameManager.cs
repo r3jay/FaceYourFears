@@ -85,14 +85,14 @@ public class gameManager : MonoBehaviour
         CursorLockPause();
     }
 
-    public void EnemyDecrement()
+    public void enemyDecrement()
     {
         enemyCount--;
         remainingEnemiesLabel.text = enemyCount.ToString("F0");
         StartCoroutine(CheckEnemyCount());
     }
 
-    public void EnemyIncrement()
+    public void enemyIncrement()
     {
         enemyCount++;
         remainingEnemiesLabel.text = enemyCount.ToString("F0");
