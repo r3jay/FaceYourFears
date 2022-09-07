@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour , IDamageable
 
     private void Start()
     {
+        currentHP = maxHP;
         Respawn();
     }
 
@@ -90,7 +91,7 @@ public class playerController : MonoBehaviour , IDamageable
 
     IEnumerator Shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Shoot"))
+        if (!isShooting && Input.GetButtonDown("Fire1"))
         {
             isShooting = true;
 
