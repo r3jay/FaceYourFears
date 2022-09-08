@@ -130,7 +130,7 @@ public class playerController : MonoBehaviour , IDamageable
     {
         controller.enabled = false;
         currentHP = maxHP;
-        //UpdatePlayerHPBar();
+        UpdatePlayerHPBar();
         transform.position = gameManager.instance.playerSpawnPosition.transform.position;
         gameManager.instance.CursorUnlockUnpause();
         controller.enabled = true;
