@@ -21,11 +21,11 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<IDamageable>() != null && GameObject.FindGameObjectWithTag("Player") == true)
+        if (other.GetComponent<IDamageable>() != null && other.CompareTag("Player") == true)
         {
             other.GetComponent<IDamageable>().takeDamage(damage);
         }
-
         Destroy(gameObject);
+
     }
 }
