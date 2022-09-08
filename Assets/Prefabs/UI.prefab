@@ -353,7 +353,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerSpawnPosition: {fileID: 0}
   currentMenu: {fileID: 0}
-  reticle: {fileID: 0}
+  reticle: {fileID: 6885884089941225160}
   pauseMenu: {fileID: 6885884089531721786}
   playerDamage: {fileID: 939815367159629163}
   playerWinMenu: {fileID: 0}
@@ -952,7 +952,7 @@ RectTransform:
   - {fileID: 149546896753354866}
   - {fileID: 1298774885145052112}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

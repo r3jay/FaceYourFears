@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8405328609735391987}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &869981957249352496
 MeshFilter:
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7935848600841490954}
   currentHP: 3
-  maxHP: 3
+  maxHP: 100
   playerSpeed: 5
   jumpHeight: 10
   gravityValue: 25

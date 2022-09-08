@@ -27,7 +27,6 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
-		gameManager.instance.isPaused = false;
         gameManager.instance.CursorUnlockUnpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
