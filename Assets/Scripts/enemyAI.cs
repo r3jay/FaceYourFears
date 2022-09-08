@@ -30,7 +30,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     void Start()
     {
         tempColor = gameObject.GetComponent<Renderer>().material.color;
-        //gameManager.instance.enemyIncrement();
+        gameManager.instance.enemyIncrement();
 
     }
 
@@ -68,7 +68,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         if (HP <= 0)
         {
-            //gameManager.instance.enemyDecrement();
+            gameManager.instance.enemyDecrement();
             Destroy(gameObject);
         }
 
