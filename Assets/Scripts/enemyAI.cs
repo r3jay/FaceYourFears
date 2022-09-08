@@ -21,12 +21,15 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
 
+    Color tempColor;
+
     Vector3 playerDir;
     bool isShooting;
 
     // Start is called before the first frame update
     void Start()
     {
+        tempColor = gameObject.GetComponent<Renderer>().material.color;
         //gameManager.instance.enemyIncrement();
 
     }
@@ -75,7 +78,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         rend.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        rend.material.color = Color.white;
+        rend.material.color = tempColor;
     }
 
     IEnumerator shoot()
