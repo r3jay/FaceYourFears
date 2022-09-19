@@ -24,8 +24,8 @@ public class bullet : MonoBehaviour
         if (other.GetComponent<IDamageable>() != null && other.CompareTag("Player") == true)
         {
             other.GetComponent<IDamageable>().takeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
 
     }
 }

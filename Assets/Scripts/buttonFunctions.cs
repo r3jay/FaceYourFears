@@ -33,7 +33,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void playerRespawn()
     {
-        gameManager.instance.playerController.Respawn();
+        gameManager.instance.playerController.respawn();
 		gameManager.instance.isPaused = false;
     }
 
@@ -45,16 +45,16 @@ public class buttonFunctions : MonoBehaviour
     //button to give player HP
     public void giveHP(int amount)
     {
-       gameManager.instance.playerController.GiveHP(amount);
+       gameManager.instance.playerController.giveHP(amount);
     }
 
     public void giveJump(int amount)
     {
-       gameManager.instance.playerController.GiveJump(amount);
+       gameManager.instance.playerController.giveJump(amount);
     }
 
     public void giveSpeed(int amount)
     {
-       gameManager.instance.playerController.GiveSpeed(amount);
+       gameManager.instance.playerController.giveSpeed(amount);
     }
 }

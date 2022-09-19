@@ -106,11 +106,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337670824232000558}
-  - component: {fileID: 5337670824232000557}
+  - component: {fileID: 7299729594424641552}
   - component: {fileID: 5337670824232000556}
   - component: {fileID: 5337670824232000531}
   - component: {fileID: 5337670824232000530}
   - component: {fileID: 5337670824232000529}
+  - component: {fileID: 1277075478203654628}
+  - component: {fileID: 4941438768354053069}
   m_Layer: 0
   m_Name: Enemy 1 (Slow Fire, heavy dmg)
   m_TagString: Untagged
@@ -132,9 +134,9 @@ Transform:
   m_Children:
   - {fileID: 629732622283949110}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5337670824232000557
+--- !u!114 &7299729594424641552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,11 +150,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5337670824232000556}
   rend: {fileID: 5337670824232000530}
-  destination: {fileID: 1288159935516852630, guid: 77396cfcabc081842beed621d940137d, type: 3}
-  HP: 10
-  playerFaceSpeed: 3
+  animator: {fileID: 1277075478203654628}
+  HP: 100
+  chaseSpeed: 5
+  roamRadius: 15
+  fovAngle: 75
+  playerFaceSpeed: 10
+  followDistance: 15
   shootRate: 2
-  shootDist: 30
   bullet: {fileID: 7905383454158796015, guid: bf1bf2b128364bc408699c98cbeaa012, type: 3}
   shootPos: {fileID: 629732622283949110}
 --- !u!195 &5337670824232000556
@@ -169,7 +174,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -240,4 +245,37 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1277075478203654628
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337670824232000528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61f22c45239dcc547a5de21ebb52e645, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &4941438768354053069
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337670824232000528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}

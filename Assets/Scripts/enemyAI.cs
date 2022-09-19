@@ -10,7 +10,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer rend;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject destination;
 
     [Header("----- Enemy Stats -----")]
     [Range(1, 100)] [SerializeField] int HP;
@@ -22,7 +21,6 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
-    [SerializeField] float shootDist;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
     bool isShooting;
@@ -82,8 +80,8 @@ public class enemyAI : MonoBehaviour, IDamageable
                         }
                     }
                     // player within range but not in view
-                    else // NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
-                         // Going behind them might as well be the same as teleporting 100 miles away.
+                    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
+                                                                  // Going behind them might as well be the same as teleporting 100 miles away.
                     {
                         agent.stoppingDistance = 0;
                     }
@@ -106,7 +104,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 {
                     roam();
                 }
-
+                
             }
         }
     }
@@ -161,8 +159,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     // chasing behaviour
     void chasePlayer()
     {
-        agent.SetDestination(lastPlayerPos);
         agent.stoppingDistance = stoppingDistanceOrig;
+        agent.SetDestination(lastPlayerPos);
     }
 
     //get enemy to face the player
@@ -216,6 +214,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         //{
         //    col.enabled = false;
         //}
+
     }
 
     IEnumerator flashColor() //changes the color of the enemy.
@@ -234,6 +233,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         isShooting = true;
 
         Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
+        Debug.Log("Enemy fired");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }

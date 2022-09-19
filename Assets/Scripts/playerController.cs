@@ -4,46 +4,67 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour , IDamageable
 {
+    [Header("----- Components ------ ")]
     [SerializeField] CharacterController controller;
 
+    [Header("------ Player Attributes -----")]
     [SerializeField] int currentHP;
     [SerializeField] int maxHP;
-
     [SerializeField] float playerSpeed;
+    [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
-
     int timesJumped;
     [SerializeField] int jumpsMax;
 
+    [Header("------ Gun Stats -----")]
     [SerializeField] float fireRate;
-    //[SerializeField] GameObject cube;
     [SerializeField] int shootDistance;
     [SerializeField] int playerDamage;
+    //[SerializeField] List<gunStats> gunStat = new List<gunStats>();
+    //int selectedGun;
+    [SerializeField] GameObject gunModel;
     bool isShooting;
+
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] damagedSound;
+    [Range(0, 1)] [SerializeField] float damagedSoundVolume;
+    [SerializeField] AudioClip[] jumpSound;
+    [Range(0, 1)] [SerializeField] float jumpSoundVolume;
+    [SerializeField] AudioClip[] footstepSound;
+    [Range(0, 1)] [SerializeField] float footstepSoundVolume;
+    [Range(0, 1)] [SerializeField] float gunShotSoundVolume;
+    [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
 
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     Vector3 move;
 
+    float playerSpeedOriginal;
+    bool isSprinting;
+    bool playingFootsteps;
 
     private void Start()
     {
-        Respawn();
+        respawn();
+        playerSpeedOriginal = playerSpeed;
     }
 
     void Update()
     {
         if (!gameManager.instance.isPaused)
         {
-            MovePlayer();
-
-            StartCoroutine(Shoot());
-            //StartCoroutine(Build());
+            movePlayer();
+            sprint();
+            StartCoroutine(footSteps());
+            StartCoroutine(shoot());
+            //gunSelect();
         }
     }
 
-    void MovePlayer()
+    void movePlayer()
     {
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -60,6 +81,7 @@ public class playerController : MonoBehaviour , IDamageable
         {
             playerVelocity.y = jumpHeight;
             timesJumped++;
+            aud.PlayOneShot(jumpSound[Random.Range(0, jumpSound.Length)], jumpSoundVolume);
         }
 
 
@@ -67,20 +89,92 @@ public class playerController : MonoBehaviour , IDamageable
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            playerSpeed *= sprintModifier;
+            isSprinting = true;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            playerSpeed = playerSpeedOriginal;
+            isSprinting = false;
+        }
+    }
+
+    IEnumerator footSteps()
+    {
+        if (!playingFootsteps && controller.isGrounded && move.normalized.magnitude > 0.3f)
+        {
+            playingFootsteps = true;
+            aud.PlayOneShot(footstepSound[Random.Range(0, footstepSound.Length)], footstepSoundVolume);
+
+            if (isSprinting)
+            {
+                yield return new WaitForSeconds(0.3f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            playingFootsteps = false;
+        }
+    }
+
+    //============================================================================================================
+    //    UNCOMMENT WHEN GUNSTAT IS ADDED
+    //============================================================================================================
+    //void gunSelect()
+    //{
+    //    if (gunStat.Count > 1)
+    //    {
+    //        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunStat.Count - 1)
+    //        {
+    //            selectedGun++;
+    //            fireRate = gunStat[selectedGun].shootRate;
+    //            shootDistance = gunStat[selectedGun].shootDist;
+    //            playerDamage = gunStat[selectedGun].shootDamage;
+
+    //            gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+    //            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+    //            aud.PlayOneShot(gunStat[selectedGun].pickupSound, pickUpSoundVolume);
+
+    //        }
+    //        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+    //        {
+    //            selectedGun--;
+    //            fireRate = gunStat[selectedGun].shootRate;
+    //            shootDistance = gunStat[selectedGun].shootDist;
+    //            playerDamage = gunStat[selectedGun].shootDamage;
+
+    //            gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+    //            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+    //            aud.PlayOneShot(gunStat[selectedGun].pickupSound, pickUpSoundVolume);
+
+    //        }
+    //    }
+    //}
+    //============================================================================================================
+    //    UNCOMMENT WHEN GUNSTAT IS ADDED
+    //============================================================================================================
+
     public void takeDamage(int _damage)
     {
         currentHP -= _damage;
-        UpdatePlayerHPBar();
+        aud.PlayOneShot(damagedSound[Random.Range(0, damagedSound.Length)], damagedSoundVolume);
+        updatePlayerHPBar();
 
         if (currentHP <= 0)
         {
             gameManager.instance.PlayerIsDead();
         }
         else
-            StartCoroutine(DamageFlash());
+            StartCoroutine(damageFlash());
     }
 
-    IEnumerator DamageFlash()
+    IEnumerator damageFlash()
     {
         gameManager.instance.playerDamage.SetActive(true);
         yield return new WaitForSeconds(0.1f);
@@ -88,11 +182,12 @@ public class playerController : MonoBehaviour , IDamageable
 
     }
 
-    IEnumerator Shoot()
+    IEnumerator shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Fire1"))
+        if (!isShooting && Input.GetButtonDown("Fire1"))   // ADD "&& gunStat.Count > 0 when gunstat added
         {
             isShooting = true;
+            //aud.PlayOneShot(gunStat[selectedGun].sound, gunShotSoundVolume);
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
@@ -101,6 +196,8 @@ public class playerController : MonoBehaviour , IDamageable
                 {
                     hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
                 }
+
+                //Instantiate(gunStat[selectedGun].hitEffect, hit.point, transform.rotation);
             }
 
 
@@ -108,48 +205,52 @@ public class playerController : MonoBehaviour , IDamageable
             isShooting = false;
         }
     }
-    //IEnumerator Build()
-    //{
-    //    if (!isShooting && Input.GetButtonDown("Fire2"))
-    //    {
-    //        isShooting = true;
 
-    //        RaycastHit hit;
-
-    //        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
-    //        {
-    //            Instantiate(cube, hit.point, cube.transform.rotation);
-    //        }
-
-    //        yield return new WaitForSeconds(fireRate);
-    //        isShooting = false;
-    //    }
-    //}
-
-    public void Respawn()
+    public void respawn()
     {
         controller.enabled = false;
         currentHP = maxHP;
-        UpdatePlayerHPBar();
+        updatePlayerHPBar();
         transform.position = gameManager.instance.playerSpawnPosition.transform.position;
         gameManager.instance.CursorUnlockUnpause();
         controller.enabled = true;
     }
 
-    public void UpdatePlayerHPBar()
+    public void updatePlayerHPBar()
     {
         gameManager.instance.HPBar.fillAmount = (float)currentHP / (float)maxHP;
     }
 
-    public void GiveHP(int _amount)
+    //============================================================================================================
+    //    UNCOMMENT WHEN GUNSTAT IS ADDED
+    //============================================================================================================
+    //public void gunPickup(gunStats stats)
+    //{
+    //    fireRate = stats.shootRate;
+    //    shootDistance = stats.shootDist;
+    //    playerDamage = stats.shootDamage;
+
+    //    gunModel.GetComponent<MeshFilter>().sharedMesh = stats.model.GetComponent<MeshFilter>().sharedMesh;
+    //    gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.model.GetComponent<MeshRenderer>().sharedMaterial;
+
+    //    gunStat.Add(stats);
+    //    selectedGun = gunStat.Count - 1;
+
+    //    aud.PlayOneShot(gunStat[selectedGun].pickupSound, pickUpSoundVolume);
+    //}
+    //============================================================================================================
+    //    UNCOMMENT WHEN GUNSTAT IS ADDED
+    //============================================================================================================
+
+    public void giveHP(int _amount)
     {
         currentHP += _amount;
     }
-    public void GiveJump(int _amount)
+    public void giveJump(int _amount)
     {
         jumpsMax += _amount;
     }
-    public void GiveSpeed(int _amount)
+    public void giveSpeed(int _amount)
     {
         playerSpeed += _amount;
     }
