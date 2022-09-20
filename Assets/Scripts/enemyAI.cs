@@ -231,12 +231,14 @@ public class enemyAI : MonoBehaviour, IDamageable
     IEnumerator shoot()
     {
         isShooting = true;
-
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(.5f);
         Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
         Debug.Log("Enemy fired");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
+
 
     // when player enters follow distance, set playerInRange
     private void OnTriggerEnter(Collider other)
