@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8005482746798424524
 SphereCollider:
@@ -58,6 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42e97a8ca89462498b5232657e9fb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2343568702258714637, guid: 640d151e3f2cb1842a9d330d64b3de16, type: 3}
+  enemy: {fileID: 0}
   maxEnemies: 5
   timeBetweenEnemies: 2
