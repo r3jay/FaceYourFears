@@ -44,6 +44,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         stoppingDistanceOrig = agent.stoppingDistance;
         speedOrig = agent.speed;
         startingPosition = transform.position;
+        gameManager.instance.enemyIncrement(1);
     }
 
     // Update is called once per frame
@@ -226,6 +227,8 @@ public class enemyAI : MonoBehaviour, IDamageable
         rend.material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         rend.material = tempMat;
+        agent.speed = tempSpeed;
+        takingDamage = false;
     }
 
     IEnumerator shoot()

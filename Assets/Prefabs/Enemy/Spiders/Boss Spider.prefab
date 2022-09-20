@@ -309,7 +309,8 @@ GameObject:
   - component: {fileID: 3641240677901038631}
   - component: {fileID: 3641240677901038618}
   - component: {fileID: 3641240677901038628}
-  m_Layer: 0
+  - component: {fileID: -6715454724438301134}
+  m_Layer: 7
   m_Name: Boss Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +333,7 @@ Transform:
   - {fileID: 3641240677891218328}
   - {fileID: 4977186498418600503}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3641240677901038629
 MonoBehaviour:
@@ -413,6 +414,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &-6715454724438301134
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641240677891638910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.23
+  m_Center: {x: 0, y: 1.06, z: -0.15}
 --- !u!1 &3641240677891639168
 GameObject:
   m_ObjectHideFlags: 0

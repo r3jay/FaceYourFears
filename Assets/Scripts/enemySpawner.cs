@@ -39,7 +39,6 @@ public class enemySpawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.enemyIncrement(maxEnemies);
             startSpawning = true;
         }
     }
