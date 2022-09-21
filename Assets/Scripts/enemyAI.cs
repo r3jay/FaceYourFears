@@ -25,6 +25,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] Transform shootPos;
     bool isShooting;
 
+    [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
+
     Vector3 playerDir;
     Vector3 startingPosition;
     bool playerInRange;
@@ -209,6 +211,8 @@ public class enemyAI : MonoBehaviour, IDamageable
         gameManager.instance.enemyDecrement();
         animator.SetBool("Dead", true);
         agent.enabled = false;
+
+        Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
 
         //// after death, delete colliders... currently worked so takeDamage just does nothing so that enemy bodies can still be interacted with
         //foreach(Collider col in GetComponents<Collider>())

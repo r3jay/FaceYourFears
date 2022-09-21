@@ -9,11 +9,13 @@ public class playerController : MonoBehaviour , IDamageable
 
     [Header("------ Player Attributes -----")]
     [SerializeField] int currentHP;
+    [SerializeField] int minHP;
     [SerializeField] int maxHP;
     [SerializeField] float playerSpeed;
     [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
+    [Range(0, 10)] public int boostTime;
     int timesJumped;
     [SerializeField] int jumpsMax;
 
@@ -42,12 +44,19 @@ public class playerController : MonoBehaviour , IDamageable
     private bool groundedPlayer;
     Vector3 move;
 
+    int HPOrig;
     float playerSpeedOriginal;
+    int playerDamageOrig;
     bool isSprinting;
     bool playingFootsteps;
+    bool usingSpeedBoost;
+    bool usingDamageBoost;
+    float speedTimeLeft;
+    float damageTimeLeft;
 
     private void Start()
     {
+        HPOrig = currentHP;
         respawn();
         playerSpeedOriginal = playerSpeed;
     }
@@ -56,11 +65,26 @@ public class playerController : MonoBehaviour , IDamageable
     {
         if (!gameManager.instance.isPaused)
         {
+            currentHP = Mathf.Clamp(currentHP, 0, maxHP);
             movePlayer();
             sprint();
             StartCoroutine(footSteps());
             StartCoroutine(shoot());
             //gunSelect();
+
+            if (usingSpeedBoost)
+            {
+                speedTimeLeft -= Time.deltaTime;
+                gameManager.instance.SpeedBoostBar.fillAmount = (speedTimeLeft / (float)boostTime);
+
+            }
+
+            if (usingDamageBoost)
+            {
+                damageTimeLeft -= Time.deltaTime;
+                gameManager.instance.DamageBoostBar.fillAmount = (damageTimeLeft / (float)boostTime);
+
+            }
         }
     }
 
@@ -216,6 +240,7 @@ public class playerController : MonoBehaviour , IDamageable
         controller.enabled = true;
     }
 
+
     public void updatePlayerHPBar()
     {
         gameManager.instance.HPBar.fillAmount = (float)currentHP / (float)maxHP;
@@ -242,16 +267,70 @@ public class playerController : MonoBehaviour , IDamageable
     //    UNCOMMENT WHEN GUNSTAT IS ADDED
     //============================================================================================================
 
-    public void giveHP(int _amount)
+    public void boostPickUp(boostStats stats)
     {
-        currentHP += _amount;
+        if (stats.boostType.name == "SpeedBoost")
+        {
+            StartCoroutine(giveSpeed(stats.boostMultiplier));
+
+        }
+        else if (stats.boostType.name == "HealthBoost")
+        {
+            if (currentHP < 100)
+            {
+                giveHP(stats.boostMultiplier);
+            }
+
+        }
+        else if (stats.boostType.name == "DamageBoost")
+        {
+            StartCoroutine(giveDamage(2));
+        }
     }
+
+    public void giveHP(int amount)
+    {
+        currentHP *= amount;
+        updatePlayerHPBar();
+    }
+
     public void giveJump(int _amount)
     {
         jumpsMax += _amount;
     }
-    public void giveSpeed(int _amount)
+    public IEnumerator giveSpeed(int amount)
     {
-        playerSpeed += _amount;
+        if (!usingSpeedBoost)
+        {
+            
+            usingSpeedBoost = true;
+            playerSpeed *= amount;
+            speedTimeLeft = boostTime;
+
+            gameManager.instance.SpeedBoostBar.fillAmount = 1;
+
+
+            yield return new WaitForSeconds(boostTime);
+
+            playerSpeed = playerSpeedOriginal;
+        }
+        usingSpeedBoost = false;
+    }
+
+    IEnumerator giveDamage(int amount)
+    {
+        if (!usingDamageBoost)
+        {
+            usingDamageBoost = true;
+            playerDamageOrig = playerDamage;
+            playerDamage *= amount;
+            damageTimeLeft = boostTime;
+
+            gameManager.instance.DamageBoostBar.fillAmount = 1;
+            yield return new WaitForSeconds(boostTime);
+            playerDamage = playerDamageOrig;
+            usingDamageBoost = false;
+        }
+
     }
 }

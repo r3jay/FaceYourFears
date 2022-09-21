@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abe4ef1d1e3d364895c4e0bce3f959a, type: 3}
+  m_Name: speedBoost
+  m_EditorClassIdentifier: 
+  boostMultiplier: 2
+  boostType: {fileID: 3080551784444259298, guid: 2a58c3c8e4abd624aa1e2f77c053e6db, type: 3}
