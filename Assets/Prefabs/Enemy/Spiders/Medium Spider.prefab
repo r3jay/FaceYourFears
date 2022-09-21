@@ -257,7 +257,7 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
+  followDistance: 40
   shootRate: 2
   bullet: {fileID: 7905383454158796015, guid: 67cabeb7cc66e2344ba53211bdabd10b, type: 3}
   shootPos: {fileID: 3440699119468437090}
@@ -314,7 +314,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 24
+  m_Radius: 40
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &3955545832210839529
 SphereCollider:

@@ -223,10 +223,12 @@ public class enemyAI : MonoBehaviour, IDamageable
         takingDamage = true;
         float tempSpeed = agent.speed;
         agent.speed = 0;
-        Material tempMat = rend.material;
+
         rend.material.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        rend.material = tempMat;
+        yield return new WaitForSeconds(0.1f);
+        rend.material.color = Color.white;
+
+        yield return new WaitForSeconds(0.4f);
         agent.speed = tempSpeed;
         takingDamage = false;
     }

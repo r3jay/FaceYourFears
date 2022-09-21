@@ -6,7 +6,7 @@ public class enemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
     [SerializeField] int maxEnemies;
-    [SerializeField] int timeBetweenEnemies;
+    [SerializeField] float timeBetweenEnemies;
 
     int enemiesSpawned;
     bool isSpawning;
@@ -29,7 +29,8 @@ public class enemySpawner : MonoBehaviour
         {
             isSpawning = true;
             enemiesSpawned++;
-            Instantiate(enemy, transform.position, enemy.transform.rotation);
+            Quaternion randomAngle = new Quaternion(transform.rotation.x, Random.Range(0, 180), transform.rotation.z, transform.rotation.w);
+            Instantiate(enemy, transform.position, randomAngle);
             yield return new WaitForSeconds(timeBetweenEnemies);
             isSpawning = false;
         }

@@ -324,7 +324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3641240677891638910}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.04, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -333,7 +333,7 @@ Transform:
   - {fileID: 3641240677891218328}
   - {fileID: 4977186498418600503}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3641240677901038629
 MonoBehaviour:
@@ -355,7 +355,7 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
+  followDistance: 13
   shootRate: 5
   bullet: {fileID: 7905383454158796015, guid: bf1bf2b128364bc408699c98cbeaa012, type: 3}
   shootPos: {fileID: 4977186498418600503}
@@ -412,7 +412,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &-6715454724438301134
 SphereCollider:
