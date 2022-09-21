@@ -7,6 +7,8 @@ using TMPro;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
+    public keyPickUp key;
+    public int keyCount;
 
     public GameObject player;
     public playerController playerController;
@@ -47,21 +49,24 @@ public class gameManager : MonoBehaviour
         playerSpawnPosition = GameObject.Find("Player Spawn Position");
 
         timeScaleOrig = Time.timeScale;
+        key = FindObjectOfType<keyPickUp>();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {            
+        keyCountText.text = keyCount.ToString();
+
         if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != playerWinMenu)
         {
             isPaused = !isPaused;
             currentMenu = pauseMenu;
             currentMenu.SetActive(isPaused);
-
             if (isPaused)
                 CursorLockPause();
             else
                 CursorUnlockUnpause();
+
         }
     }
 
@@ -127,11 +132,13 @@ public class gameManager : MonoBehaviour
 
     public void playerGetKey( )
     {
-        pickUp.SetActive(true);
 
         if (pickedUp)
         {
+            keyCountText.text = keyCount.ToString();
+
             pickedUp = false;
+            
         }
     }
 
