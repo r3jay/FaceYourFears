@@ -26,6 +26,9 @@ public class enemyAI : MonoBehaviour, IDamageable
     bool isShooting;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
+    [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
+    [SerializeField] private Vector3 lootLocation;
+
 
     Vector3 playerDir;
     Vector3 startingPosition;
@@ -35,6 +38,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     bool searchingForPlayer;
     float speedOrig;
     float stoppingDistanceOrig;
+    int randomNumber;
 
     bool takingDamage;
 
@@ -210,9 +214,22 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         gameManager.instance.enemyDecrement();
         animator.SetBool("Dead", true);
+
+        if(agent.name == "Wizard")
+        {
+            Instantiate(key[0], (transform.position + lootLocation), transform.rotation);
+        }
+        else
+        {
+            //randomNumber = Random.Range(1, 20);
+            //Debug.Log(randomNumber);
+            //if (randomNumber >= 1 && randomNumber <= 5)
+            //{
+                Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
+            //}
+        }
         agent.enabled = false;
 
-        Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
 
         //// after death, delete colliders... currently worked so takeDamage just does nothing so that enemy bodies can still be interacted with
         //foreach(Collider col in GetComponents<Collider>())
@@ -241,7 +258,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(.5f);
         Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
-        Debug.Log("Enemy fired");
+        //Debug.Log("Enemy fired");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }

@@ -11,7 +11,6 @@ public class keyPickUp : MonoBehaviour
 
     private void Update()
     {
-        //gameManager.instance.keyCountText.text = gameManager.instance.keyCount.ToString();
         if (Input.GetKeyDown(KeyCode.E) && playerEntered == true)
         {
 

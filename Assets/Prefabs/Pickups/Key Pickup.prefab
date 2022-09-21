@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2706052016440839951
+--- !u!1 &107389497152837795
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2530717713166510921}
-  - component: {fileID: 6578959300874011441}
+  - component: {fileID: 3385653490946235166}
+  - component: {fileID: 1281544917846083274}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2530717713166510921
+--- !u!4 &3385653490946235166
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2706052016440839951}
-  m_LocalRotation: {x: 0.37394515, y: 0.60013753, z: -0.032717507, w: 0.70634943}
-  m_LocalPosition: {x: -0.552, y: 0.387, z: 0}
+  m_GameObject: {fileID: 107389497152837795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7595445681546759018}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 34.579, y: 90, z: 29.275}
---- !u!108 &6578959300874011441
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1281544917846083274
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2706052016440839951}
+  m_GameObject: {fileID: 107389497152837795}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 1, g: 0.9789378, b: 0, a: 1}
+  m_Intensity: 0.3
+  m_Range: 1.0994873
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -76,7 +76,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -123,13 +123,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6859870922166794617}
   m_LocalRotation: {x: 0, y: 0, z: -0.46182603, w: 0.8869705}
-  m_LocalPosition: {x: -21.08, y: 1, z: 151.15}
+  m_LocalPosition: {x: -21.08, y: 1.5, z: 151.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2530717713166510921}
+  - {fileID: 3385653490946235166}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55.01}
 --- !u!114 &5200041128042172388
 MonoBehaviour:
@@ -218,5 +218,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12193201, y: 0.039105855, z: 0.23262405}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: -9.313226e-10, z: 0.0000000037252903}
