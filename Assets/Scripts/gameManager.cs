@@ -20,19 +20,27 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamage;
     public GameObject playerWinMenu;
     public GameObject playerDeadMenu;
+    public GameObject instructions;
+    public GameObject keyIcon;
+    public TextMeshProUGUI keyCountText;
+    public GameObject pickUp;
 
     public Image HPBar;
     public TextMeshProUGUI remainingEnemiesLabel;
-
+    public Image SpeedBoostBar;
+    public Image DamageBoostBar;
     public int enemyCount;
+    public int instructTime;
 
     public bool isPaused;
+    public bool pickedUp;
     float timeScaleOrig;
 
 
     void Awake()
     {
         instance = this;
+        StartCoroutine(showInstructions());
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<playerController>();
@@ -110,5 +118,26 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    IEnumerator showInstructions()
+    {
+        instructions.SetActive(true);
+        yield return new WaitForSeconds(instructTime);
+        instructions.SetActive(false);
+    }
+
+    public void playerGetKey( )
+    {
+        pickUp.SetActive(true);
+
+        if (pickedUp)
+        {
+            pickedUp = false;
+        }
+    }
+
+    public void playerLeftKey()
+    {
+        pickUp.SetActive(false);
+    }
 
 }
