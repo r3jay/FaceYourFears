@@ -2417,7 +2417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8042689049606672849
 Transform:
   m_ObjectHideFlags: 0
@@ -2456,7 +2456,7 @@ MonoBehaviour:
   HP: 10
   chaseSpeed: 5
   roamRadius: 15
-  fovAngle: 70
+  fovAngle: 180
   playerFaceSpeed: 5
   followDistance: 15
   shootRate: 2
@@ -2466,6 +2466,7 @@ MonoBehaviour:
   - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
   key:
   - {fileID: 5200041128042172388, guid: a4fa84837e879fe489b24ada52bf3adb, type: 3}
+  lootLocation: {x: 0, y: 0, z: 0}
 --- !u!195 &8042689049606672855
 NavMeshAgent:
   m_ObjectHideFlags: 0
