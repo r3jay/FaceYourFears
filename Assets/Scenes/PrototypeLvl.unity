@@ -3622,9 +3622,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1631237511883633949, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_text
+      value: "The nightmare\n consumed you\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631237511883633949, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631237511883633949, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631237511883633949, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631237511883633949, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187100499546566225, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200071370149282914, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_text
+      value: "You survived the\n nightmare.\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 4300076635726426171, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531218406397942510, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6885884089894302506, guid: ee12f010b31574e4289ff28169aa765e, type: 3}
       propertyPath: m_Pivot.x
