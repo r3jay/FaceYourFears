@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8405328609735391987}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &869981957249352496
 MeshFilter:
@@ -135,13 +135,13 @@ MonoBehaviour:
   controller: {fileID: 7935848600841490954}
   currentHP: 100
   minHP: 0
-  maxHP: 10000
-  playerSpeed: 5
-  sprintModifier: 2
+  maxHP: 100
+  playerSpeed: 30
+  sprintModifier: 1
   jumpHeight: 10
   gravityValue: 25
-  boostTime: 0
-  jumpsMax: 2
+  boostTime: 10
+  jumpsMax: 1
   fireRate: 0.1
   shootDistance: 1000
   playerDamage: 1
@@ -155,12 +155,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9486052cccb3da745b16e584155e53d4, type: 3}
   - {fileID: 8300000, guid: 34f5c7031045feb47b491598ed3acb48, type: 3}
   - {fileID: 8300000, guid: 50b5cbd440e9aa540a87afa093588a51, type: 3}
-  damagedSoundVolume: 1
+  damagedSoundVolume: 0.7
   jumpSound:
   - {fileID: 8300000, guid: a6191a4707f546f49889ea88a3ef8fab, type: 3}
   - {fileID: 8300000, guid: 242d959ed177aa94788d90c2d4e9e028, type: 3}
   - {fileID: 8300000, guid: 0344a46609626d04b97b1bf3b88b0566, type: 3}
-  jumpSoundVolume: 1
+  jumpSoundVolume: 0.7
   footstepSound:
   - {fileID: 8300000, guid: 1d8f1a0ddc5c43a4689611007a0592cd, type: 3}
   - {fileID: 8300000, guid: 20b074cf6d3e9fb41ac103feef13d062, type: 3}
@@ -171,8 +171,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 001816a8d83790445a7acd5f3ae45fab, type: 3}
   - {fileID: 8300000, guid: 4185b038fcd129c46b68f1466f2134d8, type: 3}
   - {fileID: 8300000, guid: 40b7a31a968625147b30a84ab621c8ad, type: 3}
-  footstepSoundVolume: 1
-  weaponShotSoundVolume: 0
+  footstepSoundVolume: 0.2
+  weaponShotSoundVolume: 0.2
   weaponPickupSound: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
   pickUpSoundVolume: 1
 --- !u!82 &3758161246589312576
@@ -452,8 +452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd139f98ad0d83d4983e9eb7b979855c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensHori: 350
-  sensVert: 350
+  sensHori: 100
+  sensVert: 100
   lockVertMin: -75
   lockVertMax: 75
   invert: 0

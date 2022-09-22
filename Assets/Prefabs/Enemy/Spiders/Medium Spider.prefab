@@ -252,7 +252,7 @@ MonoBehaviour:
   agent: {fileID: 6351513928430272626}
   rend: {fileID: 6351513928434564751}
   animator: {fileID: 6351513928430272591}
-  HP: 7
+  HP: 6
   chaseSpeed: 7
   roamRadius: 15
   fovAngle: 70
@@ -270,6 +270,7 @@ MonoBehaviour:
   - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
   - {fileID: 8642312313910167228, guid: 2a58c3c8e4abd624aa1e2f77c053e6db, type: 3}
   key: []
+  lootLocation: {x: 0, y: 0, z: 0}
 --- !u!195 &6351513928430272626
 NavMeshAgent:
   m_ObjectHideFlags: 0
