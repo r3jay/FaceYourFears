@@ -216,7 +216,9 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         if (CompareTag("Wizard"))
         {
-            Instantiate(key[0], (transform.position + lootLocation), transform.rotation);
+            Vector3 hoverPos = transform.position;
+            hoverPos.y += 1.2f;
+            Instantiate(key[0], (hoverPos + lootLocation), transform.rotation);
         }
         else
         {
