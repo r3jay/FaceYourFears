@@ -222,7 +222,7 @@ public class playerController : MonoBehaviour , IDamageable
                     hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
                 }
 
-                //Instantiate(gunStat[selectedWeapon].hitEffect, hit.point, transform.rotation);
+                Instantiate(weaponStat[selectedWeapon].hitEffect, hit.point, transform.rotation);
             }
 
 

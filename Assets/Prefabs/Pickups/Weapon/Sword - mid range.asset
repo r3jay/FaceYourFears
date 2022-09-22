@@ -18,4 +18,4 @@ MonoBehaviour:
   ammoCount: 10
   model: {fileID: 430896402961022274, guid: 0a6888a01c198054d847f0841757553a, type: 3}
   sound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 2951995971299078985, guid: b1eb4a8e382eb5243bc2d45caf6bc868, type: 3}
