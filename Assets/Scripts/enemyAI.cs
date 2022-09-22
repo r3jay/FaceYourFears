@@ -220,12 +220,12 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
         else
         {
-            //randomNumber = Random.Range(1, 20);
-            //Debug.Log(randomNumber);
-            //if (randomNumber >= 1 && randomNumber <= 5)
-            //{
+            randomNumber = Random.Range(1, 20);
+            Debug.Log(randomNumber);
+            if (randomNumber >= 1 && randomNumber <= 5)
+            {
                 Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
-            //}
+            }
         }
         agent.enabled = false;
 
