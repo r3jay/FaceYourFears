@@ -50,7 +50,6 @@ public class enemyAI : MonoBehaviour, IDamageable
         stoppingDistanceOrig = agent.stoppingDistance;
         speedOrig = agent.speed;
         startingPosition = transform.position;
-        gameManager.instance.enemyIncrement(1);
     }
 
     // Update is called once per frame

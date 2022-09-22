@@ -15,6 +15,7 @@ public class enemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager.instance.enemyIncrement(maxEnemies);
     }
     private void Update()
     {
