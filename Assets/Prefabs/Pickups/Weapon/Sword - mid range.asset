@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d8010b1dc7d0242ad5ade7d64883bb, type: 3}
+  m_Name: Sword - mid range
+  m_EditorClassIdentifier: 
+  shootRate: 2
+  shootDist: 50
+  shootDamage: 5
+  ammoCount: 10
+  model: {fileID: 430896402961022274, guid: 0a6888a01c198054d847f0841757553a, type: 3}
+  sound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  hitEffect: {fileID: 2951995971299078985, guid: b1eb4a8e382eb5243bc2d45caf6bc868, type: 3}

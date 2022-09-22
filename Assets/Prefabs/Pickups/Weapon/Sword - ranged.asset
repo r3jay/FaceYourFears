@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d8010b1dc7d0242ad5ade7d64883bb, type: 3}
+  m_Name: Sword - ranged
+  m_EditorClassIdentifier: 
+  shootRate: 0.5
+  shootDist: 150
+  shootDamage: 2
+  ammoCount: 99
+  model: {fileID: 9046953323560201208, guid: 0d8ebfc94c1c05044931ed104477f1de, type: 3}
+  sound: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}
+  hitEffect: {fileID: 934679751998112273, guid: 4e042e0d0a68d314f800de8883f96bdb, type: 3}

@@ -235,7 +235,7 @@ Transform:
   - {fileID: 6351513928440131533}
   - {fileID: 3440699119468437090}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6351513928430272624
 MonoBehaviour:
@@ -261,6 +261,15 @@ MonoBehaviour:
   shootRate: 2
   bullet: {fileID: 7905383454158796015, guid: 67cabeb7cc66e2344ba53211bdabd10b, type: 3}
   shootPos: {fileID: 3440699119468437090}
+  boost:
+  - {fileID: 3059639086331946176, guid: 7c50e7fcb6495904daa64da8c01e420c, type: 3}
+  - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
+  - {fileID: 8642312313910167228, guid: 2a58c3c8e4abd624aa1e2f77c053e6db, type: 3}
+  - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
+  - {fileID: 3059639086331946176, guid: 7c50e7fcb6495904daa64da8c01e420c, type: 3}
+  - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
+  - {fileID: 8642312313910167228, guid: 2a58c3c8e4abd624aa1e2f77c053e6db, type: 3}
+  key: []
 --- !u!195 &6351513928430272626
 NavMeshAgent:
   m_ObjectHideFlags: 0

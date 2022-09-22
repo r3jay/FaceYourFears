@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 559068494386217643}
   - component: {fileID: 2885176726445918785}
   - component: {fileID: -4944604374265924852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Bullet (Rapid)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

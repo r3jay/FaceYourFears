@@ -2436,7 +2436,7 @@ Transform:
   - {fileID: 8042689049606672599}
   - {fileID: 573497088382682274}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8042689049606672854
 MonoBehaviour:
@@ -2456,12 +2456,17 @@ MonoBehaviour:
   HP: 10
   chaseSpeed: 5
   roamRadius: 15
-  fovAngle: 70
+  fovAngle: 180
   playerFaceSpeed: 5
   followDistance: 60
   shootRate: 2
   bullet: {fileID: 7905383454158796015, guid: 86b3b10ec2050ed49a2bdcb344b8b506, type: 3}
   shootPos: {fileID: 573497088382682274}
+  boost:
+  - {fileID: 24139034046292980, guid: 5d3767dc2cba75c4b801e31112189b08, type: 3}
+  key:
+  - {fileID: 5200041128042172388, guid: a4fa84837e879fe489b24ada52bf3adb, type: 3}
+  lootLocation: {x: 0, y: 0, z: 0}
 --- !u!195 &8042689049606672855
 NavMeshAgent:
   m_ObjectHideFlags: 0
