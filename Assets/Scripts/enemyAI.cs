@@ -214,7 +214,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         gameManager.instance.enemyDecrement();
         animator.SetBool("Dead", true);
 
-        if(agent.name == "Wizard")
+        if (CompareTag("Wizard"))
         {
             Instantiate(key[0], (transform.position + lootLocation), transform.rotation);
         }
