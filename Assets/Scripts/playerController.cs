@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour , IDamageable
+public class playerController : MonoBehaviour, IDamageable
 {
     [Header("----- Components ------ ")]
     [SerializeField] CharacterController controller;
@@ -210,7 +210,7 @@ public class playerController : MonoBehaviour , IDamageable
 
     IEnumerator shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Fire1") && weaponStat.Count > 0) 
+        if (!isShooting && Input.GetButtonDown("Fire1") && weaponStat.Count > 0)
         {
             isShooting = true;
 
@@ -223,8 +223,8 @@ public class playerController : MonoBehaviour , IDamageable
                 {
                     hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
                 }
-
                 Instantiate(weaponStat[selectedWeapon].hitEffect, hit.point, transform.rotation);
+
             }
 
 
@@ -304,7 +304,7 @@ public class playerController : MonoBehaviour , IDamageable
     {
         if (!usingSpeedBoost)
         {
-            
+
             usingSpeedBoost = true;
             playerSpeed *= amount;
             speedTimeLeft = boostTime;

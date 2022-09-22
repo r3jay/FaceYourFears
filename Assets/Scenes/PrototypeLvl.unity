@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.82
+  m_AmbientSkyColor: {r: 0.51085794, g: 0.5283019, b: 0.5229699, a: 1}
+  m_AmbientEquatorColor: {r: 0.46547475, g: 0.45612317, b: 0.4716981, a: 1}
+  m_AmbientGroundColor: {r: 0.03034888, g: 0.31196725, b: 0.5849056, a: 1}
+  m_AmbientIntensity: 3.53
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: acd76c302170bf947ab6772aefe62e92, type: 2}
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 3d6c4678080335f4ba49d9e2cdfcdd60, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 3c617af7195bf4541a1e21bbdc9b07c2, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -829,8 +829,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.027450982, g: 0.027450982, b: 0.14117648, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.03337486, g: 0.20626506, b: 0.4716981, a: 1}
+  m_Intensity: 0.52
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -869,7 +869,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1635,6 +1635,14 @@ PrefabInstance:
     - target: {fileID: 2519265630601720866, guid: 77396cfcabc081842beed621d940137d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747165057816580892, guid: 77396cfcabc081842beed621d940137d, type: 3}
+      propertyPath: maxHP
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747165057816580892, guid: 77396cfcabc081842beed621d940137d, type: 3}
+      propertyPath: weaponShotSoundVolume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2647,7 +2655,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!154 &1702009434
 TerrainCollider:
