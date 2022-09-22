@@ -37,7 +37,7 @@ public class playerController : MonoBehaviour , IDamageable
     [Range(0, 1)] [SerializeField] float jumpSoundVolume;
     [SerializeField] AudioClip[] footstepSound;
     [Range(0, 1)] [SerializeField] float footstepSoundVolume;
-    [Range(0, 1)] [SerializeField] float gunShotSoundVolume;
+    [Range(0, 1)] [SerializeField] float weaponShotSoundVolume;
     [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
 
     private Vector3 playerVelocity;
@@ -163,7 +163,7 @@ public class playerController : MonoBehaviour , IDamageable
 
                 weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                //aud.PlayOneShot(gunStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+                //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
 
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedWeapon > 0)
@@ -175,7 +175,7 @@ public class playerController : MonoBehaviour , IDamageable
 
                 weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                //aud.PlayOneShot(gunStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+                //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
 
             }
         }
@@ -208,10 +208,11 @@ public class playerController : MonoBehaviour , IDamageable
 
     IEnumerator shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Fire1"))   // ADD "&& gunStat.Count > 0 when gunstat added
+        if (!isShooting && Input.GetButtonDown("Fire1") && weaponStat.Count > 0) 
         {
             isShooting = true;
-            //aud.PlayOneShot(gunStat[selectedGun].sound, gunShotSoundVolume);
+
+            aud.PlayOneShot(weaponStat[selectedWeapon].sound, weaponShotSoundVolume);
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
