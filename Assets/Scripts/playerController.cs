@@ -38,6 +38,8 @@ public class playerController : MonoBehaviour , IDamageable
     [SerializeField] AudioClip[] footstepSound;
     [Range(0, 1)] [SerializeField] float footstepSoundVolume;
     [Range(0, 1)] [SerializeField] float weaponShotSoundVolume;
+
+    [SerializeField] AudioClip weaponPickupSound;
     [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
 
     private Vector3 playerVelocity;
@@ -175,7 +177,7 @@ public class playerController : MonoBehaviour , IDamageable
 
                 weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
 
             }
         }
@@ -261,8 +263,7 @@ public class playerController : MonoBehaviour , IDamageable
 
         weaponStat.Add(stats);
         selectedWeapon = weaponStat.Count - 1;
-
-        //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+        aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
     }
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED

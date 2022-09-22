@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8405328609735391987}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &869981957249352496
 MeshFilter:
@@ -172,7 +172,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4185b038fcd129c46b68f1466f2134d8, type: 3}
   - {fileID: 8300000, guid: 40b7a31a968625147b30a84ab621c8ad, type: 3}
   footstepSoundVolume: 1
-  gunShotSoundVolume: 1
+  weaponShotSoundVolume: 0
+  weaponPickupSound: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
   pickUpSoundVolume: 1
 --- !u!82 &3758161246589312576
 AudioSource:
