@@ -56,7 +56,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     void Update()
     {
         // Only run through update if the enemy is enabled ie alive
-        if (agent.enabled)
+        if (agent.enabled == true)
         {
             // find direction to player
             playerDir = gameManager.instance.player.transform.position - transform.position;
@@ -87,7 +87,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                     }
                     // player within range but not in view
                     else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
-                                                                  // Going behind them might as well be the same as teleporting 100 miles away.
+                                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
                     {
                         agent.stoppingDistance = 0;
                     }
@@ -110,7 +110,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 {
                     roam();
                 }
-                
+
             }
         }
     }
@@ -214,29 +214,31 @@ public class enemyAI : MonoBehaviour, IDamageable
         gameManager.instance.enemyDecrement();
         animator.SetBool("Dead", true);
 
-        if (CompareTag("Wizard"))
+        if (key.Count > 0)
         {
             Vector3 hoverPos = transform.position;
             hoverPos.y += 1.2f;
             Instantiate(key[0], (hoverPos + lootLocation), transform.rotation);
         }
-        else
+        else if (boost.Count > 0)
         {
             randomNumber = Random.Range(1, 20);
-            Debug.Log(randomNumber);
             if (randomNumber >= 1 && randomNumber <= 5)
             {
                 Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
             }
         }
+
+
         agent.enabled = false;
+        Debug.Log("agent disabled");
 
 
         //// after death, delete colliders... currently worked so takeDamage just does nothing so that enemy bodies can still be interacted with
-        //foreach(Collider col in GetComponents<Collider>())
-        //{
-        //    col.enabled = false;
-        //}
+        foreach (Collider col in GetComponents<Collider>())
+        {
+            col.enabled = false;
+        }
 
     }
 
@@ -257,10 +259,15 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator shoot()
     {
+        float tempSpeed = agent.speed;
+        agent.speed = 0;
         isShooting = true;
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(.5f);
         Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
+        // wait for attack animation to stop before reseeting speed to normal
+        yield return new WaitForSeconds(.5f);
+        agent.speed = tempSpeed;
         //Debug.Log("Enemy fired");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
