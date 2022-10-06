@@ -295,15 +295,24 @@ public class enemyAI : MonoBehaviour, IDamageable
         animator.SetTrigger("Attack");
         if (meleeWeaponLeft)
         {
-            meleeWeaponLeft.GetComponent<CapsuleCollider>().enabled = true;
+            meleeWeaponLeft.GetComponent<Collider>().enabled = true;
         }
         if (meleeWeaponRight)
         {
-            meleeWeaponRight.GetComponent<CapsuleCollider>().enabled = true;
+            meleeWeaponRight.GetComponent<Collider>().enabled = true;
         }
         yield return new WaitForSeconds(1);
         agent.speed = tempSpeed;
+        if (meleeWeaponLeft)
+        {
+            meleeWeaponLeft.GetComponent<Collider>().enabled = false;
+        }
+        if (meleeWeaponRight)
+        {
+            meleeWeaponRight.GetComponent<Collider>().enabled = false;
+        }
         yield return new WaitForSeconds(shootRate);
+
         isAttacking = false;
     }
 
