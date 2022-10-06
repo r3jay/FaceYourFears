@@ -3855,9 +3855,14 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
+  stoppingDistance: 5
   shootRate: 2
   bullet: {fileID: 100002, guid: d24e106dd5b11e34a8e399e4e48db9f6, type: 3}
   shootPos: {fileID: 3339087663290996554}
+  isInMeleeRange: 0
+  meleeWeaponLeft: {fileID: 0}
+  meleeWeaponRight: {fileID: 0}
+  isMeleeAttacker: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

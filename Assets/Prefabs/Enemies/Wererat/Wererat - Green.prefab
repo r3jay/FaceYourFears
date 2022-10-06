@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &779768629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779768630}
+  - component: {fileID: 779768632}
+  - component: {fileID: 779768631}
+  m_Layer: 7
+  m_Name: MeleeRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &779768630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779768629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3419503674914928432}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &779768632
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779768629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &779768631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779768629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025a7df3643f6846afa4b2f33e88894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193888121937664868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2056,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8112948322945427348}
+  - {fileID: 779768630}
   - {fileID: 3419503674914928416}
   - {fileID: 3419503674914928428}
   - {fileID: 3419503674914928424}
@@ -2029,7 +2088,7 @@ Transform:
   - {fileID: 3419503674914928274}
   - {fileID: 3419503674914928446}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5323485060608358145
 MonoBehaviour:
@@ -2052,9 +2111,14 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
+  stoppingDistance: 5
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 8112948322945427348}
+  isInMeleeRange: 0
+  meleeWeaponLeft: {fileID: 3419503674915154712}
+  meleeWeaponRight: {fileID: 3419503674915154716}
+  isMeleeAttacker: 1
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -2072,7 +2136,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 5
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2138,6 +2202,8 @@ GameObject:
   - component: {fileID: 3419503674914928440}
   - component: {fileID: 3419503674912028442}
   - component: {fileID: 3419503674913158618}
+  - component: {fileID: 4049088644655469106}
+  - component: {fileID: 935555}
   m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
@@ -2210,6 +2276,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4049088644655469106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!136 &935555
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.11211826
+  m_Height: 0.99
+  m_Direction: 1
+  m_Center: {x: -0.000000041685947, y: -0.2975008, z: -0.0000009581073}
 --- !u!1 &3419503674915154714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2397,8 @@ GameObject:
   - component: {fileID: 3419503674914928444}
   - component: {fileID: 3419503674912028446}
   - component: {fileID: 3419503674913158622}
+  - component: {fileID: 3695824084473037739}
+  - component: {fileID: 4863291448322278932}
   m_Layer: 7
   m_Name: Axe
   m_TagString: Untagged
@@ -2376,6 +2471,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3695824084473037739
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.23512322
+  m_Height: 1.06
+  m_Direction: 1
+  m_Center: {x: 0.00000009109068, y: -0.2246603, z: -0.026228433}
+--- !u!114 &4863291448322278932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &3419503674915154718
 GameObject:
   m_ObjectHideFlags: 0

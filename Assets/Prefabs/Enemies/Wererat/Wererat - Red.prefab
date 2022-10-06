@@ -1998,6 +1998,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8112948322945427348}
+  - {fileID: 7518088616275432870}
   - {fileID: 3419503674914928416}
   - {fileID: 3419503674914928428}
   - {fileID: 3419503674914928424}
@@ -2052,9 +2053,14 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
+  stoppingDistance: 5
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 8112948322945427348}
+  isInMeleeRange: 0
+  meleeWeaponLeft: {fileID: 0}
+  meleeWeaponRight: {fileID: 0}
+  isMeleeAttacker: 1
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -2138,6 +2144,8 @@ GameObject:
   - component: {fileID: 3419503674914928440}
   - component: {fileID: 3419503674912028442}
   - component: {fileID: 3419503674913158618}
+  - component: {fileID: 2059403795940409919}
+  - component: {fileID: 8154883962529198398}
   m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
@@ -2210,6 +2218,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2059403795940409919
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.11211826
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0.00000007752334, y: -0.29749703, z: -0.00000015344466}
+--- !u!114 &8154883962529198398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &3419503674915154714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2339,8 @@ GameObject:
   - component: {fileID: 3419503674914928444}
   - component: {fileID: 3419503674912028446}
   - component: {fileID: 3419503674913158622}
+  - component: {fileID: 3516109229267586491}
+  - component: {fileID: 449116991331747724}
   m_Layer: 7
   m_Name: Axe
   m_TagString: Untagged
@@ -2376,6 +2413,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3516109229267586491
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154716}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23512322
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0.00000009109068, y: -0.2246603, z: -0.026228433}
+--- !u!114 &449116991331747724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &3419503674915154718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,3 +3604,61 @@ Transform:
   m_Father: {fileID: 3419503674914928400}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4854575592116234277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7518088616275432870}
+  - component: {fileID: 6773269093020860023}
+  - component: {fileID: 8473860356522847563}
+  m_Layer: 7
+  m_Name: Melee Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7518088616275432870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854575592116234277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3419503674914928432}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6773269093020860023
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854575592116234277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8473860356522847563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854575592116234277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c025a7df3643f6846afa4b2f33e88894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

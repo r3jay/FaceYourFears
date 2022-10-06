@@ -18,12 +18,19 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 180)] [SerializeField] int fovAngle;
     [Range(1, 10)] [SerializeField] int playerFaceSpeed;
     [SerializeField] float followDistance;
+    [SerializeField] float stoppingDistance;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
     bool isShooting;
+
+    [HideInInspector] public bool isInMeleeRange;
+    [SerializeField] GameObject meleeWeaponLeft;
+    [SerializeField] GameObject meleeWeaponRight;
+    [SerializeField] bool isMeleeAttacker;
+    bool isAttacking;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
     [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
@@ -37,7 +44,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     Vector3 lastPlayerPos;
     bool searchingForPlayer;
     float speedOrig;
-    float stoppingDistanceOrig;
     int randomNumber;
 
     bool takingDamage;
@@ -47,8 +53,12 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         GetComponent<SphereCollider>().radius = followDistance;
         lastPlayerPos = transform.position;
-        stoppingDistanceOrig = agent.stoppingDistance;
         speedOrig = agent.speed;
+        if (isMeleeAttacker)
+        {
+            stoppingDistance = 2.5f;
+        }
+        agent.stoppingDistance = stoppingDistance;
         startingPosition = transform.position;
     }
 
@@ -80,9 +90,13 @@ public class enemyAI : MonoBehaviour, IDamageable
                     {
                         facePlayer();
                         chasePlayer();
-                        if (!isShooting)
+                        if (!isShooting && !isMeleeAttacker)
                         {
                             StartCoroutine(shoot());
+                        }
+                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                        {
+                            StartCoroutine(meleeAttack());
                         }
                     }
                     // player within range but not in view
@@ -165,7 +179,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     // chasing behaviour
     void chasePlayer()
     {
-        agent.stoppingDistance = stoppingDistanceOrig;
+        agent.stoppingDistance = stoppingDistance;
         agent.SetDestination(lastPlayerPos);
     }
 
@@ -273,6 +287,25 @@ public class enemyAI : MonoBehaviour, IDamageable
         isShooting = false;
     }
 
+    IEnumerator meleeAttack()
+    {
+        float tempSpeed = agent.speed;
+        agent.speed = 0;
+        isAttacking = true;
+        animator.SetTrigger("Attack");
+        if (meleeWeaponLeft)
+        {
+            meleeWeaponLeft.GetComponent<CapsuleCollider>().enabled = true;
+        }
+        if (meleeWeaponRight)
+        {
+            meleeWeaponRight.GetComponent<CapsuleCollider>().enabled = true;
+        }
+        yield return new WaitForSeconds(1);
+        agent.speed = tempSpeed;
+        yield return new WaitForSeconds(shootRate);
+        isAttacking = false;
+    }
 
     // when player enters follow distance, set playerInRange
     private void OnTriggerEnter(Collider other)
