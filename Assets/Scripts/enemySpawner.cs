@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Timers;
 
 public class enemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
     [SerializeField] int maxEnemies;
     [SerializeField] float timeBetweenEnemies;
+
+    float startTime;
+    [SerializeField] float timeToSpawnInSeconds;
 
     int enemiesSpawned;
     bool isSpawning;
@@ -16,9 +21,17 @@ public class enemySpawner : MonoBehaviour
     void Start()
     {
         gameManager.instance.enemyIncrement(maxEnemies);
+        startTime = Time.time;
+
+
     }
     private void Update()
     {
+        float timePassed = Time.time - startTime;
+        if (timePassed >= timeToSpawnInSeconds)
+        {
+            startSpawning = true;
+        }
         if (startSpawning)
         {
             StartCoroutine(Spawn());
@@ -30,18 +43,21 @@ public class enemySpawner : MonoBehaviour
         {
             isSpawning = true;
             enemiesSpawned++;
-            Quaternion randomAngle = new Quaternion(transform.rotation.x, Random.Range(0, 180), transform.rotation.z, transform.rotation.w);
+            Quaternion randomAngle = new Quaternion(transform.rotation.x, UnityEngine.Random.Range(0, 180), transform.rotation.z, transform.rotation.w);
             Instantiate(enemy, transform.position, randomAngle);
             yield return new WaitForSeconds(timeBetweenEnemies);
             isSpawning = false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            startSpawning = true;
-        }
-    }
+
+
+    //uncomment this to make spawners spawn enemies on player entering a range
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        startSpawning = true;
+    //    }
+    //}
 }

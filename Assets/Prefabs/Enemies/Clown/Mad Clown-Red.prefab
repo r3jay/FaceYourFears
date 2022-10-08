@@ -770,7 +770,7 @@ MonoBehaviour:
   agent: {fileID: 1736953651719658001}
   rend: {fileID: 3712206921020099566}
   animator: {fileID: 3712206921024386350}
-  HP: 10
+  HP: 3
   chaseSpeed: 3
   roamRadius: 15
   fovAngle: 70
