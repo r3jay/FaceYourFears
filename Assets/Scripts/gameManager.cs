@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerController;
     public GameObject playerSpawnPosition;
+    public GameObject houseTarget;
 
     public GameObject currentMenu;
 
@@ -45,6 +46,8 @@ public class gameManager : MonoBehaviour
         StartCoroutine(showInstructions());
 
         player = GameObject.FindGameObjectWithTag("Player");
+        houseTarget = GameObject.FindGameObjectWithTag("Base");
+
         playerController = player.GetComponent<playerController>();
         playerSpawnPosition = GameObject.Find("Player Spawn Position");
 

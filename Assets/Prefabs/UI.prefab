@@ -2207,6 +2207,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerController: {fileID: 0}
   playerSpawnPosition: {fileID: 0}
+  houseTarget: {fileID: 0}
   currentMenu: {fileID: 0}
   reticle: {fileID: 6885884089941225160}
   pauseMenu: {fileID: 6885884089531721786}

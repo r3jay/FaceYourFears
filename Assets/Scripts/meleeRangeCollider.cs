@@ -6,14 +6,14 @@ public class meleeRangeCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Base"))
         {
             GetComponentInParent<enemyAI>().isInMeleeRange = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Base"))
         {
             GetComponentInParent<enemyAI>().isInMeleeRange = false;
         }
