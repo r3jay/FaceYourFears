@@ -178,8 +178,11 @@ public class enemyAI : MonoBehaviour, IDamageable
     void moveToTarget()
     {
         agent.stoppingDistance = stoppingDistance;
-        Vector3 targetVector = new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z);
-        agent.SetDestination(targetVector);
+        NavMeshHit hit;
+        NavMesh.SamplePosition(new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z), out hit, roamRadius, 1);
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(hit.position, path);
+        agent.SetPath(path);
     }
 
     void faceTarget()
