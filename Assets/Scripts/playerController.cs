@@ -6,6 +6,7 @@ public class playerController : MonoBehaviour, IDamageable
 {
     [Header("----- Components ------ ")]
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator anime;
 
     [Header("------ Player Attributes -----")]
     [SerializeField] int currentHP;
@@ -22,10 +23,16 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("------ Gun Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
-    [SerializeField] int playerDamage;
+    [SerializeField] public int playerDamage;
     [SerializeField] List<weaponStats> weaponStat = new List<weaponStats>();
     int selectedWeapon;
     [SerializeField] GameObject weaponModel;
+    [SerializeField] List<projectileStats> proList = new List<projectileStats>();
+    int selectedPro;
+    public Transform shootPos;
+    private Vector3 destination;
+    public GameObject projectile;
+    public GameObject impactE;
     bool isShooting;
 
 
@@ -72,6 +79,7 @@ public class playerController : MonoBehaviour, IDamageable
             sprint();
             StartCoroutine(footSteps());
             StartCoroutine(shoot());
+            projectileSelect();
             weaponSelect();
 
             if (usingSpeedBoost)
@@ -100,6 +108,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
 
         move = (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical"));
+        anime.SetFloat("Speed", controller.velocity.magnitude);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         // Changes the height position of the player..
@@ -182,6 +191,38 @@ public class playerController : MonoBehaviour, IDamageable
             }
         }
     }
+    void projectileSelect()
+    {
+        if (proList.Count > 1)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedPro < proList.Count - 1)
+            {
+                selectedPro++;
+                fireRate = proList[selectedPro].shootRate;
+                projectile = proList[selectedPro].projectile;
+                playerDamage = proList[selectedPro].shootDamage;
+                impactE = proList[selectedPro].impactEffect;
+
+                //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
+                //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedPro > 0)
+            {
+                selectedPro--;
+                fireRate = proList[selectedPro].shootRate;
+                projectile = proList[selectedPro].projectile;
+                playerDamage = proList[selectedPro].shootDamage;
+                impactE = proList[selectedPro].impactEffect;
+
+                //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
+                //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
+                //aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+
+            }
+        }
+    }
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED
     //============================================================================================================
@@ -210,27 +251,46 @@ public class playerController : MonoBehaviour, IDamageable
 
     IEnumerator shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Fire1") && weaponStat.Count > 0)
+        if (!isShooting && Input.GetButtonDown("Shoot") && proList.Count > 0)
         {
             isShooting = true;
 
-            aud.PlayOneShot(weaponStat[selectedWeapon].sound, weaponShotSoundVolume);
+            //aud.PlayOneShot(weaponStat[selectedWeapon].sound, weaponShotSoundVolume);
 
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
-            {
-                if (hit.collider.GetComponent<IDamageable>() != null)
-                {
-                    hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
-                }
-                Instantiate(weaponStat[selectedWeapon].hitEffect, hit.point, transform.rotation);
 
-            }
+            if (Physics.Raycast(ray, out hit))
+                destination = hit.point;
+            else
+                destination = ray.GetPoint(proList[selectedPro].proDist);
+
+            //Instantiate(projectile, shootPos.transform.position, transform.rotation);
+            anime.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.3f);
+            instantiateProjectile(shootPos);
+
+            if (hit.collider.GetComponent<IDamageable>() != null)
+                hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
 
 
+            //if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))
+            //{
+
+            //    if (hit.collider.GetComponent<IDamageable>() != null)
+            //    {
+            //        hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
+            //    }
+            //    Instantiate(weaponStat[selectedWeapon].hitEffect, hit.point, transform.rotation);
+            //}
             yield return new WaitForSeconds(fireRate);
             isShooting = false;
         }
+    }
+    void instantiateProjectile(Transform shotPoint)
+    {
+        var projectileObj = Instantiate(proList[selectedPro].projectile, shotPoint.position, Quaternion.identity);
+        projectileObj.GetComponent<Rigidbody>().velocity = (destination - shotPoint.position).normalized * proList[selectedPro].proSpeed;
     }
 
     public void respawn()
@@ -264,6 +324,17 @@ public class playerController : MonoBehaviour, IDamageable
         weaponStat.Add(stats);
         selectedWeapon = weaponStat.Count - 1;
         aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+    }
+    public void projectilePickup(projectileStats stats)
+    {
+        fireRate = stats.shootRate;
+        playerDamage = stats.shootDamage;
+        projectile = stats.projectile;
+        impactE = stats.impactEffect;
+
+        proList.Add(stats);
+        selectedPro = proList.Count - 1;
+        //aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
     }
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED

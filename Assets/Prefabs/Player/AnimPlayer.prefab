@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 1714171343646353762}
   - component: {fileID: 39430438575155316}
   - component: {fileID: 5606860852156802344}
+  - component: {fileID: 1285882376907420302}
   m_Layer: 0
   m_Name: AnimPlayer
   m_TagString: Player
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1714171343646353762}
+  anime: {fileID: 1285882376907420302}
   currentHP: 100
   minHP: 0
   maxHP: 1000
@@ -251,6 +253,10 @@ MonoBehaviour:
   playerDamage: 1
   weaponStat: []
   weaponModel: {fileID: 7980375538811112018}
+  proList: []
+  shootPos: {fileID: 0}
+  projectile: {fileID: 0}
+  impactE: {fileID: 0}
   aud: {fileID: 5606860852156802344}
   damagedSound:
   - {fileID: 8300000, guid: add1ea773d51d0144aa452b35e8fb02a, type: 3}
@@ -375,6 +381,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1285882376907420302
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7496328587207686910}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
+  m_Controller: {fileID: 9100000, guid: 7da4693615255f04db48662fa68e36d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7980375538811112018
 GameObject:
   m_ObjectHideFlags: 0
