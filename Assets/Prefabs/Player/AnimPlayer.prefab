@@ -141,7 +141,7 @@ Transform:
   - {fileID: 958563405675184539}
   - {fileID: 9106983223087225338}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -254,7 +254,7 @@ MonoBehaviour:
   weaponStat: []
   weaponModel: {fileID: 7980375538811112018}
   proList: []
-  shootPos: {fileID: 0}
+  shootPos: {fileID: 6943870348292571609}
   projectile: {fileID: 0}
   impactE: {fileID: 0}
   aud: {fileID: 5606860852156802344}
@@ -547,6 +547,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
+--- !u!4 &6943870348292571609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
+  m_PrefabInstance: {fileID: 8784334299084307985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9106983223087225338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
