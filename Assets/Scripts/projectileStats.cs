@@ -1,4 +1,22 @@
-//Will be using this code later to work on the projectiles - Ricardo
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu]
+
+public class projectileStats : ScriptableObject
+{
+    public float shootRate;
+    public int proDist;
+    public int shootDamage;
+    public float proSpeed;
+    //public int proCount;
+    public GameObject projectile;
+    //public AudioClip sound;
+    public GameObject impactEffect;
+    //public AudioClip sound;
+    //public Animator anime;
+}
 //using System.Collections;
 //using System.Collections.Generic;
 //using UnityEngine;
