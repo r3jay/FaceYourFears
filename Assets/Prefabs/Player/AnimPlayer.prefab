@@ -140,7 +140,7 @@ Transform:
   - {fileID: 958563405675184539}
   - {fileID: 9106983223087225338}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -240,8 +240,8 @@ MonoBehaviour:
   currentHP: 100
   minHP: 0
   maxHP: 1000
-  playerSpeed: 30
-  sprintModifier: 1
+  playerSpeed: 5
+  sprintModifier: 2
   jumpHeight: 10
   gravityValue: 25
   boostTime: 10

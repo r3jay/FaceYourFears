@@ -7,8 +7,8 @@ using TMPro;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
-    public keyPickUp key;
-    public int keyCount;
+    //public keyPickUp key;
+    //public int keyCount;
 
     public GameObject player;
     public playerController playerController;
@@ -22,13 +22,17 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject playerDamage;
     public GameObject playerWinMenu;
-    public GameObject playerDeadMenu;
+    public GameObject playerDeadMenu;    
+    public GameObject houseDestroyedMenu;
     public GameObject instructions;
-    public GameObject keyIcon;
-    public TextMeshProUGUI keyCountText;
+   // public GameObject keyIcon;
+    //public TextMeshProUGUI keyCountText;
     public GameObject pickUp;
+    public GameObject levelMusic;
+    public GameObject menuMusic;
 
     public Image HPBar;
+    public Image houseHPBar;
     public TextMeshProUGUI remainingEnemiesLabel;
     public Image SpeedBoostBar;
     public Image DamageBoostBar;
@@ -52,13 +56,15 @@ public class gameManager : MonoBehaviour
         playerSpawnPosition = GameObject.Find("Player Spawn Position");
 
         timeScaleOrig = Time.timeScale;
-        key = FindObjectOfType<keyPickUp>();
+        //key = FindObjectOfType<keyPickUp>();
+        isPaused = false;
+        pickedUp = false;
     }
 
     // Update is called once per frame
     void Update()
     {            
-        keyCountText.text = keyCount.ToString();
+        //keyCountText.text = keyCount.ToString();
 
         if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != playerWinMenu)
         {
@@ -75,6 +81,8 @@ public class gameManager : MonoBehaviour
 
     public void CursorLockPause()
     {
+        levelMusic.GetComponent<AudioSource>().Pause();
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
@@ -82,6 +90,8 @@ public class gameManager : MonoBehaviour
     }
     public void CursorUnlockUnpause()
     {
+        levelMusic.GetComponent<AudioSource>().Play();
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = timeScaleOrig;
@@ -97,6 +107,14 @@ public class gameManager : MonoBehaviour
     {
         isPaused = true;
         playerDeadMenu.SetActive(true);
+        currentMenu = playerDeadMenu;
+        CursorLockPause();
+    }
+
+    public void houseIsDestroyed()
+    {
+        isPaused = true;
+        houseDestroyedMenu.SetActive(true);
         currentMenu = playerDeadMenu;
         CursorLockPause();
     }
@@ -133,21 +151,21 @@ public class gameManager : MonoBehaviour
         instructions.SetActive(false);
     }
 
-    public void playerGetKey( )
-    {
+    //public void playerGetKey( )
+    //{
 
-        if (pickedUp)
-        {
-            keyCountText.text = keyCount.ToString();
+    //    if (pickedUp)
+    //    {
+    //        keyCountText.text = keyCount.ToString();
 
-            pickedUp = false;
+    //        pickedUp = false;
             
-        }
-    }
+    //    }
+    //}
 
-    public void playerLeftKey()
-    {
-        pickUp.SetActive(false);
-    }
+    //public void playerLeftKey()
+    //{
+    //    pickUp.SetActive(false);
+    //}
 
 }

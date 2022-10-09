@@ -15,6 +15,10 @@ the functionality of the code while other pieces are being uploaded:
 */
 public class buttonFunctions : MonoBehaviour
 {
+
+    [SerializeField] GameObject buttonSound;
+    [SerializeField] GameObject options;
+
     //for button that resumes the game
     public void resume()
     {
@@ -27,6 +31,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
+        Instantiate(buttonSound);
         gameManager.instance.CursorUnlockUnpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -37,10 +42,29 @@ public class buttonFunctions : MonoBehaviour
 		gameManager.instance.isPaused = false;
     }
 
-    public void quit()
+    public void showOptions()
     {
-        Application.Quit();
+        options.GetComponent<AudioSource>().Play();
+
+        Instantiate(buttonSound);
+        options.SetActive(true);
     }
+
+    public void closeOptions()
+    {
+        options.GetComponent<AudioSource>().Stop();
+        Instantiate(buttonSound);
+        options.SetActive(false);
+
+    }
+
+
+    public void returnToMain()
+    {
+        Instantiate(buttonSound);
+        SceneManager.LoadScene(0);
+    }
+
 
     //button to give player HP
     public void giveHP(int amount)

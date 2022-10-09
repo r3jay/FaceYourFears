@@ -14,11 +14,11 @@ public class keyPickUp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerEntered == true)
         {
 
-            gameManager.instance.playerGetKey();
-            gameManager.instance.keyCount++;
+            //gameManager.instance.playerGetKey();
+            //gameManager.instance.keyCount++;
             gameManager.instance.pickUp.SetActive(false);
             gameManager.instance.pickedUp = true;
-            gameManager.instance.keyIcon.SetActive(true);
+            //gameManager.instance.keyIcon.SetActive(true);
             Destroy(gameObject, 0.1f);
             playerEntered = false;
 
@@ -37,6 +37,6 @@ public class keyPickUp : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        gameManager.instance.playerLeftKey();
+        //gameManager.instance.playerLeftKey();
     }
 }
