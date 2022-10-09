@@ -69,7 +69,6 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
         agent.stoppingDistance = stoppingDistance;
         startingPosition = transform.position;
-
     }
 
     // Update is called once per frame
@@ -179,14 +178,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     void moveToTarget()
     {
         agent.stoppingDistance = stoppingDistance;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z), out hit, roamRadius, 1);
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
-        Debug.Log($"Moving to - {houseTarget.position.x},{houseTarget.position.y},{houseTarget.position.z}");
-        Debug.Log($"Agent destination - {agent.destination}");
-
+        Vector3 targetVector = new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z);
+        agent.SetDestination(targetVector);
     }
 
     void faceTarget()
@@ -373,7 +366,6 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            isTargetingHouse = false;
         }
     }
     // When player leaves follow distance , check if player is seen while exiting
@@ -381,7 +373,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
-            isTargetingHouse = true;
             playerInRange = false;
             if (playerSeen)
             {

@@ -2100,14 +2100,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6523710598449675145, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
-      propertyPath: options
-      value: 
-      objectReference: {fileID: 1946366650}
-    - target: {fileID: 6523710598449675145, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
-      propertyPath: buttonSound
-      value: 
-      objectReference: {fileID: 3486857029626914052, guid: ca5320002e52ce6479316906d85f24fc, type: 3}
     - target: {fileID: 7302609929909646249, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: reticle
       value: 
@@ -2165,10 +2157,6 @@ PrefabInstance:
     - target: {fileID: 8005482746798424522, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
       propertyPath: m_Name
       value: Enemy Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 8005482746798424522, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8005482746798424523, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
       propertyPath: enemy
@@ -2315,11 +2303,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1946366650 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2205675289026859509, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
-  m_PrefabInstance: {fileID: 1741452106}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1970870793
 GameObject:
   m_ObjectHideFlags: 0
