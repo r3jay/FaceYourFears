@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class projectile : MonoBehaviour
 {
-    [SerializeField] AudioSource aud;
-    [SerializeField] AudioClip projectileImpactSound;
-    [Range(0, 1)] [SerializeField] float proImpactSoundVolume;
-
+    public AudioSource impactSound;
+    //[SerializeField] AudioClip projectileImpactSound;
+    [SerializeField] GameObject proImpactSound;
+    //[Range(0, 1)] [SerializeField] float proImpactSoundVolume;
+    private GameObject hit;
     private bool collided;
     private void OnCollisionEnter(Collision col)
     {
+
         if (col.gameObject.tag != "Bullet" && col.gameObject.tag != "Player" && !collided && col.gameObject.tag != "Muzzle")
         {
+            Instantiate(proImpactSound);
             collided = true;
-            var impact = Instantiate(gameManager.instance.playerController.impactE, col.contacts[0].point, Quaternion.identity) as GameObject;
-            aud.PlayOneShot(projectileImpactSound, proImpactSoundVolume);
-            Destroy(impact, 2);
-            Destroy(gameObject);
+            hit = Instantiate(gameManager.instance.playerController.impactE, col.contacts[0].point, Quaternion.identity);
 
             if (col.collider.GetComponent<IDamageable>() != null)
             {
-                var hit = Instantiate(gameManager.instance.playerController.impactE, col.contacts[0].point, Quaternion.identity) as GameObject;
                 col.collider.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
-                aud.PlayOneShot(projectileImpactSound, proImpactSoundVolume);
-                Destroy(hit, 2);
-                Destroy(gameObject);
             }
+        }
+        if (collided == true)
+        {
+            Destroy(hit, 0.1f);
+            Destroy(gameObject, 0.1f);
         }
     }
 }
