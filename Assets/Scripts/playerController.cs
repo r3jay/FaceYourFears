@@ -66,8 +66,8 @@ public class playerController : MonoBehaviour, IDamageable
     private void Start()
     {
         HPOrig = currentHP;
-        respawn();
         playerSpeedOriginal = playerSpeed;
+        respawn();
     }
 
     void Update()
@@ -299,8 +299,8 @@ public class playerController : MonoBehaviour, IDamageable
         currentHP = maxHP;
         updatePlayerHPBar();
         transform.position = gameManager.instance.playerSpawnPosition.transform.position;
-        gameManager.instance.CursorUnlockUnpause();
         controller.enabled = true;
+        gameManager.instance.CursorUnlockUnpause();
     }
 
 
