@@ -114,7 +114,7 @@ public class playerController : MonoBehaviour, IDamageable
         }
 
         move = (transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical"));
-        anime.SetFloat("Speed", controller.velocity.magnitude);
+        anime.SetFloat("Speed", move.magnitude);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         // Changes the height position of the player..

@@ -141,7 +141,7 @@ Transform:
   - {fileID: 958563405675184539}
   - {fileID: 9106983223087225338}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -216,15 +216,15 @@ CharacterController:
   m_GameObject: {fileID: 7496328587207686910}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.65
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &39430438575155316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,10 +543,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
       propertyPath: m_Name
       value: girlCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
