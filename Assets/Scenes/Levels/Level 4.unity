@@ -1518,7 +1518,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9893048, y: 2.8670707, z: 3.0274203}
   m_Center: {x: 0.000015258789, y: 1.4564562, z: -0.011850476}
---- !u!114 &716393152
+--- !u!114 &716393156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1527,12 +1527,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 716393149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe0ac975877cfe4a99c1b8836843de1, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f7667550368ca4d8bbeb7f18fa230e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 5000
-  minHP: 0
-  maxHP: 5000
+  HP: 1000
   targetPositions:
   - {fileID: 991580358}
   - {fileID: 1437326715}
@@ -2165,7 +2163,11 @@ PrefabInstance:
     - target: {fileID: 8005482746798424523, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 3419503674915154704, guid: 574dd8fb9c7e8934792cac5ec45e1ab7, type: 3}
+      objectReference: {fileID: 2818469575624996549, guid: 442c4802fa9e02349ac8030e9985c3a5, type: 3}
+    - target: {fileID: 8005482746798424523, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
+      propertyPath: timeToSpawnInSeconds
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8005482746798424525, guid: 0d5d000a42d3b4f4ab1e53efbae3c26f, type: 3}
       propertyPath: m_RootOrder
       value: 1
