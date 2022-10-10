@@ -32,6 +32,11 @@ public class gameManager : MonoBehaviour
     public GameObject levelMusic;
     public GameObject menuMusic;
 
+    [Header("------ House Attributes -----")]
+    public int houseCurrentHP;
+    public int houseMinHP;
+    public int houseMaxHP;
+
     public Image HPBar;
     public Image houseHPBar;
     public TextMeshProUGUI remainingEnemiesLabel;
@@ -119,6 +124,11 @@ public class gameManager : MonoBehaviour
         houseDestroyedMenu.SetActive(true);
         currentMenu = playerDeadMenu;
         CursorLockPause();
+    }
+
+    public void updateHouseHP()
+    {
+        gameManager.instance.houseHPBar.fillAmount = (float)houseCurrentHP / (float)houseMaxHP;
     }
 
     public void enemyDecrement()

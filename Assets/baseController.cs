@@ -5,13 +5,15 @@ using UnityEngine;
 public class baseController : MonoBehaviour , IDamageable
 {
     [SerializeField] int HP;
+
     public List<Transform> targetPositions;
     
     public void takeDamage(int dmg)
     {
-        HP -= dmg;
+        gameManager.instance.houseCurrentHP -= dmg;
+        gameManager.instance.updateHouseHP();
 
-        if(HP <= 0)
+        if(gameManager.instance.houseCurrentHP <= 0)
         {
             gameManager.instance.PlayerIsDead();
         }

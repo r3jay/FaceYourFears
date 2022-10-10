@@ -20,6 +20,7 @@ public class playerController : MonoBehaviour, IDamageable
     int timesJumped;
     [SerializeField] int jumpsMax;
 
+
     [Header("------ Gun Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
@@ -309,6 +310,8 @@ public class playerController : MonoBehaviour, IDamageable
         controller.enabled = false;
         currentHP = maxHP;
         updatePlayerHPBar();
+        gameManager.instance.houseCurrentHP = gameManager.instance.houseMaxHP;
+        gameManager.instance.updateHouseHP();
         transform.position = gameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
         gameManager.instance.CursorUnlockUnpause();
@@ -319,6 +322,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         gameManager.instance.HPBar.fillAmount = (float)currentHP / (float)maxHP;
     }
+
 
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED
