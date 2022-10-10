@@ -20,11 +20,6 @@ public class playerController : MonoBehaviour, IDamageable
     int timesJumped;
     [SerializeField] int jumpsMax;
 
-    [Header("------ House Attributes -----")]
-    [SerializeField] int houseCurrentHP;
-    [SerializeField] int houseMinHP;
-    [SerializeField] int houseMaxHP;
-
     [Header("------ Gun Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
@@ -164,7 +159,6 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 yield return new WaitForSeconds(0.5f);
             }
-
             playingFootsteps = false;
         }
     }
@@ -315,8 +309,6 @@ public class playerController : MonoBehaviour, IDamageable
         controller.enabled = false;
         currentHP = maxHP;
         updatePlayerHPBar();
-        houseCurrentHP = houseMaxHP;
-        updateHouseHP();
         transform.position = gameManager.instance.playerSpawnPosition.transform.position;
         controller.enabled = true;
         gameManager.instance.CursorUnlockUnpause();
@@ -326,11 +318,6 @@ public class playerController : MonoBehaviour, IDamageable
     public void updatePlayerHPBar()
     {
         gameManager.instance.HPBar.fillAmount = (float)currentHP / (float)maxHP;
-    }
-
-    public void updateHouseHP()
-    {
-        gameManager.instance.houseHPBar.fillAmount = (float)houseCurrentHP / (float)houseMaxHP;
     }
 
     //============================================================================================================

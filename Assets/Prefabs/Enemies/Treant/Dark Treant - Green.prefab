@@ -6102,6 +6102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6225098492916822667}
   - component: {fileID: 7130962964344907419}
+  - component: {fileID: 2811767203842755612}
   m_Layer: 7
   m_Name: House Trigger
   m_TagString: Enemy
@@ -6137,3 +6138,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.32
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2811767203842755612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340504005502839236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c045ac0979613b84a97efb68482edf98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
