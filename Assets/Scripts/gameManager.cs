@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -42,10 +43,11 @@ public class gameManager : MonoBehaviour
     public bool isPaused;
     public bool pickedUp;
     float timeScaleOrig;
-
+    public int currentScene;
 
     void Awake()
     {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         instance = this;
         StartCoroutine(showInstructions());
 

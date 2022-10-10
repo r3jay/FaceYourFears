@@ -42,6 +42,12 @@ public class buttonFunctions : MonoBehaviour
 		gameManager.instance.isPaused = false;
     }
 
+    public void nextLevel()
+    {
+        int next = gameManager.instance.currentScene + 1;
+        SceneManager.LoadScene(next);
+    }
+
     public void showOptions()
     {
         options.GetComponent<AudioSource>().Play();
