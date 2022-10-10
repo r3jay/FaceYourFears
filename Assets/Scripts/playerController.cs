@@ -33,6 +33,8 @@ public class playerController : MonoBehaviour, IDamageable
     private Vector3 destination;
     public GameObject projectile;
     public GameObject impactE;
+    public GameObject muzzle;
+    public float arcRange;
     bool isShooting;
 
 
@@ -46,9 +48,13 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(0, 1)] [SerializeField] float footstepSoundVolume;
     [Range(0, 1)] [SerializeField] float weaponShotSoundVolume;
 
-    [SerializeField] AudioClip weaponPickupSound;
+    [SerializeField] AudioClip pickupSound;
     [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
 
+    [SerializeField] AudioClip projectileShotSound;
+    [Range(0, 1)] [SerializeField] float proShotSoundVolume;
+    
+    
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     Vector3 move;
@@ -186,7 +192,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
 
             }
         }
@@ -202,10 +208,11 @@ public class playerController : MonoBehaviour, IDamageable
                 projectile = proList[selectedPro].projectile;
                 playerDamage = proList[selectedPro].shootDamage;
                 impactE = proList[selectedPro].impactEffect;
+                arcRange = proList[selectedPro].arcRange;
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                //aud.PlayOneShot(weaponStat[selectedWeapon].pickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
 
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedPro > 0)
@@ -215,10 +222,12 @@ public class playerController : MonoBehaviour, IDamageable
                 projectile = proList[selectedPro].projectile;
                 playerDamage = proList[selectedPro].shootDamage;
                 impactE = proList[selectedPro].impactEffect;
+                arcRange = proList[selectedPro].arcRange;
+                muzzle = proList[selectedPro].muzzle;
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                //aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
 
             }
         }
@@ -255,7 +264,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             isShooting = true;
 
-            //aud.PlayOneShot(weaponStat[selectedWeapon].sound, weaponShotSoundVolume);
+            aud.PlayOneShot(proList[selectedPro].shotSound, proShotSoundVolume);
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
@@ -291,6 +300,9 @@ public class playerController : MonoBehaviour, IDamageable
     {
         var projectileObj = Instantiate(proList[selectedPro].projectile, shotPoint.position, Quaternion.identity);
         projectileObj.GetComponent<Rigidbody>().velocity = (destination - shotPoint.position).normalized * proList[selectedPro].proSpeed;
+        iTween.PunchPosition(projectileObj, new Vector3(Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), 0), Random.Range(0.5f, 2));
+        var muzzleObj = Instantiate(proList[selectedPro].muzzle, shotPoint.position, Quaternion.identity);
+        Destroy(muzzleObj, 2);
     }
 
     public void respawn()
@@ -323,7 +335,7 @@ public class playerController : MonoBehaviour, IDamageable
 
         weaponStat.Add(stats);
         selectedWeapon = weaponStat.Count - 1;
-        aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+        aud.PlayOneShot(pickupSound, pickUpSoundVolume);
     }
     public void projectilePickup(projectileStats stats)
     {
@@ -331,10 +343,13 @@ public class playerController : MonoBehaviour, IDamageable
         playerDamage = stats.shootDamage;
         projectile = stats.projectile;
         impactE = stats.impactEffect;
+        arcRange = stats.arcRange;
+        muzzle = stats.muzzle;
+        
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;
-        //aud.PlayOneShot(weaponPickupSound, pickUpSoundVolume);
+        aud.PlayOneShot(pickupSound, pickUpSoundVolume);
     }
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED

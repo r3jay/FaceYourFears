@@ -10,11 +10,12 @@ public class projectileStats : ScriptableObject
     public int proDist;
     public int shootDamage;
     public float proSpeed;
+    public float arcRange;
     //public int proCount;
     public GameObject projectile;
-    //public AudioClip sound;
     public GameObject impactEffect;
-    //public AudioClip sound;
+    public GameObject muzzle;
+    public AudioClip shotSound;
     //public Animator anime;
 }
 //using System.Collections;

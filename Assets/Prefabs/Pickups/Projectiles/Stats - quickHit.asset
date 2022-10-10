@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
   m_Name: Stats - quickHit
   m_EditorClassIdentifier: 
-  shootRate: 2
+  shootRate: 0.3
   proDist: 1000
-  shootDamage: 5
-  proSpeed: 10
+  shootDamage: 1
+  proSpeed: 12
+  arcRange: 2
   projectile: {fileID: 2857254718218096215, guid: dd9f1c54d7293ab4db008df15d018d22, type: 3}
   impactEffect: {fileID: 6472985681582249120, guid: 0c4b63747c2cf9440b595bc4db8e034f, type: 3}
+  muzzle: {fileID: 8205884980395970506, guid: 6cf0b47ab5285e74280b56825d6d43be, type: 3}
+  shotSound: {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}

@@ -257,6 +257,8 @@ MonoBehaviour:
   shootPos: {fileID: 6943870348292571609}
   projectile: {fileID: 0}
   impactE: {fileID: 0}
+  muzzle: {fileID: 0}
+  arcRange: 0
   aud: {fileID: 5606860852156802344}
   damagedSound:
   - {fileID: 8300000, guid: add1ea773d51d0144aa452b35e8fb02a, type: 3}
@@ -283,8 +285,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 40b7a31a968625147b30a84ab621c8ad, type: 3}
   footstepSoundVolume: 0.2
   weaponShotSoundVolume: 0.1
-  weaponPickupSound: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
+  pickupSound: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
   pickUpSoundVolume: 1
+  projectileShotSound: {fileID: 0}
+  proShotSoundVolume: 0.8
 --- !u!82 &5606860852156802344
 AudioSource:
   m_ObjectHideFlags: 0
