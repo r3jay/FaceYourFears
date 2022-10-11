@@ -6,17 +6,17 @@ public class baseCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Base"))
         {
-            Debug.Log("House collided");
-            other.GetComponentInParent<enemyAI>().houseInRange = true;
+            
+            GetComponentInParent<enemyAI>().houseInRange = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Base"))
         {
-            other.GetComponentInParent<enemyAI>().houseInRange = false;
+            GetComponentInParent<enemyAI>().houseInRange = false;
         }
     }
 }

@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Home Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9191247259279856730, guid: 5cc751ca2de0ca945bf99a351f806916, type: 3}
+      propertyPath: m_TagString
+      value: Base
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc751ca2de0ca945bf99a351f806916, type: 3}
@@ -603,6 +607,10 @@ PrefabInstance:
     - target: {fileID: 4730402242649546454, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302609929909646249, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: enemyCount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

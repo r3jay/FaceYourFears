@@ -113,7 +113,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
                     }
                 }
-                else if (playerInRange && !isTargetingHouse)
+                if (playerInRange && !isTargetingHouse)
                 {
                     if (canSeePlayer())
                     {
@@ -198,9 +198,9 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         float angle = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up, playerDir, out hit))
+        if (Physics.Raycast(transform.position + transform.forward, playerDir, out hit))
         {
-            Debug.DrawRay(transform.position + transform.up, playerDir);
+            Debug.DrawRay(transform.position + transform.forward, playerDir);
 
             // if the raycast hits a player and is within enemies FOV
             if (hit.collider.CompareTag("Player") && angle <= fovAngle)
