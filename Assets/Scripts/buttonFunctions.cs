@@ -44,7 +44,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void nextLevel()
     {
-        int next = gameManager.instance.currentScene + 1;
+        int next = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(next);
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootRate: 1
   proDist: 1000
-  shootDamage: 5
+  shootDamage: 10
   proSpeed: 7
   arcRange: 0
   destroyTime: 3

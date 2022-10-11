@@ -53,6 +53,7 @@ public class gameManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         currentScene = SceneManager.GetActiveScene().buildIndex;
         instance = this;
         StartCoroutine(showInstructions());
