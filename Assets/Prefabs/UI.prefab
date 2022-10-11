@@ -5749,7 +5749,7 @@ RectTransform:
   - {fileID: 3579901689319451850}
   - {fileID: 5019800823360706752}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8078,35 +8078,15 @@ PrefabInstance:
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: HPBar
       value: 
-      objectReference: {fileID: 1558884363}
+      objectReference: {fileID: 785968617}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: pickUp
       value: 
       objectReference: {fileID: 279841583}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: credits
-      value: 
-      objectReference: {fileID: 3378268121308109212}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: keyIcon
-      value: 
-      objectReference: {fileID: 1387636404}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: options
-      value: 
-      objectReference: {fileID: 2205675289026859509}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: reticle
       value: 
       objectReference: {fileID: 4730402241026338193}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: winMenu
-      value: 
-      objectReference: {fileID: 955510544}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: menuMusic
-      value: 
-      objectReference: {fileID: 6725566814349381876, guid: 39d4a840237842249b3edd878e1f2f2e, type: 3}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -8116,17 +8096,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3762192208401230463}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: houseMaxHP
-      value: 2500
-      objectReference: {fileID: 0}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: enemyCounter
+      propertyPath: gameWinMenu
       value: 
-      objectReference: {fileID: 1981766457}
+      objectReference: {fileID: 3946214082611900812}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: instructions
       value: 
       objectReference: {fileID: 1548300061}
+    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
+      propertyPath: levelWinMenu
+      value: 
+      objectReference: {fileID: 955510544}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: playerDamage
       value: 
@@ -8136,17 +8116,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 894148547}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: playerWinMenu
-      value: 
-      objectReference: {fileID: 955510544}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: DamageBoostBar
       value: 
       objectReference: {fileID: 600071544}
-    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
-      propertyPath: houseCurrentHP
-      value: 2500
-      objectReference: {fileID: 0}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: playerDeadMenu
       value: 

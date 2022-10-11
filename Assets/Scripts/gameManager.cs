@@ -22,7 +22,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject playerDamage;
-    public GameObject playerWinMenu;
+    public GameObject levelWinMenu;
+    public GameObject gameWinMenu;
     public GameObject playerDeadMenu;    
     public GameObject houseDestroyedMenu;
     public GameObject instructions;
@@ -73,7 +74,7 @@ public class gameManager : MonoBehaviour
     {            
         //keyCountText.text = keyCount.ToString();
 
-        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != playerWinMenu)
+        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu)
         {
             isPaused = !isPaused;
             currentMenu = pauseMenu;
@@ -149,7 +150,16 @@ public class gameManager : MonoBehaviour
         if (enemyCount <= 0)
         {
             yield return new WaitForSeconds(1);
-            currentMenu = playerWinMenu;
+
+            if(currentScene != 3)
+            {
+                currentMenu = levelWinMenu;
+            }
+            else
+            {
+                currentMenu = gameWinMenu;
+            }
+            
             isPaused = true;
             currentMenu.SetActive(true);
             CursorLockPause();

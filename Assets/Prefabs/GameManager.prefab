@@ -49,8 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8072e6183a660834599f83ff5a4dab06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 0}
-  keyCount: 0
   player: {fileID: 0}
   playerController: {fileID: 0}
   playerSpawnPosition: {fileID: 0}
@@ -59,15 +57,17 @@ MonoBehaviour:
   reticle: {fileID: 0}
   pauseMenu: {fileID: 0}
   playerDamage: {fileID: 0}
-  playerWinMenu: {fileID: 0}
+  levelWinMenu: {fileID: 0}
+  gameWinMenu: {fileID: 0}
   playerDeadMenu: {fileID: 0}
   houseDestroyedMenu: {fileID: 0}
   instructions: {fileID: 0}
-  keyIcon: {fileID: 0}
-  keyCountText: {fileID: 0}
   pickUp: {fileID: 0}
   levelMusic: {fileID: 0}
-  menuMusic: {fileID: 0}
+  menuMusic: {fileID: 6725566814349381876, guid: 39d4a840237842249b3edd878e1f2f2e, type: 3}
+  houseCurrentHP: 2500
+  houseMinHP: 0
+  houseMaxHP: 2500
   HPBar: {fileID: 0}
   houseHPBar: {fileID: 0}
   remainingEnemiesLabel: {fileID: 0}
@@ -77,3 +77,4 @@ MonoBehaviour:
   instructTime: 0
   isPaused: 0
   pickedUp: 0
+  currentScene: 0

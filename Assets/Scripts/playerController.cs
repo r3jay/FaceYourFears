@@ -279,8 +279,8 @@ public class playerController : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(0.3f);
             instantiateProjectile(shootPos);
 
-            if (hit.collider.GetComponent<IDamageable>() != null)
-                hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
+            //if (hit.collider.GetComponent<IDamageable>() != null)
+            //    hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
 
 
             //if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(.5f, .5f)), out hit, shootDistance))

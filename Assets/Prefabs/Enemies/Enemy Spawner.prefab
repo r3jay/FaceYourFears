@@ -61,4 +61,4 @@ MonoBehaviour:
   enemy: {fileID: 2818469575624996549, guid: bd0dd26d2a23b5740b1934f99e1410d6, type: 3}
   maxEnemies: 2
   timeBetweenEnemies: 2
-  timeToSpawnInSeconds: 155
+  timeToSpawnInSeconds: 2

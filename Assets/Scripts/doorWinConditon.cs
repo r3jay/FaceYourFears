@@ -9,7 +9,7 @@ public class doorWinConditon : MonoBehaviour
         if (other.CompareTag("Player")) //&& gameManager.instance.keyCount >= 3)
         {
             gameManager.instance.isPaused = true;
-            gameManager.instance.currentMenu = gameManager.instance.playerWinMenu;
+            gameManager.instance.currentMenu = gameManager.instance.levelWinMenu;
             gameManager.instance.currentMenu.SetActive(true);
             gameManager.instance.CursorLockPause();
         }
