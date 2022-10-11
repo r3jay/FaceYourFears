@@ -17,6 +17,7 @@ MonoBehaviour:
   shootDamage: 5
   proSpeed: 7
   arcRange: 0
+  destroyTime: 3
   projectile: {fileID: 7132245416501370303, guid: 71aff023592195045860258bb068ce1a, type: 3}
   impactEffect: {fileID: 7717435753867397550, guid: e187bd2f577bbb240be4152404b0cc58, type: 3}
   muzzle: {fileID: 5620743306990758389, guid: 741a1a20e91137f4e952d16a9dd3c0c5, type: 3}

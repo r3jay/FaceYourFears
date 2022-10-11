@@ -5063,10 +5063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e71cbdbe3f2e894eb218fa130480d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactSound: {fileID: 0}
+  rb: {fileID: -6639804242297031657}
   projectileImpactSound: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
-  proImpactSound: {fileID: 3486857029626914052, guid: 6a1a04ede4cd86945abd515e74a65f1e, type: 3}
-  proImpactSoundVolume: 1
 --- !u!135 &8349101114905348167
 SphereCollider:
   m_ObjectHideFlags: 0

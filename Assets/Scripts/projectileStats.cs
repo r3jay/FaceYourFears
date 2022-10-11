@@ -10,6 +10,7 @@ public class projectileStats : ScriptableObject
     public int shootDamage;
     public float proSpeed;
     public float arcRange;
+    public float destroyTime;
     //public int proCount;
     public GameObject projectile;
     public GameObject impactEffect;
