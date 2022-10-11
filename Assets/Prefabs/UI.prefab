@@ -4296,7 +4296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -63.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730402241518649572
@@ -5219,7 +5219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 40}
+  m_AnchoredPosition: {x: 0, y: -23.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730402242283153332
@@ -5461,7 +5461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -39.83606}
+  m_AnchoredPosition: {x: 0, y: -72.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730402242418227742
@@ -5492,7 +5492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player Died
+  m_text: You Died
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5749,7 +5749,7 @@ RectTransform:
   - {fileID: 3579901689319451850}
   - {fileID: 5019800823360706752}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6031,7 +6031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: -103.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4730402242826435960
@@ -8078,7 +8078,7 @@ PrefabInstance:
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: HPBar
       value: 
-      objectReference: {fileID: 785968617}
+      objectReference: {fileID: 1558884363}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: pickUp
       value: 
@@ -8095,6 +8095,10 @@ PrefabInstance:
       propertyPath: houseHPBar
       value: 
       objectReference: {fileID: 3762192208401230463}
+    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
+      propertyPath: houseMaxHP
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: gameWinMenu
       value: 
@@ -8119,6 +8123,10 @@ PrefabInstance:
       propertyPath: DamageBoostBar
       value: 
       objectReference: {fileID: 600071544}
+    - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
+      propertyPath: houseCurrentHP
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3240885656096255788, guid: f920ce01a6221414596b2d3d2a07ca73, type: 3}
       propertyPath: playerDeadMenu
       value: 
