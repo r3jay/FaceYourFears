@@ -21,7 +21,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int jumpsMax;
 
 
-    [Header("------ Gun Stats -----")]
+    [Header("------ Projectile Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
     [SerializeField] public int playerDamage;
@@ -35,7 +35,9 @@ public class playerController : MonoBehaviour, IDamageable
     public GameObject projectile;
     public GameObject impactE;
     public GameObject muzzle;
+    public float proSpeed;
     public float arcRange;
+    public float destroyTime;
     bool isShooting;
 
 
@@ -54,8 +56,8 @@ public class playerController : MonoBehaviour, IDamageable
 
     [SerializeField] AudioClip projectileShotSound;
     [Range(0, 1)] [SerializeField] float proShotSoundVolume;
-    
-    
+
+
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     Vector3 move;
@@ -279,6 +281,7 @@ public class playerController : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(0.3f);
             instantiateProjectile(shootPos);
 
+
             //if (hit.collider.GetComponent<IDamageable>() != null)
             //    hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
 
@@ -298,11 +301,11 @@ public class playerController : MonoBehaviour, IDamageable
     }
     void instantiateProjectile(Transform shotPoint)
     {
-        var projectileObj = Instantiate(proList[selectedPro].projectile, shotPoint.position, Quaternion.identity);
-        projectileObj.GetComponent<Rigidbody>().velocity = (destination - shotPoint.position).normalized * proList[selectedPro].proSpeed;
-        iTween.PunchPosition(projectileObj, new Vector3(Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), 0), Random.Range(0.5f, 2));
-        var muzzleObj = Instantiate(proList[selectedPro].muzzle, shotPoint.position, Quaternion.identity);
-        Destroy(muzzleObj, 2);
+        Instantiate(proList[selectedPro].projectile, shotPoint.transform.position, transform.rotation);
+        //var projectileObj = Instantiate(proList[selectedPro].projectile, shotPoint.position, Quaternion.identity);
+        //projectileObj.GetComponent<Rigidbody>().velocity = (destination - shotPoint.position).normalized * proList[selectedPro].proSpeed;
+        //iTween.PunchPosition(projectileObj, new Vector3(Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), 0), Random.Range(0.5f, 2));
+        //Instantiate(proList[selectedPro].muzzle, shotPoint.transform.position, transform.rotation); - problem destroying after instantiating
     }
 
     public void respawn()
@@ -348,7 +351,8 @@ public class playerController : MonoBehaviour, IDamageable
         impactE = stats.impactEffect;
         arcRange = stats.arcRange;
         muzzle = stats.muzzle;
-        
+        proSpeed = stats.proSpeed;
+        destroyTime = stats.destroyTime;
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;
