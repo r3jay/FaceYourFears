@@ -113,7 +113,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
                     }
                 }
-                if (playerInRange && !isTargetingHouse)
+                else if (playerInRange && !isTargetingHouse)
                 {
                     if (canSeePlayer())
                     {
@@ -292,7 +292,6 @@ public class enemyAI : MonoBehaviour, IDamageable
 
 
         agent.enabled = false;
-        Debug.Log("agent disabled");
 
 
         //// after death, delete colliders... currently worked so takeDamage just does nothing so that enemy bodies can still be interacted with
@@ -368,6 +367,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
+            isTargetingHouse = false;
             playerInRange = true;
         }
     }
@@ -376,6 +376,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
+            isTargetingHouse = true;
             playerInRange = false;
             if (playerSeen)
             {
