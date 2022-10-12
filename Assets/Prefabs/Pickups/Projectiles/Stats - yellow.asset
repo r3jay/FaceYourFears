@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
-  m_Name: Stats - slowHit
+  m_Name: Stats - yellow
   m_EditorClassIdentifier: 
-  shootRate: 1
+  shootRate: 0.3
   proDist: 1000
   shootDamage: 10
-  proSpeed: 7
+  proSpeed: 12
   arcRange: 0
   destroyTime: 3
-  projectile: {fileID: 7132245416501370303, guid: 71aff023592195045860258bb068ce1a, type: 3}
-  impactEffect: {fileID: 7717435753867397550, guid: e187bd2f577bbb240be4152404b0cc58, type: 3}
-  muzzle: {fileID: 5620743306990758389, guid: 741a1a20e91137f4e952d16a9dd3c0c5, type: 3}
-  shotSound: {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
+  projectile: {fileID: 2857254718218096215, guid: dd9f1c54d7293ab4db008df15d018d22, type: 3}
+  impactEffect: {fileID: 6472985681582249120, guid: 0c4b63747c2cf9440b595bc4db8e034f, type: 3}
+  muzzle: {fileID: 8205884980395970506, guid: 6cf0b47ab5285e74280b56825d6d43be, type: 3}
+  shotSound: {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}

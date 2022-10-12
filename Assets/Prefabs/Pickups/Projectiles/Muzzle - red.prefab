@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7977069938653339102}
   m_Layer: 0
-  m_Name: Muzzle - slowHit
+  m_Name: Muzzle - red
   m_TagString: Muzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
