@@ -258,7 +258,9 @@ MonoBehaviour:
   projectile: {fileID: 0}
   impactE: {fileID: 0}
   muzzle: {fileID: 0}
+  proSpeed: 0
   arcRange: 0
+  destroyTime: 0
   aud: {fileID: 5606860852156802344}
   damagedSound:
   - {fileID: 8300000, guid: add1ea773d51d0144aa452b35e8fb02a, type: 3}
@@ -298,7 +300,7 @@ AudioSource:
   m_GameObject: {fileID: 7496328587207686910}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6695251781382182788, guid: bf84abe2293c9384c8a929bb72014b65, type: 2}
+  OutputAudioMixerGroup: {fileID: 1899723220207322380, guid: bf84abe2293c9384c8a929bb72014b65, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
