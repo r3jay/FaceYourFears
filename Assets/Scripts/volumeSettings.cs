@@ -26,7 +26,7 @@ public class volumeSettings : MonoBehaviour
     void Start()
     {
         menuMusicSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_MUSIC_KEY, 1f);
-        menuSfxSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_SFX_KEY, 1f); 
+        menuSfxSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_SFX_KEY, 1f);
         gameMusicSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_MUSIC_KEY, 1f);
         gameSfxSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_SFX_KEY, 1f);
 
