@@ -15,7 +15,7 @@ public class baseController : MonoBehaviour , IDamageable
 
         if(gameManager.instance.houseCurrentHP <= 0)
         {
-            gameManager.instance.PlayerIsDead();
+            gameManager.instance.houseIsDestroyed();
         }
     }
 }
