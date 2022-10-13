@@ -2112,11 +2112,15 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
-  stoppingDistance: 5
+  rangedStoppingDistance: 0
+  meleeStoppingDistance: 0
+  targetHouse: 0
+  targetPlayer: 1
   houseInRange: 0
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 8112948322945427348}
+  meleeDamage: 0
   isInMeleeRange: 0
   meleeWeaponLeft: {fileID: 3419503674915154712}
   meleeWeaponRight: {fileID: 3419503674915154716}
@@ -2287,7 +2291,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3419503674915154712}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.11211826
   m_Height: 1
   m_Direction: 1
@@ -2304,7 +2308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
 --- !u!1 &3419503674915154714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
 --- !u!136 &9012559545765415356
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2495,7 +2497,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3419503674915154716}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.23512322
   m_Height: 1
   m_Direction: 1
