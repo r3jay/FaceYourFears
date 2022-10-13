@@ -19,6 +19,7 @@ public class buttonFunctions : MonoBehaviour
     [SerializeField] GameObject buttonSound;
     [SerializeField] GameObject options;
 
+
     //for button that resumes the game
     public void resume()
     {
@@ -39,7 +40,7 @@ public class buttonFunctions : MonoBehaviour
     public void playerRespawn()
     {
         gameManager.instance.playerController.respawn();
-		gameManager.instance.isPaused = false;
+        gameManager.instance.isPaused = false;
     }
 
     public void nextLevel()
@@ -75,16 +76,16 @@ public class buttonFunctions : MonoBehaviour
     //button to give player HP
     public void giveHP(int amount)
     {
-       gameManager.instance.playerController.giveHP(amount);
+        gameManager.instance.playerController.giveHP(amount);
     }
 
     public void giveJump(int amount)
     {
-       gameManager.instance.playerController.giveJump(amount);
+        gameManager.instance.playerController.giveJump(amount);
     }
 
     public void giveSpeed(int amount)
     {
-       gameManager.instance.playerController.giveSpeed(amount);
+        gameManager.instance.playerController.giveSpeed(amount);
     }
 }
