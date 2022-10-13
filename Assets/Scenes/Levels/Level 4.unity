@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &419569087
 Animator:
   serializedVersion: 4
@@ -775,7 +775,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7302897047297824058, guid: 2051ea94b146d69479ebd05d16fdcaa9, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7302897047297824058, guid: 2051ea94b146d69479ebd05d16fdcaa9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2074,7 +2074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7596943872032377121, guid: ac39dfb3b9c871c46a834d3e13fe070d, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7596943872032377121, guid: ac39dfb3b9c871c46a834d3e13fe070d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2197,7 +2197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 958563405675184518, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6565688874337324874, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: m_RootOrder
