@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 3486663984812322294}
   - component: {fileID: -1722894491324836276}
   m_Layer: 7
-  m_Name: Wererat - Green
+  m_Name: Wererat - Green (small) (H)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2113,18 +2113,22 @@ MonoBehaviour:
   playerFaceSpeed: 5
   followDistance: 15
   rangedStoppingDistance: 0
-  meleeStoppingDistance: 0
-  targetHouse: 0
-  targetPlayer: 1
+  meleeStoppingDistance: 1.73
+  targetHouse: 1
+  targetPlayer: 0
   houseInRange: 0
-  shootRate: 2
+  shootRate: 1
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 8112948322945427348}
-  meleeDamage: 0
+  meleeDamage: 10
   isInMeleeRange: 0
-  meleeWeaponLeft: {fileID: 3419503674915154712}
-  meleeWeaponRight: {fileID: 3419503674915154716}
+  meleeWeapons:
+  - {fileID: 3419503674915154716}
+  - {fileID: 3419503674915154712}
+  - {fileID: 3419503674915154714}
   isMeleeAttacker: 1
+  hasMultipleAttacks: 1
+  numberOfAttacks: 3
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -2319,6 +2323,8 @@ GameObject:
   - component: {fileID: 3419503674914928442}
   - component: {fileID: 3419503674912028444}
   - component: {fileID: 3419503674913158620}
+  - component: {fileID: 7252947708421780362}
+  - component: {fileID: 8357992144973253566}
   m_Layer: 7
   m_Name: Dagger
   m_TagString: Untagged
@@ -2391,6 +2397,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &7252947708421780362
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.2
+  m_Height: 1.1431136
+  m_Direction: 2
+  m_Center: {x: 0.0000001452744, y: 0.004466282, z: 0.4355091}
+--- !u!114 &8357992144973253566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419503674915154714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3419503674915154716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,9 +2519,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   m_Radius: 0.23512323
-  m_Height: 1.2070309
+  m_Height: 1.6283145
   m_Direction: 1
-  m_Center: {x: 0.000000046244384, y: -0.3131758, z: -0.026228346}
+  m_Center: {x: -0.000000086131486, y: -0.52381766, z: -0.026228137}
 --- !u!114 &4863291448322278932
 MonoBehaviour:
   m_ObjectHideFlags: 0

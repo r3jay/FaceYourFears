@@ -8,9 +8,16 @@ public class MeleeWeaponController : MonoBehaviour
     {
         if (other.GetComponent<IDamageable>() != null)
         {
-            
+
             other.GetComponent<IDamageable>().takeDamage(GetComponentInParent<enemyAI>().meleeDamage);
-            GetComponent<Collider>().enabled = false;
+            // Ensure that player cant be hit twice from the same attack
+            if (GetComponentInParent<enemyAI>())
+            {
+                foreach (GameObject weapon in GetComponentInParent<enemyAI>().meleeWeapons)
+                {
+                    weapon.GetComponent<Collider>().enabled = false;
+                }
+            }
         }
     }
 }

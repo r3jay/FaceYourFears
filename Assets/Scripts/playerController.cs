@@ -20,6 +20,9 @@ public class playerController : MonoBehaviour, IDamageable
     int timesJumped;
     [SerializeField] int jumpsMax;
 
+    [HideInInspector] public bool stunStatusEffectActive;
+    [HideInInspector] public float stunTime;
+
 
     [Header("------ Projectile Stats -----")]
     [SerializeField] float fireRate;
@@ -84,9 +87,16 @@ public class playerController : MonoBehaviour, IDamageable
         if (!gameManager.instance.isPaused)
         {
             currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-            movePlayer();
-            sprint();
-            StartCoroutine(footSteps());
+            if (!stunStatusEffectActive)
+            {
+                movePlayer();
+                sprint();
+                StartCoroutine(footSteps());
+            }
+            else
+            {
+                StartCoroutine(stunTimer());
+            }
             StartCoroutine(shoot());
             projectileSelect();
             weaponSelect();
@@ -427,5 +437,11 @@ public class playerController : MonoBehaviour, IDamageable
             usingDamageBoost = false;
         }
 
+    }
+
+    IEnumerator stunTimer()
+    {
+        yield return new WaitForSeconds(stunTime);
+        stunStatusEffectActive = false;
     }
 }

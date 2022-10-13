@@ -728,7 +728,7 @@ GameObject:
   - component: {fileID: 2624105177904742438}
   - component: {fileID: 3712206920316151709}
   m_Layer: 7
-  m_Name: Mad Clown-Yellow (small)
+  m_Name: Mad Clown-Yellow (small) (P)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,17 +775,18 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
-  stoppingDistance: 5
+  rangedStoppingDistance: 0
+  meleeStoppingDistance: 1.9
   targetHouse: 0
-  targetPlayer: 0
+  targetPlayer: 1
   houseInRange: 0
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 4921628656213318879}
   meleeDamage: 0
   isInMeleeRange: 0
-  meleeWeaponLeft: {fileID: 0}
-  meleeWeaponRight: {fileID: 3530675116135156253}
+  meleeWeapons:
+  - {fileID: 3530675116135156253}
   isMeleeAttacker: 1
   boost: []
   key: []

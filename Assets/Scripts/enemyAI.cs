@@ -34,9 +34,14 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     public int meleeDamage;
     public bool isInMeleeRange;
-    [SerializeField] GameObject meleeWeaponLeft;
-    [SerializeField] GameObject meleeWeaponRight;
+    public List<GameObject> meleeWeapons;
     [SerializeField] bool isMeleeAttacker;
+    public bool dealsPosionDamage;
+    public int poisonDamage;
+    public float timeBetweenPoisonTicks;
+    public float poisonTime;
+    [SerializeField] bool hasMultipleAttacks;
+    [SerializeField] int numberOfAttacks;
     bool isAttacking;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
@@ -75,19 +80,21 @@ public class enemyAI : MonoBehaviour, IDamageable
             agent.stoppingDistance = rangedStoppingDistance;
         }
         startingPosition = transform.position;
+
+        if (transform.localScale.y > 1)
+        {
+            animator.speed = Mathf.Sqrt(transform.localScale.y / 1) / transform.localScale.y;
+        }
+        else if (transform.localScale.y < 1)
+        {
+            animator.speed = Mathf.Sqrt(transform.localScale.y) / transform.localScale.y;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(agent.stoppingDistance < meleeStoppingDistance)
-        {
-            Debug.Log("stopping at 0");
-        }
-        if (transform.localScale.y > 1)
-        {
-            animator.speed = Mathf.Sqrt(transform.localScale.y / 1) / transform.localScale.y;
-        }
+
         // Only run through update if the enemy is enabled ie alive
         if (agent.enabled == true)
         {
@@ -392,33 +399,54 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator meleeAttack()
     {
+
+        Debug.Log($"Stopping distance = {agent.stoppingDistance}");
+        Debug.Log($"Remaining distance = {agent.remainingDistance}");
+
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
 
         isAttacking = true;
-        animator.SetTrigger("Attack");
+        if (hasMultipleAttacks)
+        {
+            animator.SetTrigger("Attack" + Random.Range(1, numberOfAttacks + 1));
+        }
+        else
+        {
+            animator.SetTrigger("Attack");
+        }
 
         // attack build up
         yield return new WaitForSeconds(.5f);
-        // active hitboxes for melee
-        if (meleeWeaponLeft)
+
+        if (!animator.GetBool("Dead"))
         {
-            meleeWeaponLeft.GetComponent<Collider>().enabled = true;
+            foreach (GameObject weapon in meleeWeapons)
+            {
+                weapon.GetComponent<Collider>().enabled = true;
+            }
         }
-        if (meleeWeaponRight)
-        {
-            meleeWeaponRight.GetComponent<Collider>().enabled = true;
-        }
+
 
         // wait for attack animation to finish
         yield return new WaitForSeconds(1);
 
-        agent.speed = chaseSpeed;
-        agent.isStopped = false;
+        // if an attack misses, still turn off colliders after full attack
+        foreach (GameObject weapon in meleeWeapons)
+        {
+            weapon.GetComponent<Collider>().enabled = false;
+        }
 
-        yield return new WaitForSeconds(shootRate);
+        if (!animator.GetBool("Dead"))
+        {
+            agent.speed = chaseSpeed;
+            agent.isStopped = false;
 
-        isAttacking = false;
+            yield return new WaitForSeconds(shootRate);
+
+            isAttacking = false;
+        }
+
     }
 
     // when player enters follow distance, set playerInRange
