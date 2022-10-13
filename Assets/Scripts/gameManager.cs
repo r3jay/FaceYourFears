@@ -91,7 +91,6 @@ public class gameManager : MonoBehaviour
     public void CursorLockPause()
     {
         levelMusic.GetComponent<AudioSource>().Pause();
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);

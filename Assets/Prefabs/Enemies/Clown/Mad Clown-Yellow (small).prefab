@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5adb881f8120402498a73697cd5e7863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
 --- !u!136 &5640839478100986291
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -729,7 +728,7 @@ GameObject:
   - component: {fileID: 2624105177904742438}
   - component: {fileID: 3712206920316151709}
   m_Layer: 7
-  m_Name: Mad Clown-Yellow
+  m_Name: Mad Clown-Yellow (small)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,10 +776,13 @@ MonoBehaviour:
   playerFaceSpeed: 5
   followDistance: 15
   stoppingDistance: 5
+  targetHouse: 0
+  targetPlayer: 0
   houseInRange: 0
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 4921628656213318879}
+  meleeDamage: 0
   isInMeleeRange: 0
   meleeWeaponLeft: {fileID: 0}
   meleeWeaponRight: {fileID: 3530675116135156253}
@@ -820,7 +822,7 @@ Animator:
   m_GameObject: {fileID: 3712206921033762464}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 244c0ba4f6bc7a241991b6cd2b1c897f, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9ec7b5c250a3aef4b9469d5d321ef389, type: 2}
+  m_Controller: {fileID: 9100000, guid: a797f4f00bfd5cd4f8a830bbbf20fb37, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

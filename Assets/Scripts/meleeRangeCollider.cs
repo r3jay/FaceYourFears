@@ -6,16 +6,40 @@ public class meleeRangeCollider : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Base"))
+        if (GetComponentInParent<enemyAI>().targetHouse)
         {
-            GetComponentInParent<enemyAI>().isInMeleeRange = true;
+            if (other.CompareTag("Base"))
+            {
+
+                GetComponentInParent<enemyAI>().isInMeleeRange = true;
+            }
+        }
+        else if (GetComponentInParent<enemyAI>().targetPlayer)
+        {
+            if (other.CompareTag("Player"))
+            {
+
+                GetComponentInParent<enemyAI>().isInMeleeRange = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Base"))
+        if (GetComponentInParent<enemyAI>().targetHouse)
         {
-            GetComponentInParent<enemyAI>().isInMeleeRange = false;
+            if (other.CompareTag("Base"))
+            {
+
+                GetComponentInParent<enemyAI>().isInMeleeRange = false;
+            }
+        }
+        else if (GetComponentInParent<enemyAI>().targetPlayer)
+        {
+            if (other.CompareTag("Player"))
+            {
+
+                GetComponentInParent<enemyAI>().isInMeleeRange = false;
+            }
         }
     }
 }

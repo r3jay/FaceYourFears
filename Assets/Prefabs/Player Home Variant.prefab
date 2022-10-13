@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 273530322010654315, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 273530322010654315, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 512.36
+      value: -47.9
       objectReference: {fileID: 0}
     - target: {fileID: 273530322010654315, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 273530322010654315, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 472.42514
+      value: -3.38
       objectReference: {fileID: 0}
     - target: {fileID: 273530322010654315, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54,11 +54,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 612514616698608849, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: m_Name
-      value: Player Home
+      value: Player Home Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4876378754488312736, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
       propertyPath: HP
       value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910626376328954750, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
+      propertyPath: m_Size.z
+      value: 4.9937887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910626376328954750, guid: 413c983cc9335674da7b5a48a4aae9c4, type: 3}
+      propertyPath: m_Center.z
+      value: -1.5412134
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

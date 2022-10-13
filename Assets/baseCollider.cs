@@ -8,8 +8,10 @@ public class baseCollider : MonoBehaviour
     {
         if (other.CompareTag("Base"))
         {
-            
-            GetComponentInParent<enemyAI>().houseInRange = true;
+            if (GetComponentInParent<enemyAI>())
+            {
+                GetComponentInParent<enemyAI>().houseInRange = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)

@@ -18,9 +18,11 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 180)] [SerializeField] int fovAngle;
     [Range(1, 10)] [SerializeField] int playerFaceSpeed;
     [SerializeField] float followDistance;
-    [SerializeField] float stoppingDistance;
-    bool isTargetingHouse;
+    [SerializeField] float rangedStoppingDistance;
+    [SerializeField] float meleeStoppingDistance;
+    public bool targetHouse;
     Transform houseTarget;
+    public bool targetPlayer;
     public bool houseInRange;
 
     [Header("----- Weapon Stats -----")]
@@ -29,6 +31,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] Transform shootPos;
     bool isShooting;
 
+
+    public int meleeDamage;
     public bool isInMeleeRange;
     [SerializeField] GameObject meleeWeaponLeft;
     [SerializeField] GameObject meleeWeaponRight;
@@ -45,7 +49,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     bool playerInRange;
     bool playerSeen;
     Vector3 lastPlayerPos;
-    bool searchingForPlayer;
+    //bool searchingForPlayer;
     float speedOrig;
     int randomNumber;
 
@@ -55,25 +59,35 @@ public class enemyAI : MonoBehaviour, IDamageable
     void Start()
     {
         GetComponent<SphereCollider>().radius = followDistance;
-        isTargetingHouse = true;
         if (gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count != 0)
         {
             int rand = Random.Range(0, gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count - 1);
             houseTarget = gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions[rand].transform;
         }
         lastPlayerPos = transform.position;
-        speedOrig = agent.speed;
+        agent.speed = chaseSpeed;
         if (isMeleeAttacker)
         {
-            stoppingDistance = 2.5f;
+            agent.stoppingDistance = meleeStoppingDistance;
         }
-        agent.stoppingDistance = stoppingDistance;
+        else
+        {
+            agent.stoppingDistance = rangedStoppingDistance;
+        }
         startingPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(agent.stoppingDistance < meleeStoppingDistance)
+        {
+            Debug.Log("stopping at 0");
+        }
+        if (transform.localScale.y > 1)
+        {
+            animator.speed = Mathf.Sqrt(transform.localScale.y / 1) / transform.localScale.y;
+        }
         // Only run through update if the enemy is enabled ie alive
         if (agent.enabled == true)
         {
@@ -93,7 +107,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             // checks for knockback animation
             if (!takingDamage)
             {
-                if (isTargetingHouse)
+                if (targetHouse)
                 {
                     moveToTarget();
                     faceTarget();
@@ -113,12 +127,13 @@ public class enemyAI : MonoBehaviour, IDamageable
 
                     }
                 }
-                if (playerInRange && !isTargetingHouse)
+                else if (targetPlayer)
                 {
-                    if (canSeePlayer())
+
+                    facePlayer();
+                    moveToPlayer();
+                    if (playerInRange)
                     {
-                        facePlayer();
-                        chasePlayer();
                         if (!isShooting && !isMeleeAttacker)
                         {
                             StartCoroutine(shoot());
@@ -126,33 +141,56 @@ public class enemyAI : MonoBehaviour, IDamageable
                         else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
                         {
                             StartCoroutine(meleeAttack());
+
                         }
                     }
-                    // player within range but not in view
-                    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
-                                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
-                    {
-                        agent.stoppingDistance = 0;
-                    }
+
+                    //==================================== old code ===========================
+                    //if (playerInRange)
+                    //{
+                    //    if (canSeePlayer())
+                    //    {
+                    //        facePlayer();
+                    //        chasePlayer();
+                    //        if (!isShooting && !isMeleeAttacker)
+                    //        {
+                    //            StartCoroutine(shoot());
+                    //        }
+                    //        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                    //        {
+                    //            StartCoroutine(meleeAttack());
+                    //        }
+                    //    }
+
+
+                    //    // player within range but not in view
+                    //    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
+                    //                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
+                    //    {
+                    //        agent.stoppingDistance = 0;
+                    //    }
+                    //}
+                    //// Search for the last known player position
+                    //else if (!playerInRange && searchingForPlayer)
+                    //{
+                    //    agent.SetDestination(lastPlayerPos);
+                    //    agent.stoppingDistance = 0;
+                    //}
+                    //// if enemy gets to lastPlayerPosition starting roaming from a new location
+                    //if (agent.remainingDistance < 0.1f && searchingForPlayer)
+                    //{
+                    //    searchingForPlayer = false;
+                    //    startingPosition = transform.position;
+                    //    roam();
+                    //}
+                    //// default behavior
+                    //else if (agent.remainingDistance < 0.1f && !searchingForPlayer)
+                    //{
+                    //    roam();
+                    //}
+                    //================================================================================
                 }
-                // Search for the last known player position
-                else if (!playerInRange && searchingForPlayer && !isTargetingHouse)
-                {
-                    agent.SetDestination(lastPlayerPos);
-                    agent.stoppingDistance = 0;
-                }
-                // if enemy gets to lastPlayerPosition starting roaming from a new location
-                if (agent.remainingDistance < 0.1f && searchingForPlayer && !isTargetingHouse)
-                {
-                    searchingForPlayer = false;
-                    startingPosition = transform.position;
-                    roam();
-                }
-                // default behavior
-                else if (agent.remainingDistance < 0.1f && !searchingForPlayer && !isTargetingHouse)
-                {
-                    roam();
-                }
+
 
             }
         }
@@ -177,7 +215,14 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     void moveToTarget()
     {
-        agent.stoppingDistance = stoppingDistance;
+        if (isMeleeAttacker)
+        {
+            agent.stoppingDistance = meleeStoppingDistance;
+        }
+        else
+        {
+            agent.stoppingDistance = rangedStoppingDistance;
+        }
         NavMeshHit hit;
         NavMesh.SamplePosition(new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z), out hit, roamRadius, 1);
         NavMeshPath path = new NavMeshPath();
@@ -193,6 +238,11 @@ public class enemyAI : MonoBehaviour, IDamageable
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
     }
 
+    void moveToPlayer()
+    {
+        agent.SetDestination(gameManager.instance.player.transform.position);
+    }
+
     // Check to see if player is within view - return true if player is seen
     bool canSeePlayer()
     {
@@ -206,14 +256,14 @@ public class enemyAI : MonoBehaviour, IDamageable
             if (hit.collider.CompareTag("Player") && angle <= fovAngle)
             {
                 playerSeen = true;
-                searchingForPlayer = false;
+                //searchingForPlayer = false;
                 lastPlayerPos = gameManager.instance.player.transform.position;
                 return true;
             }
             else
             {
                 playerSeen = false;
-                searchingForPlayer = true;
+                //searchingForPlayer = true;
                 return false;
             }
         }
@@ -226,7 +276,14 @@ public class enemyAI : MonoBehaviour, IDamageable
     // chasing behaviour
     void chasePlayer()
     {
-        agent.stoppingDistance = stoppingDistance;
+        if (isMeleeAttacker)
+        {
+            agent.stoppingDistance = meleeStoppingDistance;
+        }
+        else
+        {
+            agent.stoppingDistance = rangedStoppingDistance;
+        }
         agent.SetDestination(lastPlayerPos);
     }
 
@@ -253,11 +310,11 @@ public class enemyAI : MonoBehaviour, IDamageable
             HP -= dmg;
             animator.SetTrigger("Damage");
 
-            // update lastPlayerPos so enemy investigates where it was shot from
-            lastPlayerPos = gameManager.instance.player.transform.position;
-            searchingForPlayer = true;
-            agent.SetDestination(lastPlayerPos);
-            agent.stoppingDistance = 0;
+            //// update lastPlayerPos so enemy investigates where it was shot from
+            //lastPlayerPos = gameManager.instance.player.transform.position;
+            ////searchingForPlayer = true;
+            //agent.SetDestination(lastPlayerPos);
+            //agent.stoppingDistance = 0;
 
             StartCoroutine(flashColor());
 
@@ -305,15 +362,15 @@ public class enemyAI : MonoBehaviour, IDamageable
     IEnumerator flashColor() //changes the color of the enemy.
     {
         takingDamage = true;
-        float tempSpeed = agent.speed;
         agent.speed = 0;
 
         rend.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rend.material.color = Color.white;
 
-        yield return new WaitForSeconds(0.4f);
-        agent.speed = tempSpeed;
+        yield return new WaitForSeconds(1);
+
+        agent.speed = chaseSpeed;
         takingDamage = false;
     }
 
@@ -335,10 +392,15 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator meleeAttack()
     {
-        float tempSpeed = agent.speed;
-        agent.speed = 0;
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+
         isAttacking = true;
         animator.SetTrigger("Attack");
+
+        // attack build up
+        yield return new WaitForSeconds(.5f);
+        // active hitboxes for melee
         if (meleeWeaponLeft)
         {
             meleeWeaponLeft.GetComponent<Collider>().enabled = true;
@@ -347,16 +409,13 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             meleeWeaponRight.GetComponent<Collider>().enabled = true;
         }
+
+        // wait for attack animation to finish
         yield return new WaitForSeconds(1);
-        agent.speed = tempSpeed;
-        if (meleeWeaponLeft)
-        {
-            meleeWeaponLeft.GetComponent<Collider>().enabled = false;
-        }
-        if (meleeWeaponRight)
-        {
-            meleeWeaponRight.GetComponent<Collider>().enabled = false;
-        }
+
+        agent.speed = chaseSpeed;
+        agent.isStopped = false;
+
         yield return new WaitForSeconds(shootRate);
 
         isAttacking = false;
@@ -367,7 +426,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
-            isTargetingHouse = false;
             playerInRange = true;
         }
     }
@@ -376,14 +434,13 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
-            isTargetingHouse = true;
             playerInRange = false;
-            if (playerSeen)
-            {
-                lastPlayerPos = gameManager.instance.player.transform.position;
-                searchingForPlayer = true;
-                playerSeen = false;
-            }
+            //if (playerSeen)
+            //{
+            //    lastPlayerPos = gameManager.instance.player.transform.position;
+            //    searchingForPlayer = true;
+            //    playerSeen = false;
+            //}
 
         }
     }

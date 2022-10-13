@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class MeleeWeaponController : MonoBehaviour
 {
-    [SerializeField] int damage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<IDamageable>() != null)
         {
-            other.GetComponent<IDamageable>().takeDamage(damage);
+            
+            other.GetComponent<IDamageable>().takeDamage(GetComponentInParent<enemyAI>().meleeDamage);
+            GetComponent<Collider>().enabled = false;
         }
     }
 }
