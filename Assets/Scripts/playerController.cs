@@ -41,6 +41,12 @@ public class playerController : MonoBehaviour, IDamageable
     public float proSpeed;
     public float arcRange;
     public float destroyTime;
+    public int DOTdamage;
+    public bool stun;
+    public float slowDown;
+    public float statusEffectTime;
+
+
     bool isShooting;
 
 
@@ -363,6 +369,10 @@ public class playerController : MonoBehaviour, IDamageable
         muzzle = stats.muzzle;
         proSpeed = stats.proSpeed;
         destroyTime = stats.destroyTime;
+        DOTdamage = stats.DOTdamage;
+        statusEffectTime = stats.statusEffectTime;
+        stun = stats.stun;
+        slowDown = stats.slowDown;
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;

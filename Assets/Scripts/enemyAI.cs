@@ -13,7 +13,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     [Header("----- Enemy Stats -----")]
     [Range(1, 100)] [SerializeField] int HP;
-    [Range(1, 10)] [SerializeField] float chaseSpeed;
+    [SerializeField] public float chaseSpeed;
     [Range(1, 50)] [SerializeField] int roamRadius;
     [Range(1, 180)] [SerializeField] int fovAngle;
     [Range(1, 10)] [SerializeField] int playerFaceSpeed;
@@ -59,6 +59,10 @@ public class enemyAI : MonoBehaviour, IDamageable
     int randomNumber;
 
     bool takingDamage;
+
+    [HideInInspector] public bool stunStatusEffectActive;
+    [HideInInspector] public float stunTime;
+    [HideInInspector] public bool slowStatusEffectActive;
 
     // Start is called before the first frame update
     void Start()
@@ -114,92 +118,113 @@ public class enemyAI : MonoBehaviour, IDamageable
             // checks for knockback animation
             if (!takingDamage)
             {
-                if (targetHouse)
+                if (!stunStatusEffectActive)
                 {
-                    moveToTarget();
-                    faceTarget();
-                    if (houseInRange)
+                    if (!slowStatusEffectActive)
                     {
-                        if (agent.remainingDistance <= agent.stoppingDistance)
+
+
+                        if (targetHouse)
                         {
-                            if (!isShooting && !isMeleeAttacker)
+                            moveToTarget();
+                            faceTarget();
+                            if (houseInRange)
                             {
-                                StartCoroutine(shoot());
+                                if (agent.remainingDistance <= agent.stoppingDistance)
+                                {
+                                    if (!isShooting && !isMeleeAttacker)
+                                    {
+                                        StartCoroutine(shoot());
+                                    }
+                                    else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                                    {
+                                        StartCoroutine(meleeAttack());
+                                    }
+                                }
+
                             }
-                            else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                        }
+                        else if (targetPlayer)
+                        {
+
+                            facePlayer();
+                            moveToPlayer();
+                            if (playerInRange)
                             {
-                                StartCoroutine(meleeAttack());
+                                if (!isShooting && !isMeleeAttacker)
+                                {
+                                    StartCoroutine(shoot());
+                                }
+                                else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                                {
+                                    StartCoroutine(meleeAttack());
+
+                                }
                             }
                         }
 
+
+                        //==================================== old code ===========================
+                        //if (playerInRange)
+                        //{
+                        //    if (canSeePlayer())
+                        //    {
+                        //        facePlayer();
+                        //        chasePlayer();
+                        //        if (!isShooting && !isMeleeAttacker)
+                        //        {
+                        //            StartCoroutine(shoot());
+                        //        }
+                        //        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                        //        {
+                        //            StartCoroutine(meleeAttack());
+                        //        }
+                        //    }
+
+
+                        //    // player within range but not in view
+                        //    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
+                        //                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
+                        //    {
+                        //        agent.stoppingDistance = 0;
+                        //    }
+                        //}
+                        //// Search for the last known player position
+                        //else if (!playerInRange && searchingForPlayer)
+                        //{
+                        //    agent.SetDestination(lastPlayerPos);
+                        //    agent.stoppingDistance = 0;
+                        //}
+                        //// if enemy gets to lastPlayerPosition starting roaming from a new location
+                        //if (agent.remainingDistance < 0.1f && searchingForPlayer)
+                        //{
+                        //    searchingForPlayer = false;
+                        //    startingPosition = transform.position;
+                        //    roam();
+                        //}
+                        //// default behavior
+                        //else if (agent.remainingDistance < 0.1f && !searchingForPlayer)
+                        //{
+                        //    roam();
+                        //}
+                        //================================================================================
+                    }
+                    else
+                    {
+                        speedOrig = chaseSpeed; 
+                        chaseSpeed = chaseSpeed * gameManager.instance.playerController.slowDown;
+                        StartCoroutine(slowDown());
+                        chaseSpeed = speedOrig;
                     }
                 }
-                else if (targetPlayer)
+                else
                 {
-
-                    facePlayer();
-                    moveToPlayer();
-                    if (playerInRange)
-                    {
-                        if (!isShooting && !isMeleeAttacker)
-                        {
-                            StartCoroutine(shoot());
-                        }
-                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                        {
-                            StartCoroutine(meleeAttack());
-
-                        }
-                    }
-
-                    //==================================== old code ===========================
-                    //if (playerInRange)
-                    //{
-                    //    if (canSeePlayer())
-                    //    {
-                    //        facePlayer();
-                    //        chasePlayer();
-                    //        if (!isShooting && !isMeleeAttacker)
-                    //        {
-                    //            StartCoroutine(shoot());
-                    //        }
-                    //        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                    //        {
-                    //            StartCoroutine(meleeAttack());
-                    //        }
-                    //    }
-
-
-                    //    // player within range but not in view
-                    //    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
-                    //                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
-                    //    {
-                    //        agent.stoppingDistance = 0;
-                    //    }
-                    //}
-                    //// Search for the last known player position
-                    //else if (!playerInRange && searchingForPlayer)
-                    //{
-                    //    agent.SetDestination(lastPlayerPos);
-                    //    agent.stoppingDistance = 0;
-                    //}
-                    //// if enemy gets to lastPlayerPosition starting roaming from a new location
-                    //if (agent.remainingDistance < 0.1f && searchingForPlayer)
-                    //{
-                    //    searchingForPlayer = false;
-                    //    startingPosition = transform.position;
-                    //    roam();
-                    //}
-                    //// default behavior
-                    //else if (agent.remainingDistance < 0.1f && !searchingForPlayer)
-                    //{
-                    //    roam();
-                    //}
-                    //================================================================================
+                    StartCoroutine(stunTimer());
                 }
 
 
             }
+
         }
     }
 
@@ -472,5 +497,15 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         }
     }
-
+    IEnumerator stunTimer()
+    {
+        yield return new WaitForSeconds(stunTime);
+        stunStatusEffectActive = false;
+    }
+    IEnumerator slowDown()
+    {
+        yield return new WaitForSeconds(stunTime);
+        slowStatusEffectActive = false;
+    }
 }
+

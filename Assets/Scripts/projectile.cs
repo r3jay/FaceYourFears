@@ -25,6 +25,24 @@ public class projectile : MonoBehaviour
             if (col.collider.GetComponent<IDamageable>() != null)
             {
                 col.collider.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
+
+                if (gameManager.instance.playerController.DOTdamage > 0)
+                {
+                    for (float i = gameManager.instance.playerController.statusEffectTime; i > 0;)
+                    {
+                        StartCoroutine(damageOverTime(col));
+                    }
+                }
+                if (gameManager.instance.playerController.stun == true)
+                {
+                    col.collider.GetComponent<enemyAI>().stunStatusEffectActive = true;
+                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime;
+                }
+                if (gameManager.instance.playerController.slowDown > 0)
+                {
+                    col.collider.GetComponent<enemyAI>().slowStatusEffectActive = true;
+                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime;
+                }
             }
         }
         if (collided == true)
@@ -36,6 +54,17 @@ public class projectile : MonoBehaviour
     private void OnDestroy()
     {
         AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
+    }
+    IEnumerator damageOverTime(Collision col)
+    {
+
+        for (float i = gameManager.instance.playerController.statusEffectTime; i > 0;)
+        {
+            col.collider.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.DOTdamage);
+            yield return new WaitForSeconds(1);
+            i -= 1;
+        }
+
     }
 }
 //[Header("----- Components -----")]
