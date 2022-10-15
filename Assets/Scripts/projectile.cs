@@ -8,6 +8,7 @@ public class projectile : MonoBehaviour
     public AudioClip projectileImpactSound;
     private GameObject hit;
     private bool collided;
+    public bool isAoe;
 
     void Start()
     {
@@ -21,6 +22,8 @@ public class projectile : MonoBehaviour
         {
             collided = true;
             hit = Instantiate(gameManager.instance.playerController.impactE, col.contacts[0].point, Quaternion.identity);
+            isAoe = gameManager.instance.playerController.isAoe;
+
 
             if (col.collider.GetComponent<IDamageable>() != null)
             {
@@ -52,6 +55,21 @@ public class projectile : MonoBehaviour
     private void OnDestroy()
     {
         AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
+        if (isAoe == true)
+        {
+            CheckForAoe();
+        }
+    }
+    private void CheckForAoe()
+    {
+        Collider[] col = Physics.OverlapSphere(transform.position, 4f);
+        foreach (Collider c in col)
+        {
+            if (c.GetComponent<IDamageable>() != null)
+            {
+                c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
+            }
+        }
     }
 }
 //[Header("----- Components -----")]

@@ -15,11 +15,13 @@ public class projectileStats : ScriptableObject
     public float DOTtime;
     public float timeBetweenTicks;
     public bool stun;
+    public bool isAoe;
     public float slowDown;
     public float statusEffectTime_poison;
     public float statusEffectTime_slow;
     public float statusEffectTime_stun;
     //public int proCount;
+    public GameObject aoeHit;
     public GameObject projectile;
     public GameObject impactEffect;
     public GameObject muzzle;

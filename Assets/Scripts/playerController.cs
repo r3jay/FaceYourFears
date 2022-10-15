@@ -44,14 +44,16 @@ public class playerController : MonoBehaviour, IDamageable
     public int DOTdamage;
     public float DOTtime;
     public bool stun;
+    public bool isAoe;
     public float slowDown;
+    
+
+
     public float statusEffectTime_stun;
     public float statusEffectTime_slow;
     public float statusEffectTime_poison;
     public float timeBetweenTicks;
     [HideInInspector] public bool isTakingPoisonDamage;
-
-
     bool isShooting;
 
 
@@ -226,12 +228,15 @@ public class playerController : MonoBehaviour, IDamageable
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedPro < proList.Count - 1)
             {
+                
                 selectedPro++;
                 fireRate = proList[selectedPro].shootRate;
                 projectile = proList[selectedPro].projectile;
                 playerDamage = proList[selectedPro].shootDamage;
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
+                muzzle = proList[selectedPro].muzzle;
+                
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -240,6 +245,7 @@ public class playerController : MonoBehaviour, IDamageable
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedPro > 0)
             {
+               
                 selectedPro--;
                 fireRate = proList[selectedPro].shootRate;
                 projectile = proList[selectedPro].projectile;
@@ -247,6 +253,8 @@ public class playerController : MonoBehaviour, IDamageable
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
+               
+               
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -382,6 +390,9 @@ public class playerController : MonoBehaviour, IDamageable
         statusEffectTime_stun = stats.statusEffectTime_stun;
         stun = stats.stun;
         slowDown = stats.slowDown;
+        
+        isAoe = stats.isAoe;
+        
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;
