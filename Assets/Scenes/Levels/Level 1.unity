@@ -596,7 +596,7 @@ PrefabInstance:
     - target: {fileID: 7302609929909646249, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: levelMusic
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1910432975}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
@@ -2347,6 +2347,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ec97cdbababa24242b00aa5c3b38d064, type: 3}
+--- !u!1 &1910432975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5921834869966428942, guid: b7a11f0fb8e4be04086f19d5d36ac387, type: 3}
+  m_PrefabInstance: {fileID: 747925841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2040367278
 PrefabInstance:
   m_ObjectHideFlags: 0
