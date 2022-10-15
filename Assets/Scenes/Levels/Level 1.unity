@@ -505,6 +505,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 955510544, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022488263, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_text
+      value: "I stopped the clowns!\n But I'm feeling so sleepy..."
+      objectReference: {fileID: 0}
     - target: {fileID: 4730402242649546450, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_Name
       value: UI
