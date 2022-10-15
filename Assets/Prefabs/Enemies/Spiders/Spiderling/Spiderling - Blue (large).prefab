@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 6622115033061038103}
   m_Layer: 7
   m_Name: Spiderling - Blue (large)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,11 +610,20 @@ MonoBehaviour:
   - {fileID: 5898796602790723131}
   - {fileID: 8188491815524616805}
   isMeleeAttacker: 1
+  dealsPosionDamage: 0
+  poisonDamage: 0
+  timeBetweenPoisonTicks: 0
+  poisonTime: 0
   hasMultipleAttacks: 1
   numberOfAttacks: 2
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  stunStatusEffectActive: 0
+  stunTime: 0
+  slowStatusEffectActive: 0
+  slowModifier: 0
+  slowTime: 0
 --- !u!195 &6622115033061038099
 NavMeshAgent:
   m_ObjectHideFlags: 0

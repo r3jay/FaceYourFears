@@ -12,9 +12,13 @@ public class projectileStats : ScriptableObject
     public float arcRange;
     public float destroyTime;
     public int DOTdamage;
+    public float DOTtime;
+    public float timeBetweenTicks;
     public bool stun;
     public float slowDown;
-    public float statusEffectTime;
+    public float statusEffectTime_poison;
+    public float statusEffectTime_slow;
+    public float statusEffectTime_stun;
     //public int proCount;
     public GameObject projectile;
     public GameObject impactEffect;

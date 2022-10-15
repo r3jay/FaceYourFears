@@ -2038,7 +2038,7 @@ GameObject:
   - component: {fileID: -1722894491324836276}
   m_Layer: 7
   m_Name: Wererat - Red (small) (P)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2127,11 +2127,20 @@ MonoBehaviour:
   - {fileID: 3419503674915154712}
   - {fileID: 3419503674915154714}
   isMeleeAttacker: 1
+  dealsPosionDamage: 0
+  poisonDamage: 0
+  timeBetweenPoisonTicks: 0
+  poisonTime: 0
   hasMultipleAttacks: 1
   numberOfAttacks: 3
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  stunStatusEffectActive: 0
+  stunTime: 0
+  slowStatusEffectActive: 0
+  slowModifier: 0
+  slowTime: 0
 --- !u!195 &5638791971876986187
 NavMeshAgent:
   m_ObjectHideFlags: 0

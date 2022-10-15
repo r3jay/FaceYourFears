@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1778977675715420102}
   - component: {fileID: 4877241472556219966}
   - component: {fileID: 6213572280377908799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,8 @@ GameObject:
   - component: {fileID: -359581149071124300}
   - component: {fileID: 4119572686265982073}
   - component: {fileID: 4013142350857504637}
-  m_Layer: 0
+  - component: {fileID: -5525668143158212603}
+  m_Layer: 8
   m_Name: Projectile - yellow
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -4951,6 +4952,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5525668143158212603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857254718218096215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4649500b342f5ce4d9abbee924283245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6214685964491902658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,7 +4974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3911562455769684932}
   - component: {fileID: 7316244911903839446}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,22 +26,20 @@ public class projectile : MonoBehaviour
             {
                 col.collider.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
 
-                if (gameManager.instance.playerController.DOTdamage > 0)
-                {
-                    for (float i = gameManager.instance.playerController.statusEffectTime; i > 0;)
-                    {
-                        StartCoroutine(damageOverTime(col));
-                    }
-                }
                 if (gameManager.instance.playerController.stun == true)
                 {
                     col.collider.GetComponent<enemyAI>().stunStatusEffectActive = true;
-                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime;
+                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime_stun;
                 }
                 if (gameManager.instance.playerController.slowDown > 0)
                 {
                     col.collider.GetComponent<enemyAI>().slowStatusEffectActive = true;
-                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime;
+                    col.collider.GetComponent<enemyAI>().slowTime = gameManager.instance.playerController.statusEffectTime_slow;
+                    col.collider.GetComponent<enemyAI>().slowModifier = gameManager.instance.playerController.slowDown;
+                }
+                if (gameManager.instance.playerController.DOTdamage > 0)
+                {
+                    col.collider.GetComponent<enemyAI>().takePoisonDamage(gameManager.instance.playerController.DOTdamage, gameManager.instance.playerController.DOTtime, gameManager.instance.playerController.timeBetweenTicks);
                 }
             }
         }
@@ -54,17 +52,6 @@ public class projectile : MonoBehaviour
     private void OnDestroy()
     {
         AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
-    }
-    IEnumerator damageOverTime(Collision col)
-    {
-
-        for (float i = gameManager.instance.playerController.statusEffectTime; i > 0;)
-        {
-            col.collider.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.DOTdamage);
-            yield return new WaitForSeconds(1);
-            i -= 1;
-        }
-
     }
 }
 //[Header("----- Components -----")]

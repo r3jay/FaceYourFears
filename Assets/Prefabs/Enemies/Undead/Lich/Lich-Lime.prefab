@@ -25537,7 +25537,7 @@ GameObject:
   - component: {fileID: 2323902149088097893}
   m_Layer: 7
   m_Name: Lich-Lime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25603,18 +25603,32 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
-  stoppingDistance: 5
+  rangedStoppingDistance: 0
+  meleeStoppingDistance: 0
+  targetHouse: 0
+  targetPlayer: 0
   houseInRange: 0
   shootRate: 2
   bullet: {fileID: 100002, guid: 512f0783d4ccd974ba219dec14bbb58a, type: 3}
   shootPos: {fileID: 5645315642800342359}
+  meleeDamage: 0
   isInMeleeRange: 0
-  meleeWeaponLeft: {fileID: 0}
-  meleeWeaponRight: {fileID: 0}
+  meleeWeapons: []
   isMeleeAttacker: 0
+  dealsPosionDamage: 0
+  poisonDamage: 0
+  timeBetweenPoisonTicks: 0
+  poisonTime: 0
+  hasMultipleAttacks: 0
+  numberOfAttacks: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  stunStatusEffectActive: 0
+  stunTime: 0
+  slowStatusEffectActive: 0
+  slowModifier: 0
+  slowTime: 0
 --- !u!195 &8250622205147870848
 NavMeshAgent:
   m_ObjectHideFlags: 0

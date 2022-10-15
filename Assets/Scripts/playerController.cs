@@ -42,9 +42,13 @@ public class playerController : MonoBehaviour, IDamageable
     public float arcRange;
     public float destroyTime;
     public int DOTdamage;
+    public float DOTtime;
     public bool stun;
     public float slowDown;
-    public float statusEffectTime;
+    public float statusEffectTime_stun;
+    public float statusEffectTime_slow;
+    public float statusEffectTime_poison;
+    public float timeBetweenTicks;
 
 
     bool isShooting;
@@ -370,7 +374,11 @@ public class playerController : MonoBehaviour, IDamageable
         proSpeed = stats.proSpeed;
         destroyTime = stats.destroyTime;
         DOTdamage = stats.DOTdamage;
-        statusEffectTime = stats.statusEffectTime;
+        DOTtime = stats.DOTtime;
+        timeBetweenTicks = stats.timeBetweenTicks;
+        statusEffectTime_poison = stats.statusEffectTime_poison;
+        statusEffectTime_slow = stats.statusEffectTime_slow;
+        statusEffectTime_stun = stats.statusEffectTime_stun;
         stun = stats.stun;
         slowDown = stats.slowDown;
 

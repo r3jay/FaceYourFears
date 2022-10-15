@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 3712206920316151709}
   m_Layer: 7
   m_Name: Mad Clown-Yellow (small) (P)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -788,9 +788,20 @@ MonoBehaviour:
   meleeWeapons:
   - {fileID: 3530675116135156253}
   isMeleeAttacker: 1
+  dealsPosionDamage: 0
+  poisonDamage: 0
+  timeBetweenPoisonTicks: 0
+  poisonTime: 0
+  hasMultipleAttacks: 0
+  numberOfAttacks: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  stunStatusEffectActive: 0
+  stunTime: 0
+  slowStatusEffectActive: 0
+  slowModifier: 0
+  slowTime: 0
 --- !u!195 &1736953651719658001
 NavMeshAgent:
   m_ObjectHideFlags: 0

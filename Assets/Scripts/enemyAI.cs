@@ -63,6 +63,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [HideInInspector] public bool stunStatusEffectActive;
     [HideInInspector] public float stunTime;
     [HideInInspector] public bool slowStatusEffectActive;
+    [Range(0, 1)] public float slowModifier;
+    public float slowTime;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +95,9 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             animator.speed = Mathf.Sqrt(transform.localScale.y) / transform.localScale.y;
         }
+
+        stunTime = 0;
+        slowTime = 0;
     }
 
     // Update is called once per frame
@@ -118,113 +123,69 @@ public class enemyAI : MonoBehaviour, IDamageable
             // checks for knockback animation
             if (!takingDamage)
             {
-                if (!stunStatusEffectActive)
+                if (targetHouse)
                 {
-                    if (!slowStatusEffectActive)
+                    if (!stunStatusEffectActive)
                     {
-
-
-                        if (targetHouse)
-                        {
-                            moveToTarget();
-                            faceTarget();
-                            if (houseInRange)
-                            {
-                                if (agent.remainingDistance <= agent.stoppingDistance)
-                                {
-                                    if (!isShooting && !isMeleeAttacker)
-                                    {
-                                        StartCoroutine(shoot());
-                                    }
-                                    else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                                    {
-                                        StartCoroutine(meleeAttack());
-                                    }
-                                }
-
-                            }
-                        }
-                        else if (targetPlayer)
-                        {
-
-                            facePlayer();
-                            moveToPlayer();
-                            if (playerInRange)
-                            {
-                                if (!isShooting && !isMeleeAttacker)
-                                {
-                                    StartCoroutine(shoot());
-                                }
-                                else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                                {
-                                    StartCoroutine(meleeAttack());
-
-                                }
-                            }
-                        }
-
-
-                        //==================================== old code ===========================
-                        //if (playerInRange)
-                        //{
-                        //    if (canSeePlayer())
-                        //    {
-                        //        facePlayer();
-                        //        chasePlayer();
-                        //        if (!isShooting && !isMeleeAttacker)
-                        //        {
-                        //            StartCoroutine(shoot());
-                        //        }
-                        //        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                        //        {
-                        //            StartCoroutine(meleeAttack());
-                        //        }
-                        //    }
-
-
-                        //    // player within range but not in view
-                        //    else if (Vector3.Angle(playerDir, transform.forward) > fovAngle && !playerSeen)// NOTE :: without a high turning rate, enemies are dumb af. This line should maybe change.
-                        //                                                                                   // Going behind them might as well be the same as teleporting 100 miles away.
-                        //    {
-                        //        agent.stoppingDistance = 0;
-                        //    }
-                        //}
-                        //// Search for the last known player position
-                        //else if (!playerInRange && searchingForPlayer)
-                        //{
-                        //    agent.SetDestination(lastPlayerPos);
-                        //    agent.stoppingDistance = 0;
-                        //}
-                        //// if enemy gets to lastPlayerPosition starting roaming from a new location
-                        //if (agent.remainingDistance < 0.1f && searchingForPlayer)
-                        //{
-                        //    searchingForPlayer = false;
-                        //    startingPosition = transform.position;
-                        //    roam();
-                        //}
-                        //// default behavior
-                        //else if (agent.remainingDistance < 0.1f && !searchingForPlayer)
-                        //{
-                        //    roam();
-                        //}
-                        //================================================================================
+                        moveToTarget();
+                        faceTarget();
                     }
                     else
                     {
-                        speedOrig = chaseSpeed; 
-                        chaseSpeed = chaseSpeed * gameManager.instance.playerController.slowDown;
+                        StartCoroutine(stunTimer());
+                    }
+                    if (slowStatusEffectActive)
+                    {
                         StartCoroutine(slowDown());
-                        chaseSpeed = speedOrig;
+                    }
+                    if (houseInRange)
+                    {
+                        if (agent.remainingDistance <= agent.stoppingDistance)
+                        {
+                            if (!isShooting && !isMeleeAttacker)
+                            {
+                                StartCoroutine(shoot());
+                            }
+                            else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                            {
+                                StartCoroutine(meleeAttack());
+                            }
+                        }
+
                     }
                 }
-                else
+                else if (targetPlayer)
                 {
-                    StartCoroutine(stunTimer());
+
+                    if (!stunStatusEffectActive)
+                    {
+                        moveToPlayer();
+                        facePlayer();
+                    }
+                    else
+                    {
+                        StartCoroutine(stunTimer());
+                    }
+                    if (slowStatusEffectActive)
+                    {
+                        Debug.Log("slowed");
+                        StartCoroutine(slowDown());
+                    }
+
+                    if (playerInRange)
+                    {
+                        if (!isShooting && !isMeleeAttacker)
+                        {
+                            StartCoroutine(shoot());
+                        }
+                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                        {
+                            StartCoroutine(meleeAttack());
+
+                        }
+                    }
                 }
-
-
             }
-
         }
     }
 
@@ -260,6 +221,15 @@ public class enemyAI : MonoBehaviour, IDamageable
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(hit.position, path);
         agent.SetPath(path);
+
+        if (takingDamage)
+        {
+            agent.speed = 0;
+        }
+        else
+        {
+            agent.speed = chaseSpeed;
+        }
     }
 
     void faceTarget()
@@ -322,10 +292,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     //get enemy to face the player
     void facePlayer()
     {
-        //// if we want the option to have the enemy aim up and down, uncomment these two lines
-        //Quaternion aimRotation = Quaternion.LookRotation(playerDir);
-        //shootPos.transform.rotation = Quaternion.Lerp(shootPos.transform.rotation, aimRotation, Time.deltaTime * playerFaceSpeed);
-
         playerDir.y = 0; // we do this because we dont want the enemy looking at player's y position.
         Quaternion rotation = Quaternion.LookRotation(playerDir); //location we want the enemy to look toward
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);  //Lerp is something that happens overtime, instead of snapping to the location. smoothly changes location.
@@ -341,12 +307,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             HP -= dmg;
             animator.SetTrigger("Damage");
-
-            //// update lastPlayerPos so enemy investigates where it was shot from
-            //lastPlayerPos = gameManager.instance.player.transform.position;
-            ////searchingForPlayer = true;
-            //agent.SetDestination(lastPlayerPos);
-            //agent.stoppingDistance = 0;
+            StartCoroutine(waitForDamageAnimToFinish());
 
             StartCoroutine(flashColor());
 
@@ -355,8 +316,37 @@ public class enemyAI : MonoBehaviour, IDamageable
                 enemyDead();
             }
         }
+    }
 
+    public void takePoisonDamage(int damage, float poisonTime, float timeBetweenTicks)
+    {
+        StartCoroutine(applyPoison(damage, poisonTime, timeBetweenTicks));
+    }
 
+    // poison will flash red but does not cause damage animation or stop speed
+    IEnumerator applyPoison(int damage, float poisonTime, float timeBetweenTicks)
+    {
+        for (float i = poisonTime; i > 0;)
+        {
+            if (agent.enabled)
+            {
+                HP -= damage;
+
+                StartCoroutine(flashColor());
+
+                if (HP <= 0)
+                {
+                    enemyDead();
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+            yield return new WaitForSeconds(timeBetweenTicks);
+            i -= timeBetweenTicks;
+        }
     }
 
     void enemyDead()
@@ -393,17 +383,23 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator flashColor() //changes the color of the enemy.
     {
-        takingDamage = true;
-        agent.speed = 0;
-
         rend.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         rend.material.color = Color.white;
+    }
 
+    IEnumerator waitForDamageAnimToFinish()
+    {
+        takingDamage = true;
+        agent.velocity = Vector3.zero;
+        agent.isStopped = true;
         yield return new WaitForSeconds(1);
-
-        agent.speed = chaseSpeed;
-        takingDamage = false;
+        if (agent.enabled)
+        {
+            agent.isStopped = false;
+            agent.speed = chaseSpeed;
+            takingDamage = false;
+        }
     }
 
     IEnumerator shoot()
@@ -424,10 +420,6 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator meleeAttack()
     {
-
-        Debug.Log($"Stopping distance = {agent.stoppingDistance}");
-        Debug.Log($"Remaining distance = {agent.remainingDistance}");
-
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
 
@@ -488,24 +480,22 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            //if (playerSeen)
-            //{
-            //    lastPlayerPos = gameManager.instance.player.transform.position;
-            //    searchingForPlayer = true;
-            //    playerSeen = false;
-            //}
-
         }
     }
     IEnumerator stunTimer()
     {
         yield return new WaitForSeconds(stunTime);
         stunStatusEffectActive = false;
+        stunTime = 0;
     }
     IEnumerator slowDown()
     {
-        yield return new WaitForSeconds(stunTime);
+        agent.speed = chaseSpeed * slowModifier;
+
+        yield return new WaitForSeconds(slowTime);
+        agent.speed = chaseSpeed;
         slowStatusEffectActive = false;
+        slowTime = 0;
     }
 }
 
