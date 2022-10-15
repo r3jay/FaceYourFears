@@ -11,6 +11,11 @@ public class baseCollider : MonoBehaviour
             if (GetComponentInParent<enemyAI>())
             {
                 GetComponentInParent<enemyAI>().houseInRange = true;
+                if (GetComponentInParent<enemyAI>().isTreant)
+                {
+                    GetComponentInParent<enemyAI>().isMeleeAttacker = true;
+                    GetComponentInParent<enemyAI>().shootRate = 2;
+                }
             }
         }
     }

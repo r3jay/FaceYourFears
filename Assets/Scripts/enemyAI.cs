@@ -26,7 +26,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     public bool houseInRange;
 
     [Header("----- Weapon Stats -----")]
-    [SerializeField] float shootRate;
+    public float shootRate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
     bool isShooting;
@@ -35,7 +35,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     public int meleeDamage;
     public bool isInMeleeRange;
     public List<GameObject> meleeWeapons;
-    [SerializeField] bool isMeleeAttacker;
+    public bool isMeleeAttacker;
     public bool dealsPosionDamage;
     public int poisonDamage;
     public float timeBetweenPoisonTicks;
@@ -43,6 +43,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] bool hasMultipleAttacks;
     [SerializeField] int numberOfAttacks;
     bool isAttacking;
+    public bool isTreant;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
     [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
@@ -99,6 +100,13 @@ public class enemyAI : MonoBehaviour, IDamageable
 
         stunTime = 0;
         slowTime = 0;
+
+        // treant spawn check
+        if (isTreant)
+        {
+            StartCoroutine(treantSpawnPause());
+        }
+
     }
 
     // Update is called once per frame
@@ -133,6 +141,10 @@ public class enemyAI : MonoBehaviour, IDamageable
                     {
                         moveToTarget();
                         faceTarget();
+                        if (!isShooting && isTreant && !houseInRange)
+                        {
+                            StartCoroutine(shoot());
+                        }
                     }
                     else
                     {
@@ -404,12 +416,25 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
     }
 
+    IEnumerator treantSpawnPause()
+    {
+        isShooting = true;
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
     IEnumerator shoot()
     {
         float tempSpeed = agent.speed;
         agent.speed = 0;
         isShooting = true;
-        animator.SetTrigger("Attack");
+        if (!isTreant)
+        {
+            animator.SetTrigger("Attack");
+        }
+        else
+        {
+            animator.SetTrigger("Projectile");
+        }
         yield return new WaitForSeconds(.5f);
         Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
         // wait for attack animation to stop before reseeting speed to normal

@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] Rigidbody rb;
+    [SerializeField] GameObject impactEffect;
 
     [Header("----- Bullet Stats -----")]
     public int damage;
@@ -36,6 +37,10 @@ public class bullet : MonoBehaviour
                 }
             }
             other.GetComponent<IDamageable>().takeDamage(damage);
+            if (impactEffect)
+            {
+                Instantiate(impactEffect, other.transform.localPosition, other.transform.localRotation);
+            }
             Destroy(gameObject);
         }
 
