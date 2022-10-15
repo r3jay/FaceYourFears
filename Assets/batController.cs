@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemyAI : MonoBehaviour, IDamageable
+public class batController : MonoBehaviour, IDamageable
 {
 
     [Header("----- Components -----")]
@@ -31,6 +31,9 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] Transform shootPos;
     bool isShooting;
 
+    bool flyingNearby;
+    [Range(0, 10)] [SerializeField] float minAttackWaitTime, maxAttackWaitTime;
+    bool attackTimerRunning;
 
     public int meleeDamage;
     public bool isInMeleeRange;
@@ -52,6 +55,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     Vector3 playerDir;
     Vector3 startingPosition;
     bool playerInRange;
+    bool playerSeen;
     Vector3 lastPlayerPos;
     //bool searchingForPlayer;
     float speedOrig;
@@ -116,6 +120,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             // Ensures that when the player is dead and respawns, the enemy can retarget
             if (gameManager.instance.playerDeadMenu.activeSelf)
             {
+                playerSeen = false;
                 playerInRange = false;
                 agent.stoppingDistance = 0;
             }
@@ -123,7 +128,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             // checks for knockback animation
             if (!takingDamage)
             {
-                if (targetHouse)
+                if (targetPlayer)
                 {
                     if (slowStatusEffectActive)
                     {
@@ -131,159 +136,37 @@ public class enemyAI : MonoBehaviour, IDamageable
                     }
                     if (!stunStatusEffectActive)
                     {
-                        moveToTarget();
-                        faceTarget();
+                        if (!flyingNearby)
+                        {
+                            moveToPlayer();
+                            facePlayer();
+                        }
+                        else
+                        {
+                            if (agent.remainingDistance < 0.1f)
+                            {
+                                createNewPath();
+                            }
+
+                            if (!attackTimerRunning)
+                            {
+                                StartCoroutine(randomAttackTimer());
+                            }
+                        }
                     }
                     else
                     {
                         StartCoroutine(stunTimer());
-                    }
-                    if (houseInRange)
-                    {
-                        if (agent.remainingDistance <= agent.stoppingDistance)
-                        {
-                            if (!isShooting && !isMeleeAttacker)
-                            {
-                                StartCoroutine(shoot());
-                            }
-                            else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                            {
-                                StartCoroutine(meleeAttack());
-                            }
-                        }
-
-                    }
-                }
-                else if (targetPlayer)
-                {
-
-                    if (slowStatusEffectActive)
-                    {
-                        StartCoroutine(slowDown());
-                    }
-                    if (!stunStatusEffectActive)
-                    {
-                        moveToPlayer();
-                        facePlayer();
-                    }
-                    else
-                    {
-                        StartCoroutine(stunTimer());
-                    }
-
-                    if (playerInRange)
-                    {
-                        if (!isShooting && !isMeleeAttacker)
-                        {
-                            StartCoroutine(shoot());
-                        }
-                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
-                        {
-                            StartCoroutine(meleeAttack());
-
-                        }
                     }
                 }
             }
         }
     }
 
-    // When player is not seen, roam around a set area
-    void roam()
-    {
-        agent.stoppingDistance = 0; // guarantees enemy will stop exactly at location
-        agent.speed = speedOrig;
-
-        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
-        randomDirection += startingPosition;
-
-        NavMeshHit hit;
-        // Checks to see if path is valid, sets hit if true
-        NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1);
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
-    }
-
-    void moveToTarget()
-    {
-        if (isMeleeAttacker)
-        {
-            agent.stoppingDistance = meleeStoppingDistance;
-        }
-        else
-        {
-            agent.stoppingDistance = rangedStoppingDistance;
-        }
-        NavMeshHit hit;
-        NavMesh.SamplePosition(new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z), out hit, roamRadius, 1);
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
-
-        if (takingDamage)
-        {
-            agent.speed = 0;
-        }
-        else
-        {
-            agent.speed = chaseSpeed;
-        }
-    }
-
-    void faceTarget()
-    {
-        playerDir.y = 0;
-        Vector3 targetDir = new Vector3(houseTarget.transform.position.x, houseTarget.transform.position.y, houseTarget.transform.position.z) - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(targetDir); //location we want the enemy to look toward
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
-    }
 
     void moveToPlayer()
     {
         agent.SetDestination(gameManager.instance.player.transform.position);
-    }
-
-    // Check to see if player is within view - return true if player is seen
-    bool canSeePlayer()
-    {
-        float angle = Vector3.Angle(playerDir, transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.forward, playerDir, out hit))
-        {
-            Debug.DrawRay(transform.position + transform.forward, playerDir);
-
-            // if the raycast hits a player and is within enemies FOV
-            if (hit.collider.CompareTag("Player") && angle <= fovAngle)
-            {
-                //searchingForPlayer = false;
-                lastPlayerPos = gameManager.instance.player.transform.position;
-                return true;
-            }
-            else
-            {
-                //searchingForPlayer = true;
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    // chasing behaviour
-    void chasePlayer()
-    {
-        if (isMeleeAttacker)
-        {
-            agent.stoppingDistance = meleeStoppingDistance;
-        }
-        else
-        {
-            agent.stoppingDistance = rangedStoppingDistance;
-        }
-        agent.SetDestination(lastPlayerPos);
     }
 
     //get enemy to face the player
@@ -404,68 +287,49 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
     }
 
-    IEnumerator shoot()
+    public IEnumerator meleeAttack()
     {
-        float tempSpeed = agent.speed;
-        agent.speed = 0;
-        isShooting = true;
-        animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(.5f);
-        Instantiate(bullet, shootPos.transform.position, transform.rotation); //when enemy shoots, instantiate the bullet where enemy is located, in the bullets rotation
-        // wait for attack animation to stop before reseeting speed to normal
-        yield return new WaitForSeconds(.5f);
-        agent.speed = tempSpeed;
-        //Debug.Log("Enemy fired");
-        yield return new WaitForSeconds(shootRate);
-        isShooting = false;
-    }
-
-    IEnumerator meleeAttack()
-    {
-        agent.isStopped = true;
-        agent.velocity = Vector3.zero;
 
         isAttacking = true;
-        if (hasMultipleAttacks)
+
+        animator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(.5f);
+        if (!animator.GetBool("Dead"))
         {
-            animator.SetTrigger("Attack" + Random.Range(1, numberOfAttacks + 1));
-        }
-        else
-        {
-            animator.SetTrigger("Attack");
+            GetComponentInChildren<batMeleeWeaponController>().GetComponent<Collider>().enabled = true;
         }
 
-        // attack build up
         yield return new WaitForSeconds(.5f);
 
         if (!animator.GetBool("Dead"))
         {
-            foreach (GameObject weapon in meleeWeapons)
-            {
-                weapon.GetComponent<Collider>().enabled = true;
-            }
-        }
-
-
-        // wait for attack animation to finish
-        yield return new WaitForSeconds(1);
-
-        // if an attack misses, still turn off colliders after full attack
-        foreach (GameObject weapon in meleeWeapons)
-        {
-            weapon.GetComponent<Collider>().enabled = false;
-        }
-
-        if (!animator.GetBool("Dead"))
-        {
-            agent.speed = chaseSpeed;
-            agent.isStopped = false;
-
-            yield return new WaitForSeconds(shootRate);
-
             isAttacking = false;
+            flyingNearby = true;
+            createNewPath();
         }
 
+    }
+
+    void createNewPath()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+        randomDirection += gameObject.transform.position;
+
+        NavMeshHit hit;
+        // Checks to see if path is valid, sets hit if true
+        NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1);
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(hit.position, path);
+        agent.SetPath(path);
+    }
+
+    IEnumerator randomAttackTimer()
+    {
+        attackTimerRunning = true;
+        yield return new WaitForSeconds(Random.Range(minAttackWaitTime, maxAttackWaitTime));
+        flyingNearby = false;
+        attackTimerRunning = false;
     }
 
     // when player enters follow distance, set playerInRange
@@ -474,6 +338,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+
         }
     }
     // When player leaves follow distance , check if player is seen while exiting
