@@ -8,16 +8,21 @@ public class poisonController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(dealPoisonDamage(other, GetComponentInParent<enemyAI>().timeBetweenPoisonTicks, GetComponentInParent<enemyAI>().poisonDamage));
+            if (!other.GetComponent<playerController>().isTakingPoisonDamage)
+            {
+                StartCoroutine(dealPoisonDamage(other, GetComponentInParent<enemyAI>().timeBetweenPoisonTicks, GetComponentInParent<enemyAI>().poisonDamage));
+            }
         }
     }
     IEnumerator dealPoisonDamage(Collider other, float timeBetweenTicks, int damage)
     {
+        other.GetComponent<playerController>().isTakingPoisonDamage = true;
         for (float i = GetComponentInParent<enemyAI>().poisonTime; i > 0;)
         {
             other.GetComponent<playerController>().takeDamage(damage);
             yield return new WaitForSeconds(timeBetweenTicks);
             i -= timeBetweenTicks;
         }
+        other.GetComponent<playerController>().isTakingPoisonDamage = false;
     }
 }

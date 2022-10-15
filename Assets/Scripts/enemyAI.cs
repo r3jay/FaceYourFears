@@ -66,6 +66,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(0, 1)] public float slowModifier;
     public float slowTime;
 
+    bool isTakingPoisonDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -320,12 +322,16 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     public void takePoisonDamage(int damage, float poisonTime, float timeBetweenTicks)
     {
-        StartCoroutine(applyPoison(damage, poisonTime, timeBetweenTicks));
+        if (!isTakingPoisonDamage)
+        {
+            StartCoroutine(applyPoison(damage, poisonTime, timeBetweenTicks));
+        }
     }
 
     // poison will flash red but does not cause damage animation or stop speed
     IEnumerator applyPoison(int damage, float poisonTime, float timeBetweenTicks)
     {
+        isTakingPoisonDamage = true;
         for (float i = poisonTime; i > 0;)
         {
             if (agent.enabled)
@@ -347,6 +353,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(timeBetweenTicks);
             i -= timeBetweenTicks;
         }
+        isTakingPoisonDamage = false;
     }
 
     void enemyDead()

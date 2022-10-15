@@ -49,6 +49,7 @@ public class playerController : MonoBehaviour, IDamageable
     public float statusEffectTime_slow;
     public float statusEffectTime_poison;
     public float timeBetweenTicks;
+    [HideInInspector] public bool isTakingPoisonDamage;
 
 
     bool isShooting;
