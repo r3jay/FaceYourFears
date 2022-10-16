@@ -94,6 +94,9 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int livesLeft;
     int livesLeftOrig;
 
+    [Header("----- UI -----")]
+
+
     private void Start()
     {
         livesLeftOrig = livesLeft;
