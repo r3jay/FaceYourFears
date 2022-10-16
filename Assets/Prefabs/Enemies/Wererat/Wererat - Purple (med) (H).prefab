@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 3486663984812322294}
   - component: {fileID: -1722894491324836276}
   m_Layer: 7
-  m_Name: Wererat - Purple (med) (P)
+  m_Name: Wererat - Purple (med) (H)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2106,21 +2106,21 @@ MonoBehaviour:
   agent: {fileID: 5638791971876986187}
   rend: {fileID: 3419503674918266390}
   animator: {fileID: 3419503674922408150}
-  HP: 10
-  chaseSpeed: 3
+  HP: 30
+  chaseSpeed: 4
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 2.4
-  targetHouse: 0
-  targetPlayer: 1
+  targetHouse: 1
+  targetPlayer: 0
   houseInRange: 0
   shootRate: 1
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 8112948322945427348}
-  meleeDamage: 10
+  meleeDamage: 25
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 3419503674915154716}
@@ -2133,6 +2133,13 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 1
   numberOfAttacks: 3
+  isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

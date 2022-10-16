@@ -769,8 +769,8 @@ MonoBehaviour:
   agent: {fileID: 1736953651719658001}
   rend: {fileID: 3712206921020099566}
   animator: {fileID: 3712206921024386350}
-  HP: 20
-  chaseSpeed: 3
+  HP: 30
+  chaseSpeed: 5
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
@@ -783,7 +783,7 @@ MonoBehaviour:
   shootRate: 1.5
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 4921628656213318879}
-  meleeDamage: 20
+  meleeDamage: 30
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 3530675116135156253}
@@ -794,6 +794,13 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 0
   numberOfAttacks: 0
+  isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

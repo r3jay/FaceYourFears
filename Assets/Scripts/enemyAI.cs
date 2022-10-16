@@ -454,6 +454,7 @@ public class enemyAI : MonoBehaviour, IDamageable
             col.enabled = false;
         }
 
+        Destroy(gameObject, 3);
     }
 
     IEnumerator flashColor() //changes the color of the enemy.

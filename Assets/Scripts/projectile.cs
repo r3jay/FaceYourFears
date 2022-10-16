@@ -9,10 +9,12 @@ public class projectile : MonoBehaviour
     private GameObject hit;
     private bool collided;
     public bool isAoe;
+    List<Collider> aoeCol;
 
     void Start()
     {
         rb.velocity = Camera.main.transform.forward * gameManager.instance.playerController.proSpeed;
+        aoeCol = new List<Collider>();
         Destroy(gameObject, gameManager.instance.playerController.destroyTime);
     }
     private void OnCollisionEnter(Collision col)
@@ -48,6 +50,21 @@ public class projectile : MonoBehaviour
         }
         if (collided == true)
         {
+            if (Physics.OverlapSphere(transform.position, gameManager.instance.playerController.aoeRadius).Length > 0)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, gameManager.instance.playerController.aoeRadius);
+
+                foreach (Collider c in colliders)
+                {
+                    //if (!c.isTrigger && c != this.GetComponent<Collider>())
+                    //if (c.GetComponent<IDamageable>() != null && !c.isTrigger )
+                    if (c.GetComponent<IDamageable>() != null && !c.isTrigger && c != this.GetComponent<Collider>() && c.GetComponent<enemyAI>())
+                    {
+                        aoeCol.Add(c);
+                    }
+                }
+            }
+
             Destroy(hit, 3);
             Destroy(gameObject);
         }
@@ -57,19 +74,22 @@ public class projectile : MonoBehaviour
         AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
         if (isAoe == true)
         {
-            CheckForAoe();
+            if (aoeCol != null)
+            {
+                foreach (Collider c in aoeCol)
+                {
+                    if (c.GetComponent<IDamageable>() != null)
+                    {
+                        c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
+                    }
+                }
+            }
+
         }
     }
-    private void CheckForAoe()
+    private void OnDrawGizmos()
     {
-        Collider[] col = Physics.OverlapSphere(transform.position, 4f);
-        foreach (Collider c in col)
-        {
-            if (c.GetComponent<IDamageable>() != null)
-            {
-                c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
-            }
-        }
+        Gizmos.DrawSphere(transform.position, gameManager.instance.playerController.aoeRadius);
     }
 }
 //[Header("----- Components -----")]

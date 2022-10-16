@@ -590,7 +590,7 @@ MonoBehaviour:
   rend: {fileID: 6622115033066735922}
   animator: {fileID: 6622115033070860274}
   HP: 10
-  chaseSpeed: 4
+  chaseSpeed: 9
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 8
@@ -616,6 +616,13 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 1
   numberOfAttacks: 2
+  isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

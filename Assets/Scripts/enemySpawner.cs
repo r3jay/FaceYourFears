@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using System.Timers;
 
 public class enemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] List<GameObject> enemies;
     [SerializeField] int maxEnemies;
     [SerializeField] float timeBetweenEnemies;
 
@@ -43,8 +41,10 @@ public class enemySpawner : MonoBehaviour
         {
             isSpawning = true;
             enemiesSpawned++;
-            Quaternion randomAngle = new Quaternion(transform.rotation.x, UnityEngine.Random.Range(0, 180), transform.rotation.z, transform.rotation.w);
-            Instantiate(enemy, transform.position, randomAngle);
+            Quaternion randomAngle = new Quaternion(transform.rotation.x, Random.Range(0, 180), transform.rotation.z, transform.rotation.w);
+
+            int rand = Random.Range(0, enemies.Count);
+            Instantiate(enemies[rand], transform.position, randomAngle);
             yield return new WaitForSeconds(timeBetweenEnemies);
             isSpawning = false;
         }

@@ -23,6 +23,7 @@ MonoBehaviour:
   timeBetweenTicks: 0
   stun: 0
   isAoe: 1
+  aoeRadius: 5
   slowDown: 0
   statusEffectTime_poison: 0
   statusEffectTime_slow: 0

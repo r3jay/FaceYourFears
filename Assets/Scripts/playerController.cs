@@ -46,6 +46,7 @@ public class playerController : MonoBehaviour, IDamageable
     public float DOTtime;
     public bool stun;
     public bool isAoe;
+    public float aoeRadius;
     public float slowDown;
     
 
@@ -243,7 +244,14 @@ public class playerController : MonoBehaviour, IDamageable
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
                 isAoe = proList[selectedPro].isAoe;
-
+                if(isAoe)
+                {
+                    aoeRadius = proList[selectedPro].aoeRadius;
+                }
+                else
+                {
+                    aoeRadius = 0;
+                }
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -261,7 +269,14 @@ public class playerController : MonoBehaviour, IDamageable
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
                 isAoe = proList[selectedPro].isAoe;
-               
+                if (isAoe)
+                {
+                    aoeRadius = proList[selectedPro].aoeRadius;
+                }
+                else
+                {
+                    aoeRadius = 0;
+                }
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -408,6 +423,7 @@ public class playerController : MonoBehaviour, IDamageable
         slowDown = stats.slowDown;
         
         isAoe = stats.isAoe;
+        aoeRadius = stats.aoeRadius;
         
 
         proList.Add(stats);

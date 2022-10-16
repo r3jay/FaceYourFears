@@ -16,6 +16,7 @@ public class projectileStats : ScriptableObject
     public float timeBetweenTicks;
     public bool stun;
     public bool isAoe;
+    public float aoeRadius;
     public float slowDown;
     public float statusEffectTime_poison;
     public float statusEffectTime_slow;
