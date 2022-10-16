@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class playerController : MonoBehaviour, IDamageable
 {
@@ -95,6 +96,10 @@ public class playerController : MonoBehaviour, IDamageable
     int livesLeftOrig;
 
     [Header("----- UI -----")]
+    [SerializeField] TextMeshPro nameText;
+    [SerializeField] TextMeshPro damageText;
+    //[SerializeField] TextMeshPro nameText;
+
 
 
     private void Start()
