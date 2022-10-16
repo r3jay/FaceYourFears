@@ -31,7 +31,7 @@ public class gameManager : MonoBehaviour
     //public TextMeshProUGUI keyCountText;
     public GameObject pickUp;
     public GameObject levelMusic;
-    public GameObject menuMusic;
+    //public GameObject menuMusic;
 
     [Header("------ House Attributes -----")]
     public int houseCurrentHP;
