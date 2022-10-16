@@ -22,6 +22,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     [HideInInspector] public bool stunStatusEffectActive;
     [HideInInspector] public float stunTime;
+    bool stunTimerRunning;
 
 
     [Header("------ Projectile Stats -----")]
@@ -106,7 +107,7 @@ public class playerController : MonoBehaviour, IDamageable
                 sprint();
                 StartCoroutine(footSteps());
             }
-            else
+            else if(!stunTimerRunning)
             {
                 StartCoroutine(stunTimer());
             }
@@ -471,7 +472,10 @@ public class playerController : MonoBehaviour, IDamageable
 
     IEnumerator stunTimer()
     {
+        stunTimerRunning = true;
         yield return new WaitForSeconds(stunTime);
         stunStatusEffectActive = false;
+        stunTimerRunning = false;
+        stunTime = 0;
     }
 }
