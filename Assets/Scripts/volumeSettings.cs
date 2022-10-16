@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+
+/*
+ Commented out parts "MenuMusic..." is for if we need to add menu music back into the game. 
+ */
 public class volumeSettings : MonoBehaviour
 {
     [SerializeField] AudioMixer mixer;
@@ -11,21 +15,21 @@ public class volumeSettings : MonoBehaviour
     [SerializeField] Slider gameMusicSlider;
     [SerializeField] Slider gameSfxSlider;
 
-    public const string MIXER_MENUMUSIC = "MenuMusicVolume";
+   // public const string MIXER_MENUMUSIC = "MenuMusicVolume";
     public const string MIXER_MENUSFX = "MenuSFXVolume";
     public const string MIXER_GAME_MUSIC = "GameMusicVolume";
     public const string MIXER_GAME_SFX = "GameSFXVolume";
 
     void Awake()
     {
-        menuMusicSlider.onValueChanged.AddListener(setMenuMusicVolume);
+        //menuMusicSlider.onValueChanged.AddListener(setMenuMusicVolume);
         menuSfxSlider.onValueChanged.AddListener(setMenuSFXVolume);
         gameMusicSlider.onValueChanged.AddListener(setGameMusicVolume);
         gameSfxSlider.onValueChanged.AddListener(setGameMusicVolume);
     }
     void Start()
     {
-        menuMusicSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_MUSIC_KEY, 1f);
+        //menuMusicSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_MUSIC_KEY, 1f);
         menuSfxSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_SFX_KEY, 1f);
         gameMusicSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_MUSIC_KEY, 1f);
         gameSfxSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_SFX_KEY, 1f);
@@ -34,16 +38,16 @@ public class volumeSettings : MonoBehaviour
 
     void OnDisable()
     {
-        PlayerPrefs.SetFloat(audioManager.MENU_MUSIC_KEY, menuMusicSlider.value);
+       // PlayerPrefs.SetFloat(audioManager.MENU_MUSIC_KEY, menuMusicSlider.value);
         PlayerPrefs.SetFloat(audioManager.MENU_SFX_KEY, menuSfxSlider.value);
         PlayerPrefs.SetFloat(audioManager.GAME_MUSIC_KEY, gameMusicSlider.value);
         PlayerPrefs.SetFloat(audioManager.GAME_SFX_KEY, gameSfxSlider.value);
     }
 
-    void setMenuMusicVolume(float value)
-    {
-        mixer.SetFloat(MIXER_MENUMUSIC, Mathf.Log10(value) * 20);
-    }
+    //void setMenuMusicVolume(float value)
+    //{
+    //    mixer.SetFloat(MIXER_MENUMUSIC, Mathf.Log10(value) * 20);
+    //}
 
     void setMenuSFXVolume(float value)
     {
