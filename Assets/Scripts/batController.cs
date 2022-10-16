@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class batController : MonoBehaviour, IDamageable
+public class batController : MonoBehaviour
 {
 
     [Header("----- Components -----")]
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Renderer rend;
+    public Renderer rend;
     [SerializeField] Animator animator;
 
     [Header("----- Enemy Stats -----")]
-    [Range(1, 100)] [SerializeField] int HP;
+    [Range(1, 100)] public int HP;
     [SerializeField] public float chaseSpeed;
     [Range(1, 50)] [SerializeField] int roamRadius;
     [Range(1, 180)] [SerializeField] int fovAngle;
@@ -61,7 +61,7 @@ public class batController : MonoBehaviour, IDamageable
     float speedOrig;
     int randomNumber;
 
-    bool takingDamage;
+    public bool takingDamage;
 
     [HideInInspector] public bool stunStatusEffectActive;
     [HideInInspector] public float stunTime;
@@ -69,7 +69,6 @@ public class batController : MonoBehaviour, IDamageable
     [Range(0, 1)] public float slowModifier;
     public float slowTime;
 
-    bool isTakingPoisonDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -175,116 +174,6 @@ public class batController : MonoBehaviour, IDamageable
         playerDir.y = 0; // we do this because we dont want the enemy looking at player's y position.
         Quaternion rotation = Quaternion.LookRotation(playerDir); //location we want the enemy to look toward
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);  //Lerp is something that happens overtime, instead of snapping to the location. smoothly changes location.
-    }
-
-
-
-
-    public void takeDamage(int dmg)
-    {
-        // check to make sure enemy is not already dead
-        if (agent.enabled)
-        {
-            HP -= dmg;
-            animator.SetTrigger("Damage");
-            StartCoroutine(waitForDamageAnimToFinish());
-
-            StartCoroutine(flashColor());
-
-            if (HP <= 0)
-            {
-                enemyDead();
-            }
-        }
-    }
-
-    public void takePoisonDamage(int damage, float poisonTime, float timeBetweenTicks)
-    {
-        if (!isTakingPoisonDamage)
-        {
-            StartCoroutine(applyPoison(damage, poisonTime, timeBetweenTicks));
-        }
-    }
-
-    // poison will flash red but does not cause damage animation or stop speed
-    IEnumerator applyPoison(int damage, float poisonTime, float timeBetweenTicks)
-    {
-        isTakingPoisonDamage = true;
-        for (float i = poisonTime; i > 0;)
-        {
-            if (agent.enabled)
-            {
-                HP -= damage;
-
-                StartCoroutine(flashColor());
-
-                if (HP <= 0)
-                {
-                    enemyDead();
-                    break;
-                }
-            }
-            else
-            {
-                break;
-            }
-            yield return new WaitForSeconds(timeBetweenTicks);
-            i -= timeBetweenTicks;
-        }
-        isTakingPoisonDamage = false;
-    }
-
-    void enemyDead()
-    {
-        gameManager.instance.enemyDecrement();
-        animator.SetBool("Dead", true);
-
-        if (key.Count > 0)
-        {
-            Vector3 hoverPos = transform.position;
-            hoverPos.y += 1.2f;
-            Instantiate(key[0], (hoverPos + lootLocation), transform.rotation);
-        }
-        else if (boost.Count > 0)
-        {
-            randomNumber = Random.Range(1, 20);
-            if (randomNumber >= 1 && randomNumber <= 5)
-            {
-                Instantiate(boost[Random.Range(0, boost.Count - 1)], transform.position, transform.rotation);
-            }
-        }
-
-
-        agent.enabled = false;
-
-
-        //// after death, delete colliders... currently worked so takeDamage just does nothing so that enemy bodies can still be interacted with
-        foreach (Collider col in GetComponents<Collider>())
-        {
-            col.enabled = false;
-        }
-
-    }
-
-    IEnumerator flashColor() //changes the color of the enemy.
-    {
-        rend.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        rend.material.color = Color.white;
-    }
-
-    IEnumerator waitForDamageAnimToFinish()
-    {
-        takingDamage = true;
-        agent.velocity = Vector3.zero;
-        agent.isStopped = true;
-        yield return new WaitForSeconds(1);
-        if (agent.enabled)
-        {
-            agent.isStopped = false;
-            agent.speed = chaseSpeed;
-            takingDamage = false;
-        }
     }
 
     public IEnumerator meleeAttack()

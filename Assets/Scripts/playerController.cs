@@ -323,7 +323,7 @@ public class playerController : MonoBehaviour, IDamageable
             //Instantiate(projectile, shootPos.transform.position, transform.rotation);
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
-            instantiateProjectile(shootPos);
+            instantiateProjectile(Camera.main.transform);
 
 
             //if (hit.collider.GetComponent<IDamageable>() != null)
