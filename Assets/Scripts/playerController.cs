@@ -242,7 +242,8 @@ public class playerController : MonoBehaviour, IDamageable
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
-                
+                isAoe = proList[selectedPro].isAoe;
+
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -259,7 +260,7 @@ public class playerController : MonoBehaviour, IDamageable
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
-               
+                isAoe = proList[selectedPro].isAoe;
                
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
