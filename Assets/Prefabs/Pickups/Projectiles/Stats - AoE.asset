@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
   m_Name: Stats - AoE
   m_EditorClassIdentifier: 
-  shootRate: 1
+  shootRate: 2
   proDist: 1000
   shootDamage: 10
-  proSpeed: 7
+  proSpeed: 0.7
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0
