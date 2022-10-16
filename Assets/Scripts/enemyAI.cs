@@ -44,6 +44,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] int numberOfAttacks;
     bool isAttacking;
     public bool isTreant;
+    public bool isLich;
+    [SerializeField] float handSpawnRadiusFromPlayer;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
     [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
@@ -102,9 +104,9 @@ public class enemyAI : MonoBehaviour, IDamageable
         slowTime = 0;
 
         // treant spawn check
-        if (isTreant)
+        if (isTreant || isLich)
         {
-            StartCoroutine(treantSpawnPause());
+            StartCoroutine(spawnPause());
         }
 
     }
@@ -187,7 +189,14 @@ public class enemyAI : MonoBehaviour, IDamageable
                     {
                         if (!isShooting && !isMeleeAttacker)
                         {
-                            StartCoroutine(shoot());
+                            if (!isLich)
+                            {
+                                StartCoroutine(shoot());
+                            }
+                            else
+                            {
+                                StartCoroutine(lichSpawnHands());
+                            }
                         }
                         else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
                         {
@@ -416,9 +425,28 @@ public class enemyAI : MonoBehaviour, IDamageable
         }
     }
 
-    IEnumerator treantSpawnPause()
+    IEnumerator spawnPause()
     {
         isShooting = true;
+        float rand = Random.Range(1, shootRate + 3);
+        yield return new WaitForSeconds(rand);
+        isShooting = false;
+    }
+    IEnumerator lichSpawnHands()
+    {
+        float tempSpeed = agent.speed;
+        agent.speed = 0;
+        isShooting = true;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(.5f);
+
+        Vector3 randomPosition = gameManager.instance.player.transform.position + Random.insideUnitSphere * handSpawnRadiusFromPlayer;
+        randomPosition.y = 0;
+        Instantiate(bullet, randomPosition, transform.localRotation);
+        // wait for attack animation to stop before reseeting speed to normal
+        yield return new WaitForSeconds(.5f);
+        agent.speed = tempSpeed;
+        //Debug.Log("Enemy fired");
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
