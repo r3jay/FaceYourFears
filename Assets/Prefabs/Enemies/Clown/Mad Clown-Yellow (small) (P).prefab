@@ -783,7 +783,7 @@ MonoBehaviour:
   shootRate: 2
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 4921628656213318879}
-  meleeDamage: 0
+  meleeDamage: 100
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 3530675116135156253}
@@ -794,6 +794,7 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 0
   numberOfAttacks: 0
+  isTreant: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

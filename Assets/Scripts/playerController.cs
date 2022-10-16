@@ -89,8 +89,13 @@ public class playerController : MonoBehaviour, IDamageable
     float speedTimeLeft;
     float damageTimeLeft;
 
+    [Header("----- Respawn Info -----")]
+    [SerializeField] int livesLeft;
+    int livesLeftOrig;
+
     private void Start()
     {
+        livesLeftOrig = livesLeft;
         HPOrig = currentHP;
         playerSpeedOriginal = playerSpeed;
         respawn();
@@ -276,7 +281,16 @@ public class playerController : MonoBehaviour, IDamageable
 
         if (currentHP <= 0)
         {
-            gameManager.instance.PlayerIsDead();
+            livesLeft--;
+            if (livesLeft > 0)
+            {
+                gameManager.instance.PlayerCanRespawn();
+            }
+            else
+            {
+                livesLeft = livesLeftOrig;
+                gameManager.instance.PlayerIsDead();
+            }
         }
         else
             StartCoroutine(damageFlash());
@@ -340,14 +354,14 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void respawn()
     {
-        controller.enabled = false;
-        currentHP = maxHP;
-        updatePlayerHPBar();
-        gameManager.instance.houseCurrentHP = gameManager.instance.houseMaxHP;
-        gameManager.instance.updateHouseHP();
-        transform.position = gameManager.instance.playerSpawnPosition.transform.position;
-        controller.enabled = true;
-        gameManager.instance.CursorUnlockUnpause();
+            controller.enabled = false;
+            currentHP = maxHP;
+            updatePlayerHPBar();
+            //gameManager.instance.houseCurrentHP = gameManager.instance.houseMaxHP;
+            //gameManager.instance.updateHouseHP();
+            transform.position = gameManager.instance.playerSpawnPosition.transform.position;
+            controller.enabled = true;
+            gameManager.instance.CursorUnlockUnpause();
     }
 
 

@@ -513,6 +513,22 @@ PrefabInstance:
       propertyPath: m_text
       value: "I stopped the clowns!\n But I'm feeling so sleepy..."
       objectReference: {fileID: 0}
+    - target: {fileID: 4229195088877362253, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730402242283153329, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playerRespawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730402242418227741, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730402242513431010, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4730402242649546450, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_Name
       value: UI
@@ -601,10 +617,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4730402242896173864, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313227372635168617, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485604136001979064, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7302609929909646249, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: levelMusic
       value: 
       objectReference: {fileID: 1910432975}
+    - target: {fileID: 7302609929909646249, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: playerRespawnMenu
+      value: 
+      objectReference: {fileID: 1278789158}
+    - target: {fileID: 8826239179320580306, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853278907853595135, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
@@ -899,6 +939,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
+      propertyPath: livesLeft
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
+      propertyPath: respawnMenu
+      value: 
+      objectReference: {fileID: 1278789158}
     - target: {fileID: 6565688874337324874, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1709,6 +1757,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: afe865fd42a69ba4499addd6bcfef596, type: 3}
+--- !u!1 &1278789158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8853278907853595135, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+  m_PrefabInstance: {fileID: 372597151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1279026204
 PrefabInstance:
   m_ObjectHideFlags: 0

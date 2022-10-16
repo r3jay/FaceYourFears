@@ -24,6 +24,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamage;
     public GameObject levelWinMenu;
     public GameObject gameWinMenu;
+    [SerializeField] GameObject playerRespawnMenu;
     public GameObject playerDeadMenu;    
     public GameObject houseDestroyedMenu;
     public GameObject instructions;
@@ -113,6 +114,13 @@ public class gameManager : MonoBehaviour
         currentMenu = null;
     }
 
+    public void PlayerCanRespawn()
+    {
+        isPaused = true;
+        playerRespawnMenu.SetActive(true);
+        currentMenu = playerRespawnMenu;
+        CursorLockPause();
+    }
     public void PlayerIsDead()
     {
         isPaused = true;
