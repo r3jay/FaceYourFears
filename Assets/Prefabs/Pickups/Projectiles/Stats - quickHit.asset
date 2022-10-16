@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
+  m_Name: Stats - quickHit
+  m_EditorClassIdentifier: 
+  shootRate: 1
+  proDist: 1000
+  shootDamage: 10
+  proSpeed: 7
+  arcRange: 0
+  destroyTime: 3
+  DOTdamage: 0
+  DOTtime: 0
+  timeBetweenTicks: 0
+  stun: 0
+  isAoe: 0
+  slowDown: 0
+  statusEffectTime_poison: 0
+  statusEffectTime_slow: 0
+  statusEffectTime_stun: 0
+  projectile: {fileID: 1908781827404660, guid: 5dd7cbf181213694c9b8cb6f86b1b6c2, type: 3}
+  impactEffect: {fileID: 1805005964355744, guid: 0e62a55a5d95a754f8753e1bb7b6f207, type: 3}
+  muzzle: {fileID: 1805005964355744, guid: e59a20127d121a044a850cad25d5f212, type: 3}
+  shotSound: {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}

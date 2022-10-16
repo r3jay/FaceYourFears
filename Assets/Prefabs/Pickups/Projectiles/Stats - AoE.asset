@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
+  m_Name: Stats - AoE
+  m_EditorClassIdentifier: 
+  shootRate: 1
+  proDist: 1000
+  shootDamage: 10
+  proSpeed: 7
+  arcRange: 0
+  destroyTime: 3
+  DOTdamage: 0
+  DOTtime: 0
+  timeBetweenTicks: 0
+  stun: 0
+  isAoe: 1
+  slowDown: 0
+  statusEffectTime_poison: 0
+  statusEffectTime_slow: 0
+  statusEffectTime_stun: 0
+  projectile: {fileID: 1473007591874996, guid: 75cbc92faed5dd742b6f61a6a4d1a6a1, type: 3}
+  impactEffect: {fileID: 1605288786288348, guid: 413f6a74567cc2743b825679dbcea7bf, type: 3}
+  muzzle: {fileID: 1580551768239302, guid: 60b3585ec4088fc4ca731c159b41bcf5, type: 3}
+  shotSound: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}

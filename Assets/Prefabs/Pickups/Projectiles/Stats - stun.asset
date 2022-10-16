@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
+  m_Name: Stats - stun
+  m_EditorClassIdentifier: 
+  shootRate: 0.3
+  proDist: 1000
+  shootDamage: 0
+  proSpeed: 12
+  arcRange: 0
+  destroyTime: 3
+  DOTdamage: 10
+  DOTtime: 0
+  timeBetweenTicks: 0
+  stun: 1
+  isAoe: 0
+  slowDown: 0
+  statusEffectTime_poison: 0
+  statusEffectTime_slow: 0
+  statusEffectTime_stun: 3
+  projectile: {fileID: 1339477995214658, guid: fd42a1af2c5b1d14aba0bbebe9d17905, type: 3}
+  impactEffect: {fileID: 1774151147760336, guid: b800c5e3fd16d494490f8bf8a042e76e, type: 3}
+  muzzle: {fileID: 1169491246982470, guid: fd6428daf72b59b4aaec79d554e03ce7, type: 3}
+  shotSound: {fileID: 8300000, guid: d1afd3f4d23c24f418ffc315afb04965, type: 3}

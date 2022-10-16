@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
+  m_Name: Stats - slow
+  m_EditorClassIdentifier: 
+  shootRate: 0.3
+  proDist: 1000
+  shootDamage: 0
+  proSpeed: 12
+  arcRange: 0
+  destroyTime: 3
+  DOTdamage: 10
+  DOTtime: 0
+  timeBetweenTicks: 0
+  stun: 0
+  isAoe: 0
+  slowDown: 0.5
+  statusEffectTime_poison: 0
+  statusEffectTime_slow: 3
+  statusEffectTime_stun: 0
+  projectile: {fileID: 1579560454844834, guid: dd45390eee5eeba45bc559ed68bd971d, type: 3}
+  impactEffect: {fileID: 1090680790622714, guid: aad060174d7404640ad356b131bf0baf, type: 3}
+  muzzle: {fileID: 1234945742121850, guid: 3c8c6899778118e46a71495afcfc1c48, type: 3}
+  shotSound: {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}

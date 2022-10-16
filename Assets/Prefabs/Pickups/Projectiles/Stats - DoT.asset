@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
+  m_Name: Stats - DoT
+  m_EditorClassIdentifier: 
+  shootRate: 1
+  proDist: 1000
+  shootDamage: 10
+  proSpeed: 7
+  arcRange: 0
+  destroyTime: 3
+  DOTdamage: 0
+  DOTtime: 0
+  timeBetweenTicks: 0
+  stun: 0
+  isAoe: 0
+  slowDown: 0
+  statusEffectTime_poison: 0
+  statusEffectTime_slow: 0
+  statusEffectTime_stun: 0
+  projectile: {fileID: 1480069451246100, guid: 34e00b160d34d30479debbc164b3e7f2, type: 3}
+  impactEffect: {fileID: 1090680790622714, guid: 02f611a050a3ba1489ab6b7efc485e9f, type: 3}
+  muzzle: {fileID: 1787985205539338, guid: a9520bc077466214583af04f5d332c88, type: 3}
+  shotSound: {fileID: 8300000, guid: 1eb7cbaf61d23a64bbd36c0a38b5cb0c, type: 3}

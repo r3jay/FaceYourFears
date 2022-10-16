@@ -21,7 +21,7 @@ public class projectileStats : ScriptableObject
     public float statusEffectTime_slow;
     public float statusEffectTime_stun;
     //public int proCount;
-    public GameObject aoeHit;
+    
     public GameObject projectile;
     public GameObject impactEffect;
     public GameObject muzzle;
