@@ -6589,10 +6589,10 @@ MonoBehaviour:
   fovAngle: 70
   playerFaceSpeed: 5
   followDistance: 15
-  rangedStoppingDistance: 0
+  rangedStoppingDistance: 6
   meleeStoppingDistance: 0
   targetHouse: 0
-  targetPlayer: 0
+  targetPlayer: 1
   houseInRange: 0
   shootRate: 2
   bullet: {fileID: 100002, guid: d24e106dd5b11e34a8e399e4e48db9f6, type: 3}
@@ -6607,6 +6607,9 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 0
   numberOfAttacks: 0
+  isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

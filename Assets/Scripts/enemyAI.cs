@@ -16,7 +16,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] public float chaseSpeed;
     [Range(1, 50)] [SerializeField] int roamRadius;
     [Range(1, 180)] [SerializeField] int fovAngle;
-    [Range(1, 10)] [SerializeField] int playerFaceSpeed;
+    [Range(1, 10)] [SerializeField] float playerFaceSpeed;
+    float playerFaceSpeedOrig;
     [SerializeField] float followDistance;
     [SerializeField] float rangedStoppingDistance;
     [SerializeField] float meleeStoppingDistance;
@@ -46,6 +47,12 @@ public class enemyAI : MonoBehaviour, IDamageable
     public bool isTreant;
     public bool isLich;
     [SerializeField] float handSpawnRadiusFromPlayer;
+    [SerializeField] bool isSpearmen;
+    [SerializeField] float defendTime;
+    bool defendTimerRunning;
+    bool isDefending;
+    [SerializeField] int takeDamageOverAngle;
+    [Range(0, 1)] [SerializeField] float slowRotationModifier;
 
     [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
     [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
@@ -74,6 +81,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     void Start()
     {
         GetComponent<SphereCollider>().radius = followDistance;
+        playerFaceSpeedOrig = playerFaceSpeed;
         if (gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count != 0)
         {
             int rand = Random.Range(0, gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count - 1);
@@ -198,10 +206,9 @@ public class enemyAI : MonoBehaviour, IDamageable
                                 StartCoroutine(lichSpawnHands());
                             }
                         }
-                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
+                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange && !isDefending)
                         {
                             StartCoroutine(meleeAttack());
-
                         }
                     }
                 }
@@ -320,20 +327,65 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     public void takeDamage(int dmg)
     {
-        // check to make sure enemy is not already dead
-        if (agent.enabled)
+        if (!isSpearmen || (isSpearmen && isAttacking))
         {
-            HP -= dmg;
-            animator.SetTrigger("Damage");
-            StartCoroutine(waitForDamageAnimToFinish());
-
-            StartCoroutine(flashColor());
-
-            if (HP <= 0)
+            // check to make sure enemy is not already dead
+            if (agent.enabled)
             {
-                enemyDead();
+                HP -= dmg;
+                animator.SetTrigger("Damage");
+                StartCoroutine(waitForDamageAnimToFinish());
+
+                StartCoroutine(flashColor());
+
+                if (HP <= 0)
+                {
+                    enemyDead();
+                }
             }
         }
+        else
+        {
+            if (agent.enabled)
+            {
+                float angle = Vector3.Angle(playerDir, transform.forward);
+                if (angle < takeDamageOverAngle)
+                {
+                    isDefending = true;
+                    animator.SetBool("Defending", true);
+                    agent.velocity = Vector3.zero;
+                    agent.isStopped = true;
+                    playerFaceSpeed *= slowRotationModifier;
+                    if (!defendTimerRunning)
+                    {
+                        StartCoroutine(defendTimer());
+                    }
+
+                }
+                else
+                {
+                    isDefending = false;
+                    animator.SetBool("Defending", false);
+                    HP -= dmg;
+                    animator.SetTrigger("Damage");
+                    playerFaceSpeed = playerFaceSpeedOrig;
+                    agent.speed = chaseSpeed;
+                    agent.isStopped = false;
+                }
+            }
+        }
+    }
+
+    IEnumerator defendTimer()
+    {
+        defendTimerRunning = true;
+        yield return new WaitForSeconds(defendTime);
+        defendTimerRunning = false;
+        isDefending = false;
+        animator.SetBool("Defending", false);
+        playerFaceSpeed = playerFaceSpeedOrig;
+        agent.speed = chaseSpeed;
+        agent.isStopped = false;
     }
 
     public void takePoisonDamage(int damage, float poisonTime, float timeBetweenTicks)

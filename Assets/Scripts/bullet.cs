@@ -36,7 +36,10 @@ public class bullet : MonoBehaviour
                     other.GetComponent<playerController>().stunTime = stunTime;
                 }
             }
-            other.GetComponent<IDamageable>().takeDamage(damage);
+            if (damage > 0)
+            {
+                other.GetComponent<IDamageable>().takeDamage(damage);
+            }
             if (impactEffect)
             {
                 Instantiate(impactEffect, other.transform.localPosition, other.transform.localRotation);
