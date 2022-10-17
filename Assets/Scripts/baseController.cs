@@ -22,7 +22,9 @@ public class baseController : MonoBehaviour , IDamageable
         float percentDamaged = gameManager.instance.houseCurrentHP / gameManager.instance.houseMaxHP * 100;
         if(percentDamaged <= 75)
         {
-            house100.SetActive(false);
+            Debug.Log("House 75%");
+            MeshRenderer meshRenderer = house100.GetComponent<MeshRenderer>();
+            meshRenderer.enabled = false;
             house75.SetActive(true);
         }
 
