@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class baseController : MonoBehaviour , IDamageable
 {
     [SerializeField] int HP;
@@ -9,6 +10,11 @@ public class baseController : MonoBehaviour , IDamageable
     [SerializeField] GameObject house75;
     [SerializeField] GameObject house50;
     [SerializeField] GameObject house25;
+    [SerializeField] List<AudioClip> hitSound;
+    [SerializeField] List<AudioClip> damageSound;
+    [SerializeField] AudioSource aud;
+
+
 
 
 
@@ -16,12 +22,17 @@ public class baseController : MonoBehaviour , IDamageable
     
     public void takeDamage(int dmg)
     {
+        System.Random rand = new System.Random();
+
+        aud.PlayOneShot(hitSound[rand.Next(1, hitSound.Count + 1)]);
         gameManager.instance.houseCurrentHP -= dmg;
         gameManager.instance.updateHouseHP();
 
         float percentDamaged = gameManager.instance.houseCurrentHP / gameManager.instance.houseMaxHP * 100;
         if(percentDamaged <= 75)
         {
+            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+
             Debug.Log("House 75%");
             MeshRenderer meshRenderer = house100.GetComponent<MeshRenderer>();
             meshRenderer.enabled = false;
@@ -30,12 +41,16 @@ public class baseController : MonoBehaviour , IDamageable
 
         if (percentDamaged <= 50)
         {
+            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+
             house75.SetActive(false);
             house50.SetActive(true);
         }
 
         if (percentDamaged <= 25)
         {
+            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+
             house50.SetActive(false);
             house25.SetActive(true);
         }

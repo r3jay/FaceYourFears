@@ -100,12 +100,16 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI typeText;
     [SerializeField] TextMeshProUGUI cooldownText;
+    [SerializeField] TextMeshProUGUI livesLeftText;
+
 
 
 
     private void Start()
     {
         livesLeftOrig = livesLeft;
+        livesLeftText.text = livesLeft.ToString();
+
         HPOrig = currentHP;
         playerSpeedOriginal = playerSpeed;
         respawn();
@@ -319,6 +323,8 @@ public class playerController : MonoBehaviour, IDamageable
         if (currentHP <= 0)
         {
             livesLeft--;
+            livesLeftText.text = livesLeft.ToString();
+
             if (livesLeft > 0)
             {
                 gameManager.instance.PlayerCanRespawn();
