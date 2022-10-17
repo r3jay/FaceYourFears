@@ -255,7 +255,7 @@ public class playerController : MonoBehaviour, IDamageable
                 muzzle = proList[selectedPro].muzzle;
                 isAoe = proList[selectedPro].isAoe;
 
-                cooldownText.text = fireRate.ToString();
+                cooldownText.text = proList[selectedPro].shootRate.ToString();
                 nameText.text = proList[selectedPro].name;
                 typeText.text = proList[selectedPro].type;
 
@@ -285,6 +285,11 @@ public class playerController : MonoBehaviour, IDamageable
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
                 isAoe = proList[selectedPro].isAoe;
+
+                cooldownText.text = proList[selectedPro].shootRate.ToString();
+                nameText.text = proList[selectedPro].name;
+                typeText.text = proList[selectedPro].type;
+
                 if (isAoe)
                 {
                     aoeRadius = proList[selectedPro].aoeRadius;
@@ -421,7 +426,7 @@ public class playerController : MonoBehaviour, IDamageable
     }
     public void projectilePickup(projectileStats stats)
     {
-        fireRate = stats.shootRate;
+        
         playerDamage = stats.shootDamage;
         projectile = stats.projectile;
         impactE = stats.impactEffect;
@@ -442,9 +447,9 @@ public class playerController : MonoBehaviour, IDamageable
         aoeRadius = stats.aoeRadius;
 
 
-        cooldownText.text = fireRate.ToString();
-        nameText.text = proList[selectedPro].name;
-        typeText.text = proList[selectedPro].type;
+        cooldownText.text = stats.shootRate.ToString();
+        nameText.text = stats.name;
+        typeText.text = stats.type;
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;
