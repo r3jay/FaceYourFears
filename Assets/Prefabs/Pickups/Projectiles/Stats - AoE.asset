@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
   m_Name: Stats - AoE
   m_EditorClassIdentifier: 
-  shootRate: 2
+  shootRate: 0.1
   proDist: 1000
   shootDamage: 10
-  proSpeed: 1
+  proVelocity: {x: 0, y: 0, z: 0}
+  proSpeed: 4
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0
   DOTtime: 0
-  timeBetweenTicks: 0
+  timeBetweenTicks: 1
   stun: 0
   isAoe: 1
   aoeRadius: 5
