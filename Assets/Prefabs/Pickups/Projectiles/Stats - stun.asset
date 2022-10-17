@@ -28,6 +28,8 @@ MonoBehaviour:
   statusEffectTime_poison: 0
   statusEffectTime_slow: 0
   statusEffectTime_stun: 3
+  name: Boo
+  type: Stun
   projectile: {fileID: 1339477995214658, guid: fd42a1af2c5b1d14aba0bbebe9d17905, type: 3}
   impactEffect: {fileID: 1774151147760336, guid: b800c5e3fd16d494490f8bf8a042e76e, type: 3}
   muzzle: {fileID: 1169491246982470, guid: fd6428daf72b59b4aaec79d554e03ce7, type: 3}

@@ -23,10 +23,13 @@ MonoBehaviour:
   timeBetweenTicks: 0
   stun: 0
   isAoe: 0
+  aoeRadius: 0
   slowDown: 0
   statusEffectTime_poison: 0
   statusEffectTime_slow: 0
   statusEffectTime_stun: 0
+  name: Fiesty
+  type: Rapid Fire
   projectile: {fileID: 1908781827404660, guid: 5dd7cbf181213694c9b8cb6f86b1b6c2, type: 3}
   impactEffect: {fileID: 1805005964355744, guid: 0e62a55a5d95a754f8753e1bb7b6f207, type: 3}
   muzzle: {fileID: 1805005964355744, guid: e59a20127d121a044a850cad25d5f212, type: 3}

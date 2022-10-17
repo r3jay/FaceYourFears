@@ -97,9 +97,9 @@ public class playerController : MonoBehaviour, IDamageable
     int livesLeftOrig;
 
     [Header("----- UI -----")]
-    [SerializeField] TextMeshPro nameText;
-    [SerializeField] TextMeshPro damageText;
-    //[SerializeField] TextMeshPro nameText;
+    [SerializeField] TextMeshProUGUI nameText;
+    [SerializeField] TextMeshProUGUI typeText;
+    [SerializeField] TextMeshProUGUI cooldownText;
 
 
 
@@ -245,7 +245,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedPro < proList.Count - 1)
             {
-                
+               
                 selectedPro++;
                 fireRate = proList[selectedPro].shootRate;
                 projectile = proList[selectedPro].projectile;
@@ -254,7 +254,13 @@ public class playerController : MonoBehaviour, IDamageable
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
                 isAoe = proList[selectedPro].isAoe;
-                if(isAoe)
+
+                cooldownText.text = fireRate.ToString();
+                nameText.text = proList[selectedPro].name;
+                typeText.text = proList[selectedPro].type;
+
+
+                if (isAoe)
                 {
                     aoeRadius = proList[selectedPro].aoeRadius;
                 }
@@ -434,7 +440,11 @@ public class playerController : MonoBehaviour, IDamageable
         
         isAoe = stats.isAoe;
         aoeRadius = stats.aoeRadius;
-        
+
+
+        cooldownText.text = fireRate.ToString();
+        nameText.text = proList[selectedPro].name;
+        typeText.text = proList[selectedPro].type;
 
         proList.Add(stats);
         selectedPro = proList.Count - 1;

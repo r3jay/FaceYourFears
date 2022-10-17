@@ -28,6 +28,8 @@ MonoBehaviour:
   statusEffectTime_poison: 0
   statusEffectTime_slow: 3
   statusEffectTime_stun: 0
+  name: Slow your roll
+  type: Slowing
   projectile: {fileID: 1579560454844834, guid: dd45390eee5eeba45bc559ed68bd971d, type: 3}
   impactEffect: {fileID: 1090680790622714, guid: aad060174d7404640ad356b131bf0baf, type: 3}
   muzzle: {fileID: 1234945742121850, guid: 3c8c6899778118e46a71495afcfc1c48, type: 3}

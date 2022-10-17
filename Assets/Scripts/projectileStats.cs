@@ -21,6 +21,8 @@ public class projectileStats : ScriptableObject
     public float statusEffectTime_poison;
     public float statusEffectTime_slow;
     public float statusEffectTime_stun;
+    public string name;
+    public string type;
     //public int proCount;
     
     public GameObject projectile;

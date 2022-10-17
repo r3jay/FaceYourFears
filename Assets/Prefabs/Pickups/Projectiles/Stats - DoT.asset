@@ -28,6 +28,8 @@ MonoBehaviour:
   statusEffectTime_poison: 0
   statusEffectTime_slow: 0
   statusEffectTime_stun: 0
+  name: IDK
+  type: DoT
   projectile: {fileID: 1480069451246100, guid: 34e00b160d34d30479debbc164b3e7f2, type: 3}
   impactEffect: {fileID: 1090680790622714, guid: 02f611a050a3ba1489ab6b7efc485e9f, type: 3}
   muzzle: {fileID: 1787985205539338, guid: a9520bc077466214583af04f5d332c88, type: 3}
