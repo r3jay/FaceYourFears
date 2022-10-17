@@ -242,6 +242,7 @@ MonoBehaviour:
   currentHP: 100
   minHP: 0
   maxHP: 1000
+  basicAttack: {fileID: 11400000, guid: e8a85cb9bb5e2ee40af3008b60076356, type: 2}
   playerSpeed: 5
   sprintModifier: 2
   jumpHeight: 10
@@ -267,6 +268,7 @@ MonoBehaviour:
   DOTtime: 0
   stun: 0
   isAoe: 0
+  aoeRadius: 0
   slowDown: 0
   statusEffectTime_stun: 0
   statusEffectTime_slow: 0
@@ -304,6 +306,8 @@ MonoBehaviour:
   projectileShotSound: {fileID: 0}
   proShotSoundVolume: 0.8
   livesLeft: 0
+  nameText: {fileID: 0}
+  damageText: {fileID: 0}
 --- !u!82 &5606860852156802344
 AudioSource:
   m_ObjectHideFlags: 0

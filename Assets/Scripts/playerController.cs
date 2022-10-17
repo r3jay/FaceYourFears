@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int currentHP;
     [SerializeField] int minHP;
     [SerializeField] int maxHP;
+    [SerializeField] projectileStats basicAttack;
     [SerializeField] float playerSpeed;
     [SerializeField] float sprintModifier;
     [SerializeField] float jumpHeight;
@@ -108,6 +109,7 @@ public class playerController : MonoBehaviour, IDamageable
         HPOrig = currentHP;
         playerSpeedOriginal = playerSpeed;
         respawn();
+        projectilePickup(basicAttack);
     }
 
     void Update()
