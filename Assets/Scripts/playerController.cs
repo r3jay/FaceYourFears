@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour, IDamageable
     public bool isAoe;
     public float aoeRadius;
     public float slowDown;
-    
+
 
 
     public float statusEffectTime_stun;
@@ -123,7 +123,7 @@ public class playerController : MonoBehaviour, IDamageable
                 sprint();
                 StartCoroutine(footSteps());
             }
-            else if(!stunTimerRunning)
+            else if (!stunTimerRunning)
             {
                 StartCoroutine(stunTimer());
             }
@@ -245,30 +245,33 @@ public class playerController : MonoBehaviour, IDamageable
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedPro < proList.Count - 1)
             {
-               
+
                 selectedPro++;
+                shootDistance = proList[selectedPro].proDist;
                 fireRate = proList[selectedPro].shootRate;
+                proSpeed = proList[selectedPro].proSpeed;
                 projectile = proList[selectedPro].projectile;
                 playerDamage = proList[selectedPro].shootDamage;
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
-                isAoe = proList[selectedPro].isAoe;
+                DOTdamage = proList[selectedPro].DOTdamage;
+                DOTtime = proList[selectedPro].DOTtime;
+                timeBetweenTicks = proList[selectedPro].timeBetweenTicks;
+                stun = proList[selectedPro].stun;
+                slowDown = proList[selectedPro].slowDown;
+                statusEffectTime_poison = proList[selectedPro].statusEffectTime_poison;
+                statusEffectTime_slow = proList[selectedPro].statusEffectTime_slow;
+                statusEffectTime_stun = proList[selectedPro].statusEffectTime_stun;
+                projectileShotSound = proList[selectedPro].shotSound;
 
                 cooldownText.text = proList[selectedPro].shootRate.ToString();
                 nameText.text = proList[selectedPro].name;
                 typeText.text = proList[selectedPro].type;
 
-
-                if (isAoe)
-                {
-                    aoeRadius = proList[selectedPro].aoeRadius;
-                }
-                else
-                {
-                    aoeRadius = 0;
-                }
-
+                isAoe = proList[selectedPro].isAoe;
+                aoeRadius = proList[selectedPro].aoeRadius;
+                
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 aud.PlayOneShot(pickupSound, pickUpSoundVolume);
@@ -276,28 +279,28 @@ public class playerController : MonoBehaviour, IDamageable
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedPro > 0)
             {
-               
+
                 selectedPro--;
+                shootDistance = proList[selectedPro].proDist;
                 fireRate = proList[selectedPro].shootRate;
+                proSpeed = proList[selectedPro].proSpeed;
                 projectile = proList[selectedPro].projectile;
                 playerDamage = proList[selectedPro].shootDamage;
                 impactE = proList[selectedPro].impactEffect;
                 arcRange = proList[selectedPro].arcRange;
                 muzzle = proList[selectedPro].muzzle;
+                DOTdamage = proList[selectedPro].DOTdamage;
+                DOTtime = proList[selectedPro].DOTtime;
+                timeBetweenTicks = proList[selectedPro].timeBetweenTicks;
+                stun = proList[selectedPro].stun;
+                slowDown = proList[selectedPro].slowDown;
+                statusEffectTime_poison = proList[selectedPro].statusEffectTime_poison;
+                statusEffectTime_slow = proList[selectedPro].statusEffectTime_slow;
+                statusEffectTime_stun = proList[selectedPro].statusEffectTime_stun;
+                projectileShotSound = proList[selectedPro].shotSound;
+
                 isAoe = proList[selectedPro].isAoe;
-
-                cooldownText.text = proList[selectedPro].shootRate.ToString();
-                nameText.text = proList[selectedPro].name;
-                typeText.text = proList[selectedPro].type;
-
-                if (isAoe)
-                {
-                    aoeRadius = proList[selectedPro].aoeRadius;
-                }
-                else
-                {
-                    aoeRadius = 0;
-                }
+                aoeRadius = proList[selectedPro].aoeRadius;
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -391,14 +394,14 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void respawn()
     {
-            controller.enabled = false;
-            currentHP = maxHP;
-            updatePlayerHPBar();
-            //gameManager.instance.houseCurrentHP = gameManager.instance.houseMaxHP;
-            //gameManager.instance.updateHouseHP();
-            transform.position = gameManager.instance.playerSpawnPosition.transform.position;
-            controller.enabled = true;
-            gameManager.instance.CursorUnlockUnpause();
+        controller.enabled = false;
+        currentHP = maxHP;
+        updatePlayerHPBar();
+        //gameManager.instance.houseCurrentHP = gameManager.instance.houseMaxHP;
+        //gameManager.instance.updateHouseHP();
+        transform.position = gameManager.instance.playerSpawnPosition.transform.position;
+        controller.enabled = true;
+        gameManager.instance.CursorUnlockUnpause();
     }
 
 
@@ -426,7 +429,7 @@ public class playerController : MonoBehaviour, IDamageable
     }
     public void projectilePickup(projectileStats stats)
     {
-        
+        shootDistance = stats.proDist;
         playerDamage = stats.shootDamage;
         projectile = stats.projectile;
         impactE = stats.impactEffect;
@@ -439,10 +442,10 @@ public class playerController : MonoBehaviour, IDamageable
         timeBetweenTicks = stats.timeBetweenTicks;
         statusEffectTime_poison = stats.statusEffectTime_poison;
         statusEffectTime_slow = stats.statusEffectTime_slow;
-        statusEffectTime_stun = stats.statusEffectTime_stun;
         stun = stats.stun;
+        statusEffectTime_stun = stats.statusEffectTime_stun;
         slowDown = stats.slowDown;
-        
+
         isAoe = stats.isAoe;
         aoeRadius = stats.aoeRadius;
 
