@@ -302,6 +302,10 @@ public class playerController : MonoBehaviour, IDamageable
                 statusEffectTime_stun = proList[selectedPro].statusEffectTime_stun;
                 projectileShotSound = proList[selectedPro].shotSound;
 
+                cooldownText.text = proList[selectedPro].shootRate.ToString();
+                nameText.text = proList[selectedPro].name;
+                typeText.text = proList[selectedPro].type;
+
                 isAoe = proList[selectedPro].isAoe;
                 aoeRadius = proList[selectedPro].aoeRadius;
 
@@ -369,9 +373,10 @@ public class playerController : MonoBehaviour, IDamageable
                 destination = ray.GetPoint(proList[selectedPro].proDist);
             }
             shootPos.LookAt(destination);
+
             Vector3 heading = destination - shootPos.transform.position;
             destination = heading;
-            //Instantiate(projectile, shootPos.transform.position, transform.rotation);
+            Instantiate(projectile, shootPos.transform.position, transform.rotation);
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
             Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
