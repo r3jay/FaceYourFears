@@ -10,6 +10,7 @@ public class mainMenuButtonFunctions : MonoBehaviour
     [SerializeField] GameObject buttonSound;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject credits;
+    [SerializeField] GameObject credits2;
     [SerializeField] GameObject options;
     public void newGame()
     {
@@ -42,6 +43,20 @@ public class mainMenuButtonFunctions : MonoBehaviour
         mainMenu.SetActive(true);
         Instantiate(buttonSound);
         credits.SetActive(false);
+    }
+
+    public void showCredits2()
+    {
+        credits.SetActive(false);
+        Instantiate(buttonSound);
+        credits2.SetActive(true);
+    }
+
+    public void closeCredits2()
+    {
+        credits.SetActive(true);
+        Instantiate(buttonSound);
+        credits2.SetActive(false);
     }
 
     public void quit()
