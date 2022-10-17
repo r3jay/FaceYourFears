@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7204648292117749101}
   - component: {fileID: 1834894273343099086}
   - component: {fileID: 4580870847508929454}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}

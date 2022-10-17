@@ -283,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467883739773048445}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: House Range
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -930,6 +930,10 @@ PrefabInstance:
     - target: {fileID: 3131908737445181999, guid: 5cc751ca2de0ca945bf99a351f806916, type: 3}
       propertyPath: m_Name
       value: Player Home
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131908737445181999, guid: 5cc751ca2de0ca945bf99a351f806916, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3131908737445181999, guid: 5cc751ca2de0ca945bf99a351f806916, type: 3}
       propertyPath: m_IsActive

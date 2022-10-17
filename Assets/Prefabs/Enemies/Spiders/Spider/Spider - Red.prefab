@@ -2617,7 +2617,7 @@ GameObject:
   - component: {fileID: 7225453928968816002}
   - component: {fileID: 9003232674433711419}
   - component: {fileID: 506237193892285051}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2688,7 +2688,7 @@ GameObject:
   - component: {fileID: 1375257493807755332}
   - component: {fileID: 9058143030009136864}
   - component: {fileID: 4639546365026019918}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: MeleeRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2746,7 +2746,7 @@ GameObject:
   - component: {fileID: 6125538032278321436}
   - component: {fileID: 6810263543278137484}
   - component: {fileID: 2966520483584655529}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2805,7 +2805,7 @@ GameObject:
   - component: {fileID: 8537868961456238860}
   - component: {fileID: 7120290472896886717}
   - component: {fileID: 5568626013768318931}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

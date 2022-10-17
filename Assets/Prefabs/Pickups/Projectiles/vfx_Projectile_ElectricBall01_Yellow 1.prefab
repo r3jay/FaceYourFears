@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4249849133025798}
   - component: {fileID: 199191276158871376}
   - component: {fileID: 198684230672516778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BallElectricIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 4674507990535086}
   - component: {fileID: 198896079924825348}
   - component: {fileID: 199853498590798264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricityBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9732,7 +9732,7 @@ GameObject:
   - component: {fileID: 4337315572079036}
   - component: {fileID: 198733065197511854}
   - component: {fileID: 199537300650036638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokeAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14559,7 +14559,7 @@ GameObject:
   - component: {fileID: 4781835813049050}
   - component: {fileID: 198100126656422240}
   - component: {fileID: 199914470778405634}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricParticlesWorldBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19386,7 +19386,7 @@ GameObject:
   - component: {fileID: 4321142698362408}
   - component: {fileID: 198103582835022244}
   - component: {fileID: 199472221889321592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokeAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24214,7 +24214,7 @@ GameObject:
   - component: {fileID: -1738438634471859026}
   - component: {fileID: 54580015886303112}
   - component: {fileID: 135483479710968052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_ElectricBall01_Yellow 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -24230,7 +24230,7 @@ Transform:
   m_GameObject: {fileID: 1339477995214658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.65, y: 2, z: -0.05}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4313527827533694}
@@ -24307,7 +24307,7 @@ GameObject:
   - component: {fileID: 4262713588881420}
   - component: {fileID: 198084948146506188}
   - component: {fileID: 199016461318005826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricityOutBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29134,7 +29134,7 @@ GameObject:
   - component: {fileID: 4056383414268666}
   - component: {fileID: 198197870529786452}
   - component: {fileID: 199709839823180358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricParticlesWorldPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33960,7 +33960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229513312777968}
   - component: {fileID: 96682461685666926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34104,7 +34104,7 @@ GameObject:
   - component: {fileID: 4313696987952590}
   - component: {fileID: 199556409992956516}
   - component: {fileID: 198774193916089014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BallElectricOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38998,7 +38998,7 @@ GameObject:
   - component: {fileID: 4094062561047502}
   - component: {fileID: 198320061263402876}
   - component: {fileID: 199783245483722840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43825,7 +43825,7 @@ GameObject:
   - component: {fileID: 4096347854105754}
   - component: {fileID: 198463708879312548}
   - component: {fileID: 199986707719028308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricityOutPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48652,7 +48652,7 @@ GameObject:
   - component: {fileID: 4313527827533694}
   - component: {fileID: 198202746546362982}
   - component: {fileID: 199090387501438148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53501,7 +53501,7 @@ GameObject:
   - component: {fileID: 4554161867994314}
   - component: {fileID: 198471570371820084}
   - component: {fileID: 199784640175658784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricParticlesWorldYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58328,7 +58328,7 @@ GameObject:
   - component: {fileID: 4154395330462118}
   - component: {fileID: 198062386662351680}
   - component: {fileID: 199564152367401510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricityPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63155,7 +63155,7 @@ GameObject:
   - component: {fileID: 4701948081772350}
   - component: {fileID: 198886354806878712}
   - component: {fileID: 199687957636264276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Electricity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67982,7 +67982,7 @@ GameObject:
   - component: {fileID: 4441209423152718}
   - component: {fileID: 198672558023997974}
   - component: {fileID: 199688281071909726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricityOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

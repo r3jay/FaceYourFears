@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4878170533217566}
   - component: {fileID: 198408970498022884}
   - component: {fileID: 199786934668228350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticlesAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 4434691228838602}
   - component: {fileID: 198954931338832206}
   - component: {fileID: 199806879736676300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shockwaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9696,7 +9696,7 @@ GameObject:
   - component: {fileID: 4094316033256906}
   - component: {fileID: 198224006506879032}
   - component: {fileID: 199332433603084558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14607,7 +14607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4268446658682128}
   - component: {fileID: 96136030984933934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail_AB_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14750,7 +14750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357617398953070}
   - component: {fileID: 96748061865831406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail_AB_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14893,7 +14893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506797429403982}
   - component: {fileID: 96392942092832068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15037,7 +15037,7 @@ GameObject:
   - component: {fileID: 4971290337787918}
   - component: {fileID: 198812555299770848}
   - component: {fileID: 199772485734377680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokeWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19864,7 +19864,7 @@ GameObject:
   - component: {fileID: 4318328435266026}
   - component: {fileID: 198303590134358426}
   - component: {fileID: 199778662922047678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticlesAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24701,7 +24701,7 @@ GameObject:
   - component: {fileID: -4226825447804761366}
   - component: {fileID: 65844565518343758}
   - component: {fileID: 54076012177640836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Orb05_Blue 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -24789,7 +24789,7 @@ GameObject:
   - component: {fileID: 4654138106158972}
   - component: {fileID: 198957597911299330}
   - component: {fileID: 199314677530189280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29701,7 +29701,7 @@ GameObject:
   - component: {fileID: 4430198454125672}
   - component: {fileID: 198631964683331214}
   - component: {fileID: 199581114490618320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BeamAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34613,7 +34613,7 @@ GameObject:
   - component: {fileID: 4927459082533488}
   - component: {fileID: 198139546886201072}
   - component: {fileID: 199837857561439652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

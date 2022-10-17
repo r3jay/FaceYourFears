@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 8941422605499288421}
   - component: {fileID: 7801054888819564824}
   - component: {fileID: 1318108347}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5410797482018583709}
   - component: {fileID: 5410797482023888291}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: One Eyed Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 5410797482028129123}
   - component: {fileID: 5292348310936692371}
   - component: {fileID: 8044436407592055249}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: One Eyed Bat- Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,9 +828,8 @@ MonoBehaviour:
   poisonTime: 0
   hasMultipleAttacks: 0
   numberOfAttacks: 0
-  boost: []
-  key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  takingDamage: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0

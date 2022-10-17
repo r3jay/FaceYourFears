@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4069131927132444}
   - component: {fileID: 198973771741410424}
   - component: {fileID: 199712599655931070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrostLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 4846606687302306}
   - component: {fileID: 198575608606022652}
   - component: {fileID: 199029711941741230}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9665,7 +9665,7 @@ GameObject:
   - component: {fileID: 4557843700891990}
   - component: {fileID: 198086678277151478}
   - component: {fileID: 199465665958930040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BeamBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14514,7 +14514,7 @@ GameObject:
   - component: {fileID: 4190559162811442}
   - component: {fileID: 198379704063351456}
   - component: {fileID: 199946532533225324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19341,7 +19341,7 @@ GameObject:
   - component: {fileID: 4329545628149490}
   - component: {fileID: 198314893766116534}
   - component: {fileID: 199823213776409982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24167,7 +24167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4914236523671680}
   - component: {fileID: 96174769109166550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrailFrost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24312,7 +24312,7 @@ GameObject:
   - component: {fileID: 8333484158886845168}
   - component: {fileID: 65286545629801362}
   - component: {fileID: 54934828112821232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Firefrost01_Green 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -24399,7 +24399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755068330440342}
   - component: {fileID: 96547353321190714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrailFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24543,7 +24543,7 @@ GameObject:
   - component: {fileID: 4450630234395516}
   - component: {fileID: 198471280891104840}
   - component: {fileID: 199835924891192718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29370,7 +29370,7 @@ GameObject:
   - component: {fileID: 4510258329981824}
   - component: {fileID: 198030588734931650}
   - component: {fileID: 199904389441078222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34210,7 +34210,7 @@ GameObject:
   - component: {fileID: 4171606084925744}
   - component: {fileID: 198971702239255130}
   - component: {fileID: 199007374375128088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmokeLocal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39050,7 +39050,7 @@ GameObject:
   - component: {fileID: 4767390054496052}
   - component: {fileID: 198026458099415452}
   - component: {fileID: 199620388350170724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 123567768794786212}
   - component: {fileID: 6033264236451731613}
   - component: {fileID: 3896446572587499680}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2230,7 +2230,7 @@ GameObject:
   - component: {fileID: 3419503674913158618}
   - component: {fileID: 2059403795940409919}
   - component: {fileID: 8154883962529198398}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 3419503674913158620}
   - component: {fileID: 3182657961996251429}
   - component: {fileID: 846291656378898794}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Dagger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2452,7 +2452,7 @@ GameObject:
   - component: {fileID: 3419503674913158622}
   - component: {fileID: 3516109229267586491}
   - component: {fileID: 449116991331747724}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3725,7 +3725,7 @@ GameObject:
   - component: {fileID: 7518088616275432870}
   - component: {fileID: 6773269093020860023}
   - component: {fileID: 8473860356522847563}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

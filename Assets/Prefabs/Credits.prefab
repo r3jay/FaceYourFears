@@ -424,6 +424,7 @@ MonoBehaviour:
   buttonSound: {fileID: 3486857029626914052, guid: ca5320002e52ce6479316906d85f24fc, type: 3}
   mainMenu: {fileID: 0}
   credits: {fileID: 8018596687549080165}
+  credits2: {fileID: 0}
   options: {fileID: 0}
 --- !u!1 &8018596687154765113
 GameObject:

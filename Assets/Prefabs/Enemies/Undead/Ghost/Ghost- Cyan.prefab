@@ -96,6 +96,12 @@ MonoBehaviour:
   hasMultipleAttacks: 0
   numberOfAttacks: 0
   isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -2224,7 +2230,7 @@ GameObject:
   - component: {fileID: 8643705856402192060}
   - component: {fileID: 8080112746930875223}
   - component: {fileID: 8629989850424134079}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2282,7 +2288,7 @@ GameObject:
   - component: {fileID: 5593634926753461325}
   - component: {fileID: 3296315218788355410}
   - component: {fileID: 1741025816611746625}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2340,7 +2346,7 @@ GameObject:
   - component: {fileID: 5861497185952529931}
   - component: {fileID: 9093889522133754310}
   - component: {fileID: 5899799493264910064}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2429,7 +2435,7 @@ GameObject:
   - component: {fileID: 708150553522827270}
   - component: {fileID: 5861645797955551214}
   - component: {fileID: 9074538858837618744}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

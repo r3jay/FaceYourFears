@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4154555003259296}
   - component: {fileID: 198167688608458088}
   - component: {fileID: 199465797431732236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RingsAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4860,7 +4860,7 @@ GameObject:
   - component: {fileID: 4897801377294740}
   - component: {fileID: 198830416289236016}
   - component: {fileID: 199901104030071804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Swirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9709,7 +9709,7 @@ GameObject:
   - component: {fileID: 4455343131239944}
   - component: {fileID: 198907019001891720}
   - component: {fileID: 199087081394018064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BeamAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14559,7 +14559,7 @@ GameObject:
   - component: {fileID: -5256525650337085090}
   - component: {fileID: 65597604615514542}
   - component: {fileID: 54283302129575054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_BlackHole01_Red 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -14643,7 +14643,7 @@ GameObject:
   - component: {fileID: 4541090916346866}
   - component: {fileID: 198237994971803100}
   - component: {fileID: 199114201202718694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Electricity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19470,7 +19470,7 @@ GameObject:
   - component: {fileID: 4480628431137830}
   - component: {fileID: 198690869804590320}
   - component: {fileID: 199802222960842100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticlesAB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24306,7 +24306,7 @@ GameObject:
   - component: {fileID: 4293497529101432}
   - component: {fileID: 198926754297399748}
   - component: {fileID: 199902122178764330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glowing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29155,7 +29155,7 @@ GameObject:
   - component: {fileID: 4572813539236868}
   - component: {fileID: 198987749899130296}
   - component: {fileID: 199621840073876330}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CircleGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

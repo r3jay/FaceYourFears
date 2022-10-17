@@ -15,10 +15,11 @@ MonoBehaviour:
   shootRate: 1.5
   proDist: 1000
   shootDamage: 0
-  proSpeed: 0.9
+  proVelocity: {x: 0, y: 0, z: 0}
+  proSpeed: 3
   arcRange: 0
   destroyTime: 3
-  DOTdamage: 10
+  DOTdamage: 0
   DOTtime: 0
   timeBetweenTicks: 0
   stun: 1

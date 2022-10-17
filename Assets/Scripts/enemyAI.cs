@@ -166,11 +166,17 @@ public class enemyAI : MonoBehaviour, IDamageable
                         {
                             if (!isShooting && !isMeleeAttacker)
                             {
-                                StartCoroutine(shoot());
+                                if (!stunStatusEffectActive)
+                                {
+                                    StartCoroutine(shoot());
+                                }
                             }
                             else if (!isAttacking && isMeleeAttacker && isInMeleeRange)
                             {
-                                StartCoroutine(meleeAttack());
+                                if (!stunStatusEffectActive)
+                                {
+                                    StartCoroutine(meleeAttack());
+                                }
                             }
                         }
 
@@ -199,16 +205,25 @@ public class enemyAI : MonoBehaviour, IDamageable
                         {
                             if (!isLich)
                             {
-                                StartCoroutine(shoot());
+                                if (!stunStatusEffectActive)
+                                {
+                                    StartCoroutine(shoot());
+                                }
                             }
                             else
                             {
-                                StartCoroutine(lichSpawnHands());
+                                if (!stunStatusEffectActive)
+                                {
+                                    StartCoroutine(lichSpawnHands());
+                                }
                             }
                         }
                         else if (!isAttacking && isMeleeAttacker && isInMeleeRange && !isDefending)
                         {
-                            StartCoroutine(meleeAttack());
+                            if (!stunStatusEffectActive)
+                            {
+                                StartCoroutine(meleeAttack());
+                            }
                         }
                     }
                 }
@@ -250,7 +265,6 @@ public class enemyAI : MonoBehaviour, IDamageable
         {
             agent.CalculatePath(hit.position, path);
         }
-        agent.CalculatePath(hit.position, path);
         agent.SetPath(path);
 
         if (takingDamage)

@@ -36,18 +36,27 @@ public class projectile : MonoBehaviour
 
                 if (gameManager.instance.playerController.stun == true)
                 {
-                    col.collider.GetComponent<enemyAI>().stunStatusEffectActive = true;
-                    col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime_stun;
+                    if (col.collider.GetComponent<enemyAI>())
+                    {
+                        col.collider.GetComponent<enemyAI>().stunStatusEffectActive = true;
+                        col.collider.GetComponent<enemyAI>().stunTime = gameManager.instance.playerController.statusEffectTime_stun;
+                    }
                 }
                 if (gameManager.instance.playerController.slowDown > 0)
                 {
-                    col.collider.GetComponent<enemyAI>().slowStatusEffectActive = true;
-                    col.collider.GetComponent<enemyAI>().slowTime = gameManager.instance.playerController.statusEffectTime_slow;
-                    col.collider.GetComponent<enemyAI>().slowModifier = gameManager.instance.playerController.slowDown;
+                    if (col.collider.GetComponent<enemyAI>())
+                    {
+                        col.collider.GetComponent<enemyAI>().slowStatusEffectActive = true;
+                        col.collider.GetComponent<enemyAI>().slowTime = gameManager.instance.playerController.statusEffectTime_slow;
+                        col.collider.GetComponent<enemyAI>().slowModifier = gameManager.instance.playerController.slowDown;
+                    }
                 }
                 if (gameManager.instance.playerController.DOTdamage > 0)
                 {
-                    col.collider.GetComponent<enemyAI>().takePoisonDamage(gameManager.instance.playerController.DOTdamage, gameManager.instance.playerController.DOTtime, gameManager.instance.playerController.timeBetweenTicks);
+                    if (col.collider.GetComponent<enemyAI>())
+                    {
+                        col.collider.GetComponent<enemyAI>().takePoisonDamage(gameManager.instance.playerController.DOTdamage, gameManager.instance.playerController.DOTtime, gameManager.instance.playerController.timeBetweenTicks);
+                    }
                 }
             }
         }

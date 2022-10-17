@@ -6552,6 +6552,10 @@ MonoBehaviour:
   isTreant: 0
   isLich: 0
   handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -13397,7 +13401,7 @@ GameObject:
   - component: {fileID: 8415143532799314663}
   - component: {fileID: 1910051213603136234}
   - component: {fileID: 4235550675247558314}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}

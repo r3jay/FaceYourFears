@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5101152349698679535}
   - component: {fileID: 8319444154667318168}
   - component: {fileID: 2140237576749791470}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 5780140162555191895}
   - component: {fileID: 620505503231243967}
   - component: {fileID: 6660084097547361907}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5611,7 +5611,7 @@ MonoBehaviour:
   agent: {fileID: 3965534167940713130}
   rend: {fileID: 3579448562523891730}
   animator: {fileID: 3537556946724435498}
-  HP: 10
+  HP: 30
   chaseSpeed: 1
   roamRadius: 15
   fovAngle: 70
@@ -5622,7 +5622,7 @@ MonoBehaviour:
   targetHouse: 1
   targetPlayer: 0
   houseInRange: 0
-  shootRate: 6
+  shootRate: 5
   bullet: {fileID: 100002, guid: b3046f9b08f58d144ac043f5c2afd11a, type: 3}
   shootPos: {fileID: 4446790809797811542}
   meleeDamage: 10
@@ -5637,6 +5637,12 @@ MonoBehaviour:
   hasMultipleAttacks: 0
   numberOfAttacks: 0
   isTreant: 1
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
@@ -6238,7 +6244,7 @@ GameObject:
   - component: {fileID: 740524299663423205}
   - component: {fileID: 7612824899999210786}
   - component: {fileID: 2095180314259498792}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5de5ab31a81bc24eb8e5c9ff1f671dd, type: 3}
   m_Name: Stats - slow
   m_EditorClassIdentifier: 
-  shootRate: 0.6
+  shootRate: 1
   proDist: 1000
   shootDamage: 0
-  proSpeed: 0.9
+  proVelocity: {x: 0, y: 0, z: 0}
+  proSpeed: 2
   arcRange: 0
   destroyTime: 3
-  DOTdamage: 10
+  DOTdamage: 0
   DOTtime: 0
   timeBetweenTicks: 0
   stun: 0
   isAoe: 0
   aoeRadius: 0
-  slowDown: 0.5
+  slowDown: 0.3
   statusEffectTime_poison: 0
   statusEffectTime_slow: 3
   statusEffectTime_stun: 0

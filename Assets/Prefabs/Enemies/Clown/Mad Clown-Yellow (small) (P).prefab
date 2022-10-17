@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4658054067805435795}
   - component: {fileID: 8852796972341114473}
   - component: {fileID: 1165475903732387460}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Melee Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3530675116137419997}
   - component: {fileID: 1183088092473847573}
   - component: {fileID: 5640839478100986291}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: ma037_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 2040502250665945613}
   - component: {fileID: 796784903251037089}
   - component: {fileID: 205602226224553379}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: House Trigger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
