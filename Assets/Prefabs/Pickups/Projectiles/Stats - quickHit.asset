@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Stats - quickHit
   m_EditorClassIdentifier: 
   shootRate: 0.3
-  proDist: 1000
+  proDist: 2000
   shootDamage: 10
-  proSpeed: 10
+  proSpeed: 5
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0

@@ -13,7 +13,10 @@ public class projectile : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = Camera.main.transform.forward * gameManager.instance.playerController.proSpeed;
+        //Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
+        //rb.velocity = Camera.main.transform.forward * gameManager.instance.playerController.proSpeed;
+        rb.velocity = gameManager.instance.playerController.destination * gameManager.instance.playerController.proSpeed;
+
         aoeCol = new List<Collider>();
         Destroy(gameObject, gameManager.instance.playerController.destroyTime);
     }
@@ -86,10 +89,6 @@ public class projectile : MonoBehaviour
             }
 
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, gameManager.instance.playerController.aoeRadius);
     }
 }
 //[Header("----- Components -----")]

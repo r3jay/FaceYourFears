@@ -1242,7 +1242,7 @@ MonoBehaviour:
   targetHouse: 0
   targetPlayer: 1
   houseInRange: 0
-  shootRate: 5
+  shootRate: 3
   bullet: {fileID: 100000, guid: aebe4ca27a666624a83981b6c16b770b, type: 3}
   shootPos: {fileID: 3095748835574317371}
   meleeDamage: 1
@@ -1257,6 +1257,13 @@ MonoBehaviour:
   poisonTime: 2
   hasMultipleAttacks: 0
   numberOfAttacks: 0
+  isTreant: 0
+  isLich: 0
+  handSpawnRadiusFromPlayer: 0
+  isSpearmen: 0
+  defendTime: 0
+  takeDamageOverAngle: 0
+  slowRotationModifier: 0
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}

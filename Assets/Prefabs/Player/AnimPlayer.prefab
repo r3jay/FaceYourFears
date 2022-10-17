@@ -103,6 +103,37 @@ MonoBehaviour:
   lockVertMin: -75
   lockVertMax: 75
   invert: 0
+--- !u!1 &3330986630671193608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7029007265423478310}
+  m_Layer: 0
+  m_Name: Shoot Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7029007265423478310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330986630671193608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.029, y: 0.188, z: 0.446}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6565688874337324874}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7496328587207686910
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,10 +169,11 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7029007265423478310}
   - {fileID: 958563405675184539}
   - {fileID: 9106983223087225338}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -257,7 +289,9 @@ MonoBehaviour:
   weaponStat: []
   weaponModel: {fileID: 7980375538811112018}
   proList: []
-  shootPos: {fileID: 6943870348292571609}
+  selectedPro: 0
+  shootPos: {fileID: 7029007265423478310}
+  destination: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
   impactE: {fileID: 0}
   muzzle: {fileID: 0}
@@ -568,11 +602,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
---- !u!4 &6943870348292571609 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}
-  m_PrefabInstance: {fileID: 8784334299084307985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9106983223087225338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 22b2946d52bd9004997f547f55fc9882, type: 3}

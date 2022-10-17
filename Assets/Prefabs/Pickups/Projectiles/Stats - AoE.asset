@@ -15,7 +15,7 @@ MonoBehaviour:
   shootRate: 2
   proDist: 1000
   shootDamage: 10
-  proSpeed: 0.7
+  proSpeed: 1
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0

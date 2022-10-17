@@ -34,10 +34,10 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] List<weaponStats> weaponStat = new List<weaponStats>();
     int selectedWeapon;
     [SerializeField] GameObject weaponModel;
-    [SerializeField] List<projectileStats> proList = new List<projectileStats>();
-    int selectedPro;
+    public List<projectileStats> proList = new List<projectileStats>();
+    public int selectedPro;
     public Transform shootPos;
-    private Vector3 destination;
+    public Vector3 destination;
     public GameObject projectile;
     public GameObject impactE;
     public GameObject muzzle;
@@ -108,7 +108,6 @@ public class playerController : MonoBehaviour, IDamageable
     private void Start()
     {
         livesLeftOrig = livesLeft;
-        livesLeftText.text = livesLeft.ToString();
 
         HPOrig = currentHP;
         playerSpeedOriginal = playerSpeed;
@@ -358,18 +357,24 @@ public class playerController : MonoBehaviour, IDamageable
 
             aud.PlayOneShot(proList[selectedPro].shotSound, proShotSoundVolume);
 
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, shootDistance))
+            {
                 destination = hit.point;
+            }
             else
+            {
                 destination = ray.GetPoint(proList[selectedPro].proDist);
-
+            }
+            shootPos.LookAt(destination);
+            Vector3 heading = destination - shootPos.transform.position;
+            destination = heading;
             //Instantiate(projectile, shootPos.transform.position, transform.rotation);
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
-            instantiateProjectile(Camera.main.transform);
+            Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
 
 
             //if (hit.collider.GetComponent<IDamageable>() != null)
@@ -388,14 +393,6 @@ public class playerController : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(fireRate);
             isShooting = false;
         }
-    }
-    void instantiateProjectile(Transform shotPoint)
-    {
-        Instantiate(proList[selectedPro].projectile, shotPoint.transform.position, transform.rotation);
-        //var projectileObj = Instantiate(proList[selectedPro].projectile, shotPoint.position, Quaternion.identity);
-        //projectileObj.GetComponent<Rigidbody>().velocity = (destination - shotPoint.position).normalized * proList[selectedPro].proSpeed;
-        //iTween.PunchPosition(projectileObj, new Vector3(Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), Random.Range(-proList[selectedPro].arcRange, proList[selectedPro].arcRange), 0), Random.Range(0.5f, 2));
-        //Instantiate(proList[selectedPro].muzzle, shotPoint.transform.position, transform.rotation); - problem destroying after instantiating
     }
 
     public void respawn()
