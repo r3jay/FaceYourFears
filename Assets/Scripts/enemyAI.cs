@@ -246,6 +246,10 @@ public class enemyAI : MonoBehaviour, IDamageable
         NavMeshHit hit;
         NavMesh.SamplePosition(new Vector3(houseTarget.position.x, houseTarget.position.y, houseTarget.position.z), out hit, roamRadius, 1);
         NavMeshPath path = new NavMeshPath();
+        while(!agent.CalculatePath(hit.position, path))
+        {
+            agent.CalculatePath(hit.position, path);
+        }
         agent.CalculatePath(hit.position, path);
         agent.SetPath(path);
 

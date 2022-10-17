@@ -19,11 +19,4 @@ public class baseCollider : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Base"))
-        {
-            GetComponentInParent<enemyAI>().houseInRange = false;
-        }
-    }
 }

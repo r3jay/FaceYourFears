@@ -35,9 +35,9 @@ public class gameManager : MonoBehaviour
     //public GameObject menuMusic;
 
     [Header("------ House Attributes -----")]
-    public int houseCurrentHP;
-    public int houseMinHP;
-    public int houseMaxHP;
+    public float houseCurrentHP;
+    public float houseMinHP;
+    public float houseMaxHP;
 
     public Image HPBar;
     public Image houseHPBar;

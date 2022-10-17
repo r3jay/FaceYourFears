@@ -45,10 +45,6 @@ public class batController : MonoBehaviour
     public float poisonTime;
     [SerializeField] bool hasMultipleAttacks;
     [SerializeField] int numberOfAttacks;
-    bool isAttacking;
-
-    [SerializeField] List<boostPickUp> boost = new List<boostPickUp>();
-    [SerializeField] List<keyPickUp> key = new List<keyPickUp>();
     [SerializeField] private Vector3 lootLocation;
 
 
@@ -178,9 +174,6 @@ public class batController : MonoBehaviour
 
     public IEnumerator meleeAttack()
     {
-
-        isAttacking = true;
-
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(.5f);
@@ -193,7 +186,6 @@ public class batController : MonoBehaviour
 
         if (!animator.GetBool("Dead"))
         {
-            isAttacking = false;
             flyingNearby = true;
             createNewPath();
         }

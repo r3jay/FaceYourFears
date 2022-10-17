@@ -19,10 +19,17 @@ public class poisonController : MonoBehaviour
         other.GetComponent<playerController>().isTakingPoisonDamage = true;
         for (float i = GetComponentInParent<enemyAI>().poisonTime; i > 0;)
         {
+            if (other.GetComponent<playerController>() == null)
+            {
+                break;
+            }
             other.GetComponent<playerController>().takeDamage(damage);
             yield return new WaitForSeconds(timeBetweenTicks);
             i -= timeBetweenTicks;
         }
-        other.GetComponent<playerController>().isTakingPoisonDamage = false;
+        if (other.GetComponent<playerController>() != null)
+        {
+            other.GetComponent<playerController>().isTakingPoisonDamage = false;
+        }
     }
 }
