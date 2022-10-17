@@ -135,13 +135,13 @@ Transform:
   m_GameObject: {fileID: 7496328587207686910}
   m_LocalRotation: {x: 0, y: 0.009651551, z: 0, w: 0.99995345}
   m_LocalPosition: {x: 872.6, y: 2.1, z: 878.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 958563405675184539}
   - {fileID: 9106983223087225338}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -309,6 +309,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   typeText: {fileID: 0}
   cooldownText: {fileID: 0}
+  livesLeftText: {fileID: 0}
 --- !u!82 &5606860852156802344
 AudioSource:
   m_ObjectHideFlags: 0

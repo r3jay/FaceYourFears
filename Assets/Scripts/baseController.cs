@@ -24,14 +24,14 @@ public class baseController : MonoBehaviour , IDamageable
     {
         System.Random rand = new System.Random();
 
-        aud.PlayOneShot(hitSound[rand.Next(1, hitSound.Count + 1)]);
+        aud.PlayOneShot(hitSound[rand.Next(0, hitSound.Count)]);
         gameManager.instance.houseCurrentHP -= dmg;
         gameManager.instance.updateHouseHP();
 
         float percentDamaged = gameManager.instance.houseCurrentHP / gameManager.instance.houseMaxHP * 100;
         if(percentDamaged <= 75)
         {
-            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
 
             Debug.Log("House 75%");
             MeshRenderer meshRenderer = house100.GetComponent<MeshRenderer>();
@@ -41,7 +41,7 @@ public class baseController : MonoBehaviour , IDamageable
 
         if (percentDamaged <= 50)
         {
-            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
 
             house75.SetActive(false);
             house50.SetActive(true);
@@ -49,7 +49,7 @@ public class baseController : MonoBehaviour , IDamageable
 
         if (percentDamaged <= 25)
         {
-            aud.PlayOneShot(damageSound[rand.Next(1, damageSound.Count + 1)]);
+            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
 
             house50.SetActive(false);
             house25.SetActive(true);
