@@ -160,18 +160,18 @@ MonoBehaviour:
   house50: {fileID: 984027019784803060}
   house25: {fileID: 984027019773239830}
   targetPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6255042243052657999}
+  - {fileID: 6140616660112386205}
+  - {fileID: 1670907995984891715}
+  - {fileID: 5277053468457738840}
+  - {fileID: 4886703757663161709}
+  - {fileID: 7195441170052809133}
+  - {fileID: 6923942633032944101}
+  - {fileID: 3692541720627932930}
+  - {fileID: 5786087985574910761}
+  - {fileID: 1042539140766500199}
+  - {fileID: 2062024628870515120}
+  - {fileID: 9171733359808982581}
 --- !u!1 &569181675463729535
 GameObject:
   m_ObjectHideFlags: 0
