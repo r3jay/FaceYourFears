@@ -1635,7 +1635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2022488263, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_text
-      value: "No more rats bats or spiders... \nStay away from our house!"
+      value: "No more rats or spiders... \nStay away from our house!"
       objectReference: {fileID: 0}
     - target: {fileID: 4730402242649546450, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_Name
