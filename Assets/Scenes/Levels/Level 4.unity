@@ -5509,12 +5509,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371513503797847305, guid: 54685ddcf4f40664eb587c12b6b6a3bc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 48d8c8bc2e48ee34684520768faa66ea, type: 3}
+    - target: {fileID: 371513503797847305, guid: 54685ddcf4f40664eb587c12b6b6a3bc, type: 3}
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371513503797847305, guid: 54685ddcf4f40664eb587c12b6b6a3bc, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 517697222942678343, guid: 54685ddcf4f40664eb587c12b6b6a3bc, type: 3}
       propertyPath: m_Name
