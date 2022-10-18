@@ -26,6 +26,15 @@ public class playerController : MonoBehaviour, IDamageable
     [HideInInspector] public float stunTime;
     bool stunTimerRunning;
 
+    [HideInInspector] public bool slowStatusEffectActive;
+    [HideInInspector] public float slowTime;
+    [HideInInspector] public float selfSlowModifier;
+    bool slowTimerRunning;
+    //slowTimerRunning = true;
+    //    yield return new WaitForSeconds(slowTime);
+    //slowStatusEffectActive = false;
+    //    slowTimerRunning = false;
+    //    selfSlowModifier = 0;
 
     [Header("------ Projectile Stats -----")]
     [SerializeField] float fireRate;
@@ -544,5 +553,14 @@ public class playerController : MonoBehaviour, IDamageable
         stunStatusEffectActive = false;
         stunTimerRunning = false;
         stunTime = 0;
+    }
+
+    IEnumerator slowTimer()
+    {
+        slowTimerRunning = true;
+        yield return new WaitForSeconds(slowTime);
+        slowStatusEffectActive = false;
+        slowTimerRunning = false;
+        selfSlowModifier = 0;
     }
 }

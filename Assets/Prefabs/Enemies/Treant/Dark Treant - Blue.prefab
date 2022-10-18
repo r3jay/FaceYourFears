@@ -5612,7 +5612,7 @@ MonoBehaviour:
   rend: {fileID: 3579448562523891730}
   animator: {fileID: 3537556946724435498}
   HP: 30
-  chaseSpeed: 1
+  chaseSpeed: 2
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
@@ -5622,7 +5622,7 @@ MonoBehaviour:
   targetHouse: 1
   targetPlayer: 0
   houseInRange: 0
-  shootRate: 5
+  shootRate: 10
   bullet: {fileID: 100002, guid: 8938350735fecbd4fa3ebde45b0eabe8, type: 3}
   shootPos: {fileID: 4446790809797811542}
   meleeDamage: 10

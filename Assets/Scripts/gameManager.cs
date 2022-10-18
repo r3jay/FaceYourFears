@@ -148,6 +148,12 @@ public class gameManager : MonoBehaviour
         remainingEnemiesLabel.text = enemyCount.ToString("F0");
         StartCoroutine(CheckEnemyCount());
     }
+        public void enemyDecrement(int amount)
+    {
+        enemyCount -= amount;
+        remainingEnemiesLabel.text = enemyCount.ToString("F0");
+        StartCoroutine(CheckEnemyCount());
+    }
 
     public void enemyIncrement(int amount)
     {

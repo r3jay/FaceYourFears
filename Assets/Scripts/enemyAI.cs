@@ -114,6 +114,10 @@ public class enemyAI : MonoBehaviour, IDamageable
         // treant spawn check
         if (isTreant || isLich)
         {
+            if (isTreant)
+            {
+                gameManager.instance.enemyIncrement(1);
+            }
             StartCoroutine(spawnPause());
         }
 
@@ -512,7 +516,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(.5f);
 
         Vector3 randomPosition = gameManager.instance.player.transform.position + Random.insideUnitSphere * handSpawnRadiusFromPlayer;
-        randomPosition.y = 0;
+        randomPosition.y = transform.position.y;
         Instantiate(bullet, randomPosition, transform.localRotation);
         // wait for attack animation to stop before reseeting speed to normal
         yield return new WaitForSeconds(.5f);

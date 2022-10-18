@@ -16,6 +16,9 @@ public class bullet : MonoBehaviour
     [Header("----- Status Effects -----")]
     [SerializeField] bool projectileStuns;
     [SerializeField] float stunTime;
+    [SerializeField] bool projectileSlows;
+    [SerializeField] float slowTime;
+    [Range(0, 1)] [SerializeField] float slowModifier;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,15 @@ public class bullet : MonoBehaviour
                 {
                     other.GetComponent<playerController>().stunStatusEffectActive = true;
                     other.GetComponent<playerController>().stunTime = stunTime;
+                }
+            }
+            if (projectileSlows)
+            {
+                if (other.GetComponent<playerController>())
+                {
+                    other.GetComponent<playerController>().slowStatusEffectActive = true;
+                    other.GetComponent<playerController>().slowTime = slowTime;
+                    other.GetComponent<playerController>().selfSlowModifier = slowModifier;
                 }
             }
             if (damage > 0)

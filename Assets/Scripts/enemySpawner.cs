@@ -20,8 +20,16 @@ public class enemySpawner : MonoBehaviour
     {
         gameManager.instance.enemyIncrement(maxEnemies);
         startTime = Time.time;
-
-
+        if (enemies != null)
+        {
+            if (enemies[0].GetComponent<enemyAI>())
+            {
+                if (enemies[0].GetComponent<enemyAI>().isTreant)
+                {
+                    gameManager.instance.enemyDecrement(maxEnemies);
+                }
+            }
+        }
     }
     private void Update()
     {

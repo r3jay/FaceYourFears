@@ -331,7 +331,7 @@ MonoBehaviour:
   animator: {fileID: 1399221348746855956}
   rend: {fileID: 1399221348751046868}
   HP: 20
-  destroyTime: 5
+  destroyTime: 3
   stunTime: 3
 --- !u!135 &6583949456310264422
 SphereCollider:

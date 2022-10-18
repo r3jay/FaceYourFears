@@ -69,7 +69,7 @@ MonoBehaviour:
   agent: {fileID: 4231000123603741377}
   rend: {fileID: 2818469575628110463}
   animator: {fileID: 2818469575632274623}
-  HP: 10
+  HP: 30
   chaseSpeed: 3
   roamRadius: 15
   fovAngle: 70
@@ -83,7 +83,7 @@ MonoBehaviour:
   shootRate: 1.3
   bullet: {fileID: 100002, guid: 363f259a612212849a37a47681fc6416, type: 3}
   shootPos: {fileID: 2981155004007836290}
-  meleeDamage: 10
+  meleeDamage: 15
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 4107580005697638848}
