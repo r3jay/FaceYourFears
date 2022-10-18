@@ -376,7 +376,7 @@ public class playerController : MonoBehaviour, IDamageable
 
             Vector3 heading = destination - shootPos.transform.position;
             destination = heading;
-            Instantiate(projectile, shootPos.transform.position, transform.rotation);
+            //Instantiate(projectile, shootPos.transform.position, transform.rotation);
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
             Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
