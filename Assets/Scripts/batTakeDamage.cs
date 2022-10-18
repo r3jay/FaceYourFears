@@ -11,14 +11,7 @@ public class batTakeDamage : MonoBehaviour, IDamageable
         // check to make sure enemy is not already dead
         if (GetComponentInParent<NavMeshAgent>().enabled)
         {
-            if (GetComponentInParent<batController>())
-            {
-                Debug.Log("batController found");
-                Debug.Log($"bat health = {GetComponentInParent<batController>().HP}");
-
-            }
             GetComponentInParent<batController>().HP -= dmg;
-            Debug.Log($"bat health after = {GetComponentInParent<batController>().HP}");
 
             GetComponentInParent<Animator>().SetTrigger("Damage");
             StartCoroutine(waitForDamageAnimToFinish());

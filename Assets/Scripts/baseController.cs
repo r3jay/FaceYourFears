@@ -33,7 +33,6 @@ public class baseController : MonoBehaviour , IDamageable
         {
             aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
 
-            Debug.Log("House 75%");
             MeshRenderer meshRenderer = house100.GetComponent<MeshRenderer>();
             meshRenderer.enabled = false;
             house75.SetActive(true);
