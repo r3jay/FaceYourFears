@@ -183,6 +183,8 @@ public class playerController : MonoBehaviour, IDamageable
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        Debug.Log($"Speed = {playerVelocity * Time.deltaTime}");
+
     }
 
     void sprint()
@@ -553,6 +555,7 @@ public class playerController : MonoBehaviour, IDamageable
         stunStatusEffectActive = false;
         stunTimerRunning = false;
         stunTime = 0;
+        playerSpeed = playerSpeedOriginal;
     }
 
     IEnumerator slowTimer()
