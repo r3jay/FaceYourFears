@@ -7596,21 +7596,21 @@ RectTransform:
   - {fileID: 4730402242661079978}
   - {fileID: 4730402242678907784}
   - {fileID: 4730402241606687996}
-  - {fileID: 955510545}
   - {fileID: 785968616}
+  - {fileID: 3579901689319451850}
   - {fileID: 265635477}
+  - {fileID: 955510545}
   - {fileID: 1548300062}
   - {fileID: 279841584}
   - {fileID: 1387636405}
   - {fileID: 3378268121308109215}
   - {fileID: 4169884913610759865}
   - {fileID: 180903556409977962}
-  - {fileID: 3579901689319451850}
   - {fileID: 5019800823360706752}
   - {fileID: 8974128610112301156}
   - {fileID: 5297107261130364812}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
