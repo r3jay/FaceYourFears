@@ -29,7 +29,7 @@ public class batController : MonoBehaviour
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPos;
-    bool isShooting;
+    bool isAttacking;
 
     bool flyingNearby;
     [Range(0, 10)] [SerializeField] float minAttackWaitTime, maxAttackWaitTime;
@@ -135,17 +135,23 @@ public class batController : MonoBehaviour
                         {
                             moveToPlayer();
                             facePlayer();
+                            if(!isAttacking)
+                            {
+                                if (agent.remainingDistance <= meleeStoppingDistance)
+                                {
+                                    StartCoroutine(meleeAttack());
+                                }
+                            }
                         }
                         else
                         {
-                            if (agent.remainingDistance < 0.1f)
-                            {
-                                createNewPath();
-                            }
-
                             if (!attackTimerRunning)
                             {
                                 StartCoroutine(randomAttackTimer());
+                            }
+                            if(agent.remainingDistance <= agent.stoppingDistance)
+                            {
+                                createNewPath();
                             }
                         }
                     }
@@ -174,6 +180,7 @@ public class batController : MonoBehaviour
 
     public IEnumerator meleeAttack()
     {
+        isAttacking = true;
         animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(.5f);
@@ -184,8 +191,10 @@ public class batController : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
 
+
         if (!animator.GetBool("Dead"))
         {
+            GetComponentInChildren<batMeleeWeaponController>().GetComponent<Collider>().enabled = false;
             flyingNearby = true;
             createNewPath();
         }
@@ -203,6 +212,7 @@ public class batController : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(hit.position, path);
         agent.SetPath(path);
+
     }
 
     IEnumerator randomAttackTimer()
@@ -210,6 +220,7 @@ public class batController : MonoBehaviour
         attackTimerRunning = true;
         yield return new WaitForSeconds(Random.Range(minAttackWaitTime, maxAttackWaitTime));
         flyingNearby = false;
+        isAttacking = false;
         attackTimerRunning = false;
     }
 

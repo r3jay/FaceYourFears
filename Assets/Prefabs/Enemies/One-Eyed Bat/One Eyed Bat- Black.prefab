@@ -116,64 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3b7c8089c2b1c418b9b1bf4a1213e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1937026136621905711
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8941422605499288421}
-  - component: {fileID: 7801054888819564824}
-  - component: {fileID: 1318108347}
-  m_Layer: 2
-  m_Name: Melee Range
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8941422605499288421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937026136621905711}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5410797482018583715}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7801054888819564824
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937026136621905711}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.66, z: 0}
---- !u!114 &1318108347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937026136621905711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d867b0b23d275a4b865d445775c237a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5410797482018613409
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +712,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7724976281205034111}
-  - {fileID: 8941422605499288421}
   - {fileID: 883972455}
   - {fileID: 626348988577446470}
   - {fileID: 5410797482018583709}
@@ -808,16 +749,16 @@ MonoBehaviour:
   playerFaceSpeed: 5
   followDistance: 15
   rangedStoppingDistance: 0
-  meleeStoppingDistance: 0
+  meleeStoppingDistance: 4
   targetHouse: 0
   targetPlayer: 1
   houseInRange: 0
   shootRate: 1
   bullet: {fileID: 0}
   shootPos: {fileID: 0}
-  minAttackWaitTime: 3
-  maxAttackWaitTime: 8
-  meleeDamage: 0
+  minAttackWaitTime: 2
+  maxAttackWaitTime: 5
+  meleeDamage: 10
   isInMeleeRange: 0
   meleeWeapons: []
   isMeleeAttacker: 0
