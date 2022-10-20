@@ -58,6 +58,7 @@ public class batController : MonoBehaviour
     int randomNumber;
 
     public bool takingDamage;
+    GameObject ground;
 
     [HideInInspector] public bool stunStatusEffectActive;
     [HideInInspector] public float stunTime;
@@ -98,6 +99,9 @@ public class batController : MonoBehaviour
 
         stunTime = 0;
         slowTime = 0;
+
+
+        ground = GameObject.FindGameObjectWithTag("Terrain");
     }
 
     // Update is called once per frame
@@ -110,7 +114,10 @@ public class batController : MonoBehaviour
             // find direction to player
             playerDir = gameManager.instance.player.transform.position - transform.position;
 
-            animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 4));
+            if (!animator.GetBool("Dead"))
+            {
+                animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 4));
+            }
 
             // Ensures that when the player is dead and respawns, the enemy can retarget
             if (gameManager.instance.playerDeadMenu.activeSelf)
@@ -135,7 +142,7 @@ public class batController : MonoBehaviour
                         {
                             moveToPlayer();
                             facePlayer();
-                            if(!isAttacking)
+                            if (!isAttacking)
                             {
                                 if (agent.remainingDistance <= meleeStoppingDistance)
                                 {
@@ -149,7 +156,7 @@ public class batController : MonoBehaviour
                             {
                                 StartCoroutine(randomAttackTimer());
                             }
-                            if(agent.remainingDistance <= agent.stoppingDistance)
+                            if (agent.remainingDistance <= agent.stoppingDistance)
                             {
                                 createNewPath();
                             }
@@ -160,6 +167,12 @@ public class batController : MonoBehaviour
                         StartCoroutine(stunTimer());
                     }
                 }
+            }
+        }
+        else if (fallToGroundAfterDeathAnimation() != Vector3.zero)
+        {
+            {
+                transform.position = fallToGroundAfterDeathAnimation();
             }
         }
     }
@@ -255,6 +268,18 @@ public class batController : MonoBehaviour
         agent.speed = chaseSpeed;
         slowStatusEffectActive = false;
         slowTime = 0;
+    }
+    public Vector3 fallToGroundAfterDeathAnimation()
+    {
+        if (ground && transform.position.y >= ground.transform.position.y + .01f)
+        {
+            Vector3 fallPos = new Vector3(transform.position.x, ground.transform.position.y, transform.position.z);
+            return Vector3.Lerp(transform.position, fallPos, Time.deltaTime * 1);
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 }
 

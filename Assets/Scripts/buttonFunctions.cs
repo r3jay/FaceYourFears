@@ -20,6 +20,7 @@ public class buttonFunctions : MonoBehaviour
     [SerializeField] GameObject options;
 
 
+
     //for button that resumes the game
     public void resume()
     {
@@ -52,7 +53,7 @@ public class buttonFunctions : MonoBehaviour
     public void showOptions()
     {
         options.GetComponent<AudioSource>().Play();
-
+        gameManager.instance.currentMenu = gameManager.instance.optionsMenu;
         Instantiate(buttonSound);
         options.SetActive(true);
     }
@@ -61,6 +62,7 @@ public class buttonFunctions : MonoBehaviour
     {
         options.GetComponent<AudioSource>().Stop();
         Instantiate(buttonSound);
+        gameManager.instance.currentMenu = gameManager.instance.pauseMenu;
         options.SetActive(false);
 
     }
