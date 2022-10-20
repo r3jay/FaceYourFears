@@ -284,6 +284,9 @@ MonoBehaviour:
   jumpsMax: 1
   stunStatusEffectActive: 0
   stunTime: 0
+  slowStatusEffectActive: 0
+  slowTime: 0
+  selfSlowModifier: 0
   fireRate: 0.1
   shootDistance: 1000
   playerDamage: 1
@@ -354,7 +357,7 @@ AudioSource:
   m_GameObject: {fileID: 7496328587207686910}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1899723220207322380, guid: bf84abe2293c9384c8a929bb72014b65, type: 2}
+  OutputAudioMixerGroup: {fileID: 8982894502950771244, guid: 1a0b8f2a030fb7d498fb02480130dd09, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
