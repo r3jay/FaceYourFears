@@ -9,7 +9,8 @@ public class lichHandsController : MonoBehaviour, IDamageable
 
     [SerializeField] int HP;
     [SerializeField] float destroyTime;
-    [SerializeField] float stunTime;
+    public float stunTime;
+    public List<Collider> hands;
 
     private void Start()
     {
@@ -56,11 +57,21 @@ public class lichHandsController : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("Player"))
         {
-            if (!gameManager.instance.playerController.stunStatusEffectActive)
-            {
-                gameManager.instance.playerController.stunTime = stunTime;
-                gameManager.instance.playerController.stunStatusEffectActive = true;
-            }
+            StartCoroutine(attack());
+        }
+    }
+    IEnumerator attack()
+    {
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(.5f);
+        foreach(Collider c in hands)
+        {
+            c.enabled = true;
+        }
+        yield return new WaitForSeconds(.5f);
+        foreach (Collider c in hands)
+        {
+            c.enabled = false;
         }
     }
 }

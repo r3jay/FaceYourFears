@@ -515,7 +515,8 @@ public class enemyAI : MonoBehaviour, IDamageable
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(.5f);
 
-        Vector3 randomPosition = gameManager.instance.player.transform.position + Random.insideUnitSphere * handSpawnRadiusFromPlayer;
+        //Vector3 randomPosition = gameManager.instance.player.transform.position + Random.insideUnitSphere * handSpawnRadiusFromPlayer;
+        Vector3 randomPosition = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0.1f, 0.9f), Random.Range(0.1f, 0.9f), handSpawnRadiusFromPlayer));
         randomPosition.y = transform.position.y;
         Instantiate(bullet, randomPosition, transform.localRotation);
         // wait for attack animation to stop before reseeting speed to normal

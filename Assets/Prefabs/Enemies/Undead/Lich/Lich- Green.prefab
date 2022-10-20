@@ -25609,7 +25609,7 @@ MonoBehaviour:
   targetPlayer: 1
   houseInRange: 0
   shootRate: 6
-  bullet: {fileID: 1399221348754158684, guid: e29accadf06f82f4eb8669c052765d97, type: 3}
+  bullet: {fileID: 1399221348754158684, guid: 8d4de546e673624449e395710b6c0f1c, type: 3}
   shootPos: {fileID: 5645315642800342359}
   meleeDamage: 0
   isInMeleeRange: 0
