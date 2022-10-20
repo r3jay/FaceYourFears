@@ -28,7 +28,9 @@ public class gameManager : MonoBehaviour
     public GameObject playerDeadMenu;    
     public GameObject houseDestroyedMenu;
     public GameObject instructions;
-   // public GameObject keyIcon;
+    public GameObject optionsMenu;
+
+    // public GameObject keyIcon;
     //public TextMeshProUGUI keyCountText;
     public GameObject pickUp;
     public GameObject levelMusic;
@@ -76,7 +78,7 @@ public class gameManager : MonoBehaviour
     {            
         //keyCountText.text = keyCount.ToString();
 
-        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu)
+        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu && currentMenu != optionsMenu)
         {
             isPaused = !isPaused;
             currentMenu = pauseMenu;
