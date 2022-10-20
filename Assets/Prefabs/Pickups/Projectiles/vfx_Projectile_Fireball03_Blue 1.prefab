@@ -4839,7 +4839,7 @@ GameObject:
   - component: {fileID: 1885540524569734155}
   - component: {fileID: 65870944670565260}
   - component: {fileID: 54833625490449272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Fireball03_Blue 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ public class projectile : MonoBehaviour
     {
         //Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
         //rb.velocity = Camera.main.transform.forward * gameManager.instance.playerController.proSpeed;
-        rb.velocity = gameManager.instance.playerController.destination * gameManager.instance.playerController.proSpeed;
+        rb.velocity = gameManager.instance.playerController.destination.normalized * gameManager.instance.playerController.proSpeed;
 
         aoeCol = new List<Collider>();
         Destroy(gameObject, gameManager.instance.playerController.destroyTime);

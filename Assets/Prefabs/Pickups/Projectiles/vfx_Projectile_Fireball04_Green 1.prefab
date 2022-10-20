@@ -38966,7 +38966,7 @@ GameObject:
   - component: {fileID: 8458158585210726913}
   - component: {fileID: 54232288499262290}
   - component: {fileID: 135122386436262632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Fireball04_Green 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

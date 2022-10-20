@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: -4982147977444614069}
   - component: {fileID: 54777970317930892}
   - component: {fileID: 135096198885777450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Trail01_Purple 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

@@ -29694,7 +29694,7 @@ GameObject:
   - component: {fileID: 6468616165373943846}
   - component: {fileID: 65829984964912852}
   - component: {fileID: 54759147974297908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Orb06_Purple 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

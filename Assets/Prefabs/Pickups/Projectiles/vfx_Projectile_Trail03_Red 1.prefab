@@ -19763,7 +19763,7 @@ GameObject:
   - component: {fileID: -4217977288935630301}
   - component: {fileID: 65099561014377994}
   - component: {fileID: 54221348891284064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Trail03_Red 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

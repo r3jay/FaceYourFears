@@ -14783,7 +14783,7 @@ GameObject:
   - component: {fileID: -2041386058969844286}
   - component: {fileID: 65697945944289014}
   - component: {fileID: 54764192699525614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_IceSpike01_Blue 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

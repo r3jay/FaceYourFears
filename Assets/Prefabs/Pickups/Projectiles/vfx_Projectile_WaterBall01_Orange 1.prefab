@@ -24643,7 +24643,7 @@ GameObject:
   - component: {fileID: -3025678790258305960}
   - component: {fileID: 65489634806298572}
   - component: {fileID: 54067677611303506}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_WaterBall01_Orange 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

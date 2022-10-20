@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2118771738422846894}
   - component: {fileID: 65732263249307976}
   - component: {fileID: 54565508062708890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Trail02_Orange 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

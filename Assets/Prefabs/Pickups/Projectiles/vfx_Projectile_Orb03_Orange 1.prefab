@@ -14515,7 +14515,7 @@ GameObject:
   - component: {fileID: -9215222877116456265}
   - component: {fileID: 65560198393408182}
   - component: {fileID: 54498967382806686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Orb03_Orange 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

@@ -8,6 +8,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("----- Components ------ ")]
     [SerializeField] CharacterController controller;
     [SerializeField] Animator anime;
+    [SerializeField] LayerMask shootableLayers; 
 
     [Header("------ Player Attributes -----")]
     [SerializeField] int currentHP;
@@ -371,9 +372,11 @@ public class playerController : MonoBehaviour, IDamageable
             aud.PlayOneShot(proList[selectedPro].shotSound, proShotSoundVolume);
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+
+
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, shootDistance))
+            if (Physics.Raycast(ray, out hit, shootDistance, shootableLayers))
             {
                 destination = hit.point;
             }
@@ -381,13 +384,12 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 destination = ray.GetPoint(proList[selectedPro].proDist);
             }
-            shootPos.LookAt(destination);
-
-            Vector3 heading = destination - shootPos.transform.position;
-            destination = heading;
-            //Instantiate(projectile, shootPos.transform.position, transform.rotation);
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
+            
+            shootPos.LookAt(destination);
+            Vector3 heading = destination - shootPos.transform.position;
+            destination = heading;
             Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
 
 

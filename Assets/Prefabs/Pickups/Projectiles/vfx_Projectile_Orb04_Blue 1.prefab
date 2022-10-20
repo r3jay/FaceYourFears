@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8264942414362900227}
   - component: {fileID: 65977177114986562}
   - component: {fileID: 54641338019457900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Orb04_Blue 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

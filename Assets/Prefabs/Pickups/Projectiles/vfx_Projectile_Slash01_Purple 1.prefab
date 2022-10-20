@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2000042127766543812}
   - component: {fileID: 65140365531182726}
   - component: {fileID: 54184079655356132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Slash01_Purple 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

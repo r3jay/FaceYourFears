@@ -24312,7 +24312,7 @@ GameObject:
   - component: {fileID: 8535818266860469704}
   - component: {fileID: 65286545629801362}
   - component: {fileID: 54934828112821232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_Firefrost01_Blue 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}

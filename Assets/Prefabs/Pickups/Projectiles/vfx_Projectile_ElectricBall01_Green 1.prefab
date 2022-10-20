@@ -24214,7 +24214,7 @@ GameObject:
   - component: {fileID: -7293637293417624217}
   - component: {fileID: 54580015886303112}
   - component: {fileID: 135483479710968052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: vfx_Projectile_ElectricBall01_Green 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
