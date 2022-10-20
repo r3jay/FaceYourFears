@@ -64,7 +64,10 @@ public class batTakeDamage : MonoBehaviour, IDamageable
     void enemyDead()
     {
         gameManager.instance.enemyDecrement();
-        GetComponentInParent<Animator>().SetBool("Dead", true);
+        if (GetComponentInParent<Animator>())
+        {
+            GetComponentInParent<Animator>().SetBool("Dead", true);
+        }
 
         GetComponentInParent<NavMeshAgent>().enabled = false;
 
@@ -75,6 +78,7 @@ public class batTakeDamage : MonoBehaviour, IDamageable
             col.enabled = false;
         }
 
+        GetComponentInParent<batController>().fallToGroundAfterDeathAnimation();
     }
 
     IEnumerator flashColor() //changes the color of the enemy.

@@ -183,7 +183,6 @@ public class playerController : MonoBehaviour, IDamageable
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        Debug.Log($"Speed = {playerVelocity * Time.deltaTime}");
 
     }
 
