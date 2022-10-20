@@ -6,18 +6,31 @@ public class MeleeWeaponController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        bool targetHit = false;
         if (other.GetComponentInParent<IDamageable>() != null)
         {
-
-            other.GetComponentInParent<IDamageable>().takeDamage(GetComponentInParent<enemyAI>().meleeDamage);
-            // Ensure that player cant be hit twice from the same attack
-            if (GetComponentInParent<enemyAI>())
+            if (other.CompareTag("Base") && GetComponentInParent<enemyAI>().targetHouse)
             {
-                foreach (GameObject weapon in GetComponentInParent<enemyAI>().meleeWeapons)
+                targetHit = true;
+                other.GetComponentInParent<IDamageable>().takeDamage(GetComponentInParent<enemyAI>().meleeDamage);
+            }
+            else if(other.CompareTag("Player") && GetComponentInParent<enemyAI>().targetPlayer)
+            {
+                targetHit = true;
+                other.GetComponentInParent<IDamageable>().takeDamage(GetComponentInParent<enemyAI>().meleeDamage);
+            }
+            if(targetHit)
+            {
+                if (GetComponentInParent<enemyAI>())
                 {
-                    weapon.GetComponent<Collider>().enabled = false;
+                    foreach (GameObject weapon in GetComponentInParent<enemyAI>().meleeWeapons)
+                    {
+                        weapon.GetComponent<Collider>().enabled = false;
+                    }
                 }
             }
+            // Ensure that player cant be hit twice from the same attack
+            
         }
     }
 }
