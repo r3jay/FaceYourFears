@@ -447,7 +447,7 @@ MonoBehaviour:
   animator: {fileID: 1399221348746855956}
   rend: {fileID: 1399221348751046868}
   HP: 20
-  destroyTime: 3
+  destroyTime: 5
   stunTime: 3
   hands:
   - {fileID: 3536659989549948933}
@@ -464,7 +464,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0.61, z: -0.21}
 --- !u!1 &1399221348754158688
 GameObject:

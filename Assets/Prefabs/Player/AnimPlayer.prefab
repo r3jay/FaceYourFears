@@ -317,17 +317,17 @@ MonoBehaviour:
   isTakingPoisonDamage: 0
   aud: {fileID: 5606860852156802344}
   damagedSound:
-  - {fileID: 8300000, guid: add1ea773d51d0144aa452b35e8fb02a, type: 3}
-  - {fileID: 8300000, guid: 82529bdbcb205794b954cd82cdcc95c0, type: 3}
-  - {fileID: 8300000, guid: a9824fcac19c9e04ba95115cec146f7d, type: 3}
-  - {fileID: 8300000, guid: 9486052cccb3da745b16e584155e53d4, type: 3}
-  - {fileID: 8300000, guid: 34f5c7031045feb47b491598ed3acb48, type: 3}
-  - {fileID: 8300000, guid: 50b5cbd440e9aa540a87afa093588a51, type: 3}
+  - {fileID: 8300000, guid: 6be650ac213d26a4cb6814c21422b3d7, type: 3}
+  - {fileID: 8300000, guid: 97acb63b5c146af42bc67c8ef67dc9ce, type: 3}
+  - {fileID: 8300000, guid: d2e36b4491903474c941144214329504, type: 3}
+  - {fileID: 8300000, guid: 7eeba320cd019144aa01e929a42338c9, type: 3}
+  - {fileID: 8300000, guid: e6d00863ac16c79449af403dc76c5ec0, type: 3}
+  - {fileID: 8300000, guid: 34664e92047cf384c92bf68b7b9dd321, type: 3}
   damagedSoundVolume: 0.7
   jumpSound:
-  - {fileID: 8300000, guid: a6191a4707f546f49889ea88a3ef8fab, type: 3}
-  - {fileID: 8300000, guid: 242d959ed177aa94788d90c2d4e9e028, type: 3}
-  - {fileID: 8300000, guid: 0344a46609626d04b97b1bf3b88b0566, type: 3}
+  - {fileID: 8300000, guid: 9b9a59cd7e2c9fb498f7adb7a76ade31, type: 3}
+  - {fileID: 8300000, guid: c67094411db019d48a61f26811124bcc, type: 3}
+  - {fileID: 8300000, guid: 5cd34fba531f2174ab0a674051fc104b, type: 3}
   jumpSoundVolume: 0.7
   footstepSound:
   - {fileID: 8300000, guid: 1d8f1a0ddc5c43a4689611007a0592cd, type: 3}
@@ -359,7 +359,7 @@ AudioSource:
   m_GameObject: {fileID: 7496328587207686910}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1899723220207322380, guid: bf84abe2293c9384c8a929bb72014b65, type: 2}
+  OutputAudioMixerGroup: {fileID: 8982894502950771244, guid: 1a0b8f2a030fb7d498fb02480130dd09, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

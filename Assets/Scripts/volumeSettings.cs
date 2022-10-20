@@ -1,65 +1,65 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
 
-/*
- Commented out parts "MenuMusic..." is for if we need to add menu music back into the game. 
- */
+
 public class volumeSettings : MonoBehaviour
 {
     [SerializeField] AudioMixer mixer;
-    [SerializeField] Slider menuMusicSlider;
-    [SerializeField] Slider menuSfxSlider;
-    [SerializeField] Slider gameMusicSlider;
-    [SerializeField] Slider gameSfxSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider masterSlider;
 
-   // public const string MIXER_MENUMUSIC = "MenuMusicVolume";
-    public const string MIXER_MENUSFX = "MenuSFXVolume";
-    public const string MIXER_GAME_MUSIC = "GameMusicVolume";
-    public const string MIXER_GAME_SFX = "GameSFXVolume";
+    public const string MIXER_SFX = "SfxVolume";
+    public const string MIXER_MUSIC = "MusicVolume";
+    public const string MIXER_MASTER = "MasterVolume";
+
+    public const string SFX_KEY = "SFXVolume";
+    public const string MUSIC_KEY = "MusicVolume";
+    public const string MASTER_KEY = "MasterVolume";
 
     void Awake()
     {
-        //menuMusicSlider.onValueChanged.AddListener(setMenuMusicVolume);
-        menuSfxSlider.onValueChanged.AddListener(setMenuSFXVolume);
-        gameMusicSlider.onValueChanged.AddListener(setGameMusicVolume);
-        gameSfxSlider.onValueChanged.AddListener(setGameMusicVolume);
+        sfxSlider.onValueChanged.AddListener(setSFXVolume);
+        musicSlider.onValueChanged.AddListener(setMusicVolume);
+        masterSlider.onValueChanged.AddListener(setMasterVolume);
     }
     void Start()
     {
-        //menuMusicSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_MUSIC_KEY, 1f);
-        menuSfxSlider.value = PlayerPrefs.GetFloat(audioManager.MENU_SFX_KEY, 1f);
-        gameMusicSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_MUSIC_KEY, 1f);
-        gameSfxSlider.value = PlayerPrefs.GetFloat(audioManager.GAME_SFX_KEY, 1f);
-
+        sfxSlider.value = PlayerPrefs.GetFloat(SFX_KEY, 1f);
+        musicSlider.value = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
+        masterSlider.value = PlayerPrefs.GetFloat(MASTER_KEY, 1f);
     }
 
     void OnDisable()
     {
-       // PlayerPrefs.SetFloat(audioManager.MENU_MUSIC_KEY, menuMusicSlider.value);
-        PlayerPrefs.SetFloat(audioManager.MENU_SFX_KEY, menuSfxSlider.value);
-        PlayerPrefs.SetFloat(audioManager.GAME_MUSIC_KEY, gameMusicSlider.value);
-        PlayerPrefs.SetFloat(audioManager.GAME_SFX_KEY, gameSfxSlider.value);
+        PlayerPrefs.SetFloat(SFX_KEY, sfxSlider.value);
+        PlayerPrefs.SetFloat(MUSIC_KEY, musicSlider.value);
+        PlayerPrefs.SetFloat(MASTER_KEY, masterSlider.value);
     }
 
-    //void setMenuMusicVolume(float value)
-    //{
-    //    mixer.SetFloat(MIXER_MENUMUSIC, Mathf.Log10(value) * 20);
-    //}
+    public void setSFXVolume(float value)
+    {
+        mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(SFX_KEY, sfxSlider.value);
 
-    void setMenuSFXVolume(float value)
-    {
-        mixer.SetFloat(MIXER_MENUSFX, Mathf.Log10(value) * 20);
     }
-    void setGameMusicVolume(float value)
+    public void setMusicVolume(float value)
     {
-        mixer.SetFloat(MIXER_GAME_MUSIC, Mathf.Log10(value) * 20);
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(MUSIC_KEY, musicSlider.value);
+
     }
 
-    void setGameSFXVolume(float value)
+    public void setMasterVolume(float value)
     {
-        mixer.SetFloat(MIXER_GAME_SFX, Mathf.Log10(value) * 20);
+        mixer.SetFloat(MIXER_MASTER, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(MASTER_KEY, masterSlider.value);
+        mixer.SetFloat(MIXER_SFX, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(SFX_KEY, sfxSlider.value);
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(MUSIC_KEY, musicSlider.value);
+
     }
 }

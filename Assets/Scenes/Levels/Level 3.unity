@@ -855,7 +855,8 @@ PrefabInstance:
       propertyPath: levelMusic
       value: 
       objectReference: {fileID: 252664210}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1424321432, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
 --- !u!1001 &378907275
@@ -1541,6 +1542,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0b7893b9c5eae4a46aa29cf5b50eca3f, type: 3}
+    - target: {fileID: 6983005640666529561, guid: b7a11f0fb8e4be04086f19d5d36ac387, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8108501401700570178, guid: 1a0b8f2a030fb7d498fb02480130dd09, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a11f0fb8e4be04086f19d5d36ac387, type: 3}
