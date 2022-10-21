@@ -109,8 +109,8 @@ public class playerController : MonoBehaviour, IDamageable
 
     [Header("----- UI -----")]
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI typeText;
     [SerializeField] TextMeshProUGUI cooldownText;
+    [SerializeField] TextMeshProUGUI descriptText;
     [SerializeField] TextMeshProUGUI livesLeftText;
 
 
@@ -291,7 +291,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 cooldownText.text = proList[selectedPro].shootRate.ToString();
                 nameText.text = proList[selectedPro].name;
-                typeText.text = proList[selectedPro].type;
+                descriptText.text = proList[selectedPro].descript;
 
                 isAoe = proList[selectedPro].isAoe;
                 aoeRadius = proList[selectedPro].aoeRadius;
@@ -326,7 +326,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 cooldownText.text = proList[selectedPro].shootRate.ToString();
                 nameText.text = proList[selectedPro].name;
-                typeText.text = proList[selectedPro].type;
+                descriptText.text = proList[selectedPro].descript;
 
                 isAoe = proList[selectedPro].isAoe;
                 aoeRadius = proList[selectedPro].aoeRadius;
@@ -488,7 +488,8 @@ public class playerController : MonoBehaviour, IDamageable
 
         cooldownText.text = stats.shootRate.ToString();
         nameText.text = stats.name;
-        typeText.text = stats.type;
+        descriptText.text = stats.descript;
+
 
         proList.Add(stats);
         cooldownList.Add(stats.shootRate);

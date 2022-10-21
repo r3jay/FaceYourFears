@@ -16,6 +16,7 @@ MonoBehaviour:
   cooldownTimer: 0
   proDist: 1000
   shootDamage: 10
+  descript: Attacks all enemies in the area.
   proSpeed: 4
   arcRange: 0
   destroyTime: 3

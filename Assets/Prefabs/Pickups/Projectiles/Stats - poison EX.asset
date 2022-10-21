@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Stats - poison EX
   m_EditorClassIdentifier: 
   shootRate: 0.3
+  cooldownTimer: 0
   proDist: 1000
   shootDamage: 0
+  descript: 
   proSpeed: 12
   arcRange: 0
   destroyTime: 3
@@ -28,7 +30,7 @@ MonoBehaviour:
   statusEffectTime_poison: 3
   statusEffectTime_slow: 0
   statusEffectTime_stun: 0
-  name: That girl is
+  name: Toxica
   type: Poison
   projectile: {fileID: 2857254718218096215, guid: 46dd94ba0cdd8d24ebfecd6dfb70d802, type: 3}
   impactEffect: {fileID: 6472985681582249120, guid: 0c4b63747c2cf9440b595bc4db8e034f, type: 3}

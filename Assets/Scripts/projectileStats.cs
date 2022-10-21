@@ -9,6 +9,7 @@ public class projectileStats : ScriptableObject
     public float cooldownTimer;
     public int proDist;
     public int shootDamage;
+    public string descript;
     //public Vector3 proVelocity;
     public float proSpeed;
     public float arcRange;

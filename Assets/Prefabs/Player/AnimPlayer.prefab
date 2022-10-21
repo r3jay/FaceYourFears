@@ -295,6 +295,7 @@ MonoBehaviour:
   weaponStat: []
   weaponModel: {fileID: 7980375538811112018}
   proList: []
+  cooldownList: []
   selectedPro: 0
   shootPos: {fileID: 7029007265423478310}
   destination: {x: 0, y: 0, z: 0}
@@ -349,6 +350,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   typeText: {fileID: 0}
   cooldownText: {fileID: 0}
+  descriptText: {fileID: 0}
   livesLeftText: {fileID: 0}
 --- !u!82 &5606860852156802344
 AudioSource:

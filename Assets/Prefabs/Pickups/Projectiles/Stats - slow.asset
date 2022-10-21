@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Stats - slow
   m_EditorClassIdentifier: 
   shootRate: 1
+  cooldownTimer: 0
   proDist: 1000
   shootDamage: 0
-  proVelocity: {x: 0, y: 0, z: 0}
+  descript: Slows the enemy down for 3 seconds.
   proSpeed: 2
   arcRange: 0
   destroyTime: 3
