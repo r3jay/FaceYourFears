@@ -8,6 +8,9 @@ using TMPro;
 public class resolutionSettings : MonoBehaviour
 {
     [SerializeField] TMP_Dropdown resolutionDropdown;
+    [SerializeField] Toggle fullscreenToggle;
+
+    public bool isFullscreen;
 
     List<string> resolution = new List<string>() {"1920 x 1080" ,"1024 x 768", "1152 x 864", "1280 x 720", "1280 x 768", "1280 x 800", "1280 x 960", "1280 x 1024", "1360 x 768", "1366 x 768",
      "1440 x 900", "1600 x 900", "1600 x 1024", "1600 x 1200", "1680 x 1050", "1920 x 1200", "1920 x 1440", "2048 x 1536", "2560 x 1440", "2560 x 1600", "3840 x 2160"};
@@ -29,6 +32,7 @@ public class resolutionSettings : MonoBehaviour
         height = PlayerPrefs.GetInt(HEIGHT_KEY);
     }
 
+
     void OnDisable()
     {
         PlayerPrefs.SetInt(WIDTH_KEY, width);
@@ -40,13 +44,21 @@ public class resolutionSettings : MonoBehaviour
         resolutionDropdown.AddOptions(resolution);
     }
 
+    public void toggleChanged()
+    {
+        isFullscreen = !isFullscreen;
+        Screen.SetResolution(width, height, isFullscreen);
+
+
+    }
+
     public void resolutionDropdownIndexChanged(int index)
     {
         if (resolutionDropdown.value == 0)
         {
             width = 1920;
             height = 1080;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -56,7 +68,7 @@ public class resolutionSettings : MonoBehaviour
             Debug.Log("Dropdown index: " + index);
             width = 1024;
             height = 768;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -65,7 +77,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1152;
             height = 864;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -74,7 +86,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1280;
             height = 720;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -83,7 +95,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1280;
             height = 768;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -91,7 +103,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1280;
             height = 800;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -100,7 +112,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1280;
             height = 960;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -109,7 +121,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1280;
             height = 1024;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -118,7 +130,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1360;
             height = 768;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -127,7 +139,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1366;
             height = 768;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -136,7 +148,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1440;
             height = 900;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -145,7 +157,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1600;
             height = 900;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -154,7 +166,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1600;
             height = 1024;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -163,7 +175,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1600;
             height = 1200;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -172,7 +184,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1680;
             height = 1050;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -181,7 +193,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1920;
             height = 1200;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -190,7 +202,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 1920;
             height = 1440;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -199,7 +211,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 2048;
             height = 1536;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -208,7 +220,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 2560;
             height = 1440;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -217,7 +229,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 2560;
             height = 1600;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }
@@ -226,7 +238,7 @@ public class resolutionSettings : MonoBehaviour
         {
             width = 3840;
             height = 2160;
-            Screen.SetResolution(width, height, true);
+            Screen.SetResolution(width, height, isFullscreen);
             PlayerPrefs.SetInt(WIDTH_KEY, width);
             PlayerPrefs.SetInt(HEIGHT_KEY, height);
         }

@@ -333,6 +333,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3892437826998184340, guid: d51c773d4bae04041a42320b0941d297, type: 3}
+      propertyPath: isFullscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4098551295558660264, guid: d51c773d4bae04041a42320b0941d297, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
