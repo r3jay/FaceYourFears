@@ -76,28 +76,42 @@ public class projectile : MonoBehaviour
                     }
                 }
             }
+            AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
+            if (isAoe == true)
+            {
+                if (aoeCol != null)
+                {
+                    foreach (Collider c in aoeCol)
+                    {
+                        if (c.GetComponent<IDamageable>() != null)
+                        {
+                            c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
+                        }
+                    }
+                }
 
+            }
             Destroy(hit,3);
             Destroy(gameObject);
         }
     }
     private void OnDestroy()
     {
-        AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
-        if (isAoe == true)
-        {
-            if (aoeCol != null)
-            {
-                foreach (Collider c in aoeCol)
-                {
-                    if (c.GetComponent<IDamageable>() != null)
-                    {
-                        c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
-                    }
-                }
-            }
+        //AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
+        //if (isAoe == true)
+        //{
+        //    if (aoeCol != null)
+        //    {
+        //        foreach (Collider c in aoeCol)
+        //        {
+        //            if (c.GetComponent<IDamageable>() != null)
+        //            {
+        //                c.GetComponent<IDamageable>().takeDamage(gameManager.instance.playerController.playerDamage);
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
     }
 }
 //[Header("----- Components -----")]

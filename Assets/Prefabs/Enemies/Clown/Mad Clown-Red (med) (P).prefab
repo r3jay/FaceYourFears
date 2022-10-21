@@ -197,9 +197,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   m_Radius: 0.1605384
-  m_Height: 1.3709749
+  m_Height: 1.6700648
   m_Direction: 1
-  m_Center: {x: -0.008948813, y: 0.37461844, z: 0.00000009942075}
+  m_Center: {x: -0.008948781, y: 0.5241674, z: 0.00000008504902}
 --- !u!1 &3712206921033762432
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   agent: {fileID: 1736953651719658001}
   rend: {fileID: 3712206921020099566}
   animator: {fileID: 3712206921024386350}
-  HP: 30
+  HP: 10
   chaseSpeed: 5
   roamRadius: 15
   fovAngle: 70
@@ -781,7 +781,7 @@ MonoBehaviour:
   shootRate: 1.5
   bullet: {fileID: 100002, guid: b4ad3c58931dee2439900aa3fea43b5a, type: 3}
   shootPos: {fileID: 4921628656213318879}
-  meleeDamage: 30
+  meleeDamage: 70
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 3530675116135156253}
@@ -802,6 +802,7 @@ MonoBehaviour:
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  playerInRange: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0

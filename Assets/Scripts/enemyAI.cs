@@ -187,6 +187,11 @@ public class enemyAI : MonoBehaviour, IDamageable
                                     StartCoroutine(meleeAttack());
                                 }
                             }
+                            else if (!isInMeleeRange)
+                            {
+                                int rand = Random.Range(0, gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count - 1);
+                                houseTarget = gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions[rand].transform;
+                            }
                         }
 
                     }
@@ -233,7 +238,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                     }
                     else if (isMeleeAttacker)
                     {
-                        if(agent.remainingDistance <= meleeStoppingDistance)
+                        if (agent.remainingDistance <= meleeStoppingDistance)
                         {
                             if (!isAttacking && isMeleeAttacker && isInMeleeRange && !isDefending)
                             {
@@ -244,7 +249,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                             }
                         }
                     }
-                    
+
                 }
             }
         }

@@ -15,9 +15,9 @@ MonoBehaviour:
   shootRate: 0.3
   cooldownTimer: 0
   proDist: 2000
-  shootDamage: 10
+  shootDamage: 1
   descript: Rapid fire, low damage.
-  proSpeed: 6
+  proSpeed: 8
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0
