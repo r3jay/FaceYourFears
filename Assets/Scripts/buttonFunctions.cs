@@ -52,6 +52,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void showOptions()
     {
+        gameManager.instance.optionsOpen = true;
         options.GetComponent<AudioSource>().Play();
         Instantiate(buttonSound);
         options.SetActive(true);
@@ -59,6 +60,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void closeOptions()
     {
+        gameManager.instance.optionsOpen = false;
         options.GetComponent<AudioSource>().Stop();
         Instantiate(buttonSound);
         options.SetActive(false);

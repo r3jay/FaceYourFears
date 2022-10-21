@@ -28,7 +28,6 @@ public class gameManager : MonoBehaviour
     public GameObject playerDeadMenu;    
     public GameObject houseDestroyedMenu;
     public GameObject instructions;
-    public GameObject optionsMenu;
 
     // public GameObject keyIcon;
     //public TextMeshProUGUI keyCountText;
@@ -51,6 +50,8 @@ public class gameManager : MonoBehaviour
 
     public bool isPaused;
     public bool pickedUp;
+    public bool optionsOpen;
+
     float timeScaleOrig;
     public int currentScene;
 
@@ -78,8 +79,9 @@ public class gameManager : MonoBehaviour
     {            
         //keyCountText.text = keyCount.ToString();
 
-        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu)
+        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu && optionsOpen == false)
         {
+           
             isPaused = !isPaused;
             currentMenu = pauseMenu;
             currentMenu.SetActive(isPaused);
@@ -87,6 +89,12 @@ public class gameManager : MonoBehaviour
                 CursorLockPause();
             else
                 CursorUnlockUnpause();
+        }
+
+        if(Input.GetButtonDown("Cancel") && optionsOpen)
+        {
+            buttonFunctions bf = GameObject.FindObjectOfType<buttonFunctions>();
+            bf.closeOptions();
         }
     }
 
