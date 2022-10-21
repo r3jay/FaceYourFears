@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
+
+
 public class mainMenuButtonFunctions : MonoBehaviour
 {
 
@@ -12,6 +14,8 @@ public class mainMenuButtonFunctions : MonoBehaviour
     [SerializeField] GameObject credits;
     [SerializeField] GameObject credits2;
     [SerializeField] GameObject options;
+
+ 
     public void newGame()
     {
         SceneManager.LoadScene(1);
@@ -21,6 +25,8 @@ public class mainMenuButtonFunctions : MonoBehaviour
         mainMenu.SetActive(false);
         Instantiate(buttonSound);
         options.SetActive(true);
+
+
     }
 
     public void closeOptions()

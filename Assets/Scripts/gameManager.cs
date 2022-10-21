@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 public class gameManager : MonoBehaviour
 {
@@ -54,6 +56,17 @@ public class gameManager : MonoBehaviour
 
     float timeScaleOrig;
     public int currentScene;
+
+    //ui navigation
+    public GameObject pauseFirstButton;
+    public GameObject pRespawnFirstButton;
+    public GameObject pDeadFirstButton;
+    public GameObject hDeadFirstButton;
+    public GameObject winFirstButton;
+    public GameObject optionsFirstButton;
+    public GameObject optionsClosedButton;
+
+
 
     void Awake()
     {
@@ -106,6 +119,14 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         reticle.SetActive(false);
         Time.timeScale = 0;
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+
+
     }
     public void CursorUnlockUnpause()
     {
@@ -122,12 +143,40 @@ public class gameManager : MonoBehaviour
         currentMenu = null;
     }
 
+    public void showOptions()
+    {
+
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(optionsFirstButton);
+    }
+
+    public void closeOptions()
+    {
+
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(optionsClosedButton);
+    }
+
     public void PlayerCanRespawn()
     {
         isPaused = true;
         playerRespawnMenu.SetActive(true);
         currentMenu = playerRespawnMenu;
         CursorLockPause();
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(pRespawnFirstButton);
     }
     public void PlayerIsDead()
     {
@@ -135,6 +184,12 @@ public class gameManager : MonoBehaviour
         playerDeadMenu.SetActive(true);
         currentMenu = playerDeadMenu;
         CursorLockPause();
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(pDeadFirstButton);
     }
 
     public void houseIsDestroyed()
@@ -143,6 +198,12 @@ public class gameManager : MonoBehaviour
         houseDestroyedMenu.SetActive(true);
         currentMenu = playerDeadMenu;
         CursorLockPause();
+
+        //setup navigation for ui
+        //wipe first
+        EventSystem.current.SetSelectedGameObject(null);
+        //then set
+        EventSystem.current.SetSelectedGameObject(hDeadFirstButton);
     }
 
     public void updateHouseHP()

@@ -182,6 +182,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fa5d2e177822c4084dda50fa0986c6, type: 3}
+--- !u!1 &51419868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3557048854456471798, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+  m_PrefabInstance: {fileID: 372597151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &212506810 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4134731141369692421, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
@@ -252,6 +257,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: afe865fd42a69ba4499addd6bcfef596, type: 3}
+--- !u!1 &296446927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421926597, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+  m_PrefabInstance: {fileID: 372597151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &308305540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +419,22 @@ PrefabInstance:
     - target: {fileID: 421926599, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_Colors.m_PressedColor.r
       value: 0.77254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 421926599, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 421926599, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 421926599, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 421926599, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: buttonFunctions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 955510544, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_IsActive
@@ -616,6 +642,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_PressedColor.r
       value: 0.77254903
       objectReference: {fileID: 0}
+    - target: {fileID: 4730402241801614692, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 51419868}
     - target: {fileID: 4730402242276327502, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.45490196
@@ -852,6 +882,14 @@ PrefabInstance:
       propertyPath: playerRespawnMenu
       value: 
       objectReference: {fileID: 1278789158}
+    - target: {fileID: 7832810294977214294, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: optionsFirstButton
+      value: 
+      objectReference: {fileID: 51419868}
+    - target: {fileID: 7832810294977214294, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+      propertyPath: optionsClosedButton
+      value: 
+      objectReference: {fileID: 296446927}
     - target: {fileID: 8186517326611912784, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -917,7 +955,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3586693001974362714, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
   m_PrefabInstance: {fileID: 372597151}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 51419868}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
