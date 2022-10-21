@@ -78,7 +78,7 @@ public class gameManager : MonoBehaviour
     {            
         //keyCountText.text = keyCount.ToString();
 
-        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu && currentMenu != optionsMenu)
+        if (Input.GetButtonDown("Cancel")  && currentMenu != playerDeadMenu && currentMenu != levelWinMenu && currentMenu != gameWinMenu)
         {
             isPaused = !isPaused;
             currentMenu = pauseMenu;
@@ -87,7 +87,6 @@ public class gameManager : MonoBehaviour
                 CursorLockPause();
             else
                 CursorUnlockUnpause();
-
         }
     }
 
