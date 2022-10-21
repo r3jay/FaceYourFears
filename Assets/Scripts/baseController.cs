@@ -14,7 +14,9 @@ public class baseController : MonoBehaviour , IDamageable
     [SerializeField] List<AudioClip> damageSound;
     [SerializeField] AudioSource aud;
 
-
+    bool at75;
+    bool at50;
+    bool at25;
 
 
 
@@ -29,26 +31,40 @@ public class baseController : MonoBehaviour , IDamageable
         gameManager.instance.updateHouseHP();
 
         float percentDamaged = gameManager.instance.houseCurrentHP / gameManager.instance.houseMaxHP * 100;
-        if(percentDamaged <= 75)
+        if(percentDamaged <= 75 && percentDamaged > 70)
         {
-            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
+            at75 = true;
+            if(at75 == true)
+            {
+                aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
+                at75 = false;
+            }
 
             MeshRenderer meshRenderer = house100.GetComponent<MeshRenderer>();
             meshRenderer.enabled = false;
             house75.SetActive(true);
         }
 
-        if (percentDamaged <= 50)
+        if (percentDamaged <= 50 && percentDamaged > 45)
         {
-            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
-
+            at50 = true;
+            if (at50 == true)
+            {
+                aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
+                at50 = false;
+            }
             house75.SetActive(false);
             house50.SetActive(true);
         }
 
-        if (percentDamaged <= 25)
+        if (percentDamaged <= 25 && percentDamaged > 20)
         {
-            aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
+            at25 = true;
+            if (at25 == true)
+            {
+                aud.PlayOneShot(damageSound[rand.Next(0, damageSound.Count)]);
+                at25 = false;
+            }
 
             house50.SetActive(false);
             house25.SetActive(true);
