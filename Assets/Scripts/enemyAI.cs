@@ -118,7 +118,14 @@ public class enemyAI : MonoBehaviour, IDamageable
             }
             StartCoroutine(spawnPause());
         }
-
+        if (targetPlayer)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
+        if (targetHouse)
+        {
+            agent.SetDestination(houseTarget.transform.position);
+        }
     }
 
     // Update is called once per frame
@@ -201,7 +208,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                         StartCoroutine(stunTimer());
                     }
 
-                    if (playerInRange)
+                    if (agent.remainingDistance <= rangedStoppingDistance)
                     {
                         if (!isShooting && !isMeleeAttacker)
                         {

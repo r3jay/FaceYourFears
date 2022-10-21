@@ -1318,6 +1318,7 @@ MonoBehaviour:
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  playerInRange: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0
@@ -2636,7 +2637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3095748835574317368}
   m_LocalRotation: {x: -0.70074344, y: -0.087077364, z: 0.7068464, w: 0.041764986}
-  m_LocalPosition: {x: 0.71, y: 0.62, z: 0.1}
+  m_LocalPosition: {x: 0.96, y: 0.64, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

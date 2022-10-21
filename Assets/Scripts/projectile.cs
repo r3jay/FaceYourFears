@@ -16,7 +16,7 @@ public class projectile : MonoBehaviour
         //Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
         //rb.velocity = Camera.main.transform.forward * gameManager.instance.playerController.proSpeed;
         rb.velocity = gameManager.instance.playerController.destination.normalized * gameManager.instance.playerController.proSpeed;
-
+        hit = gameManager.instance.playerController.impactE as GameObject;
         aoeCol = new List<Collider>();
         Destroy(gameObject, gameManager.instance.playerController.destroyTime);
     }
@@ -26,7 +26,7 @@ public class projectile : MonoBehaviour
         if (col.gameObject.tag != "Bullet" && col.gameObject.tag != "Player" && !collided && col.gameObject.tag != "Muzzle")
         {
             collided = true;
-            hit = Instantiate(gameManager.instance.playerController.impactE, col.contacts[0].point, Quaternion.identity);
+            hit = Instantiate(hit, col.contacts[0].point, Quaternion.identity);
             isAoe = gameManager.instance.playerController.isAoe;
 
 
@@ -77,7 +77,7 @@ public class projectile : MonoBehaviour
                 }
             }
 
-            Destroy(hit, 3);
+            Destroy(hit,3);
             Destroy(gameObject);
         }
     }

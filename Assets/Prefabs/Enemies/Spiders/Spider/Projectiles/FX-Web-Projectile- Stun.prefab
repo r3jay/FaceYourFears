@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 9600000}
   - component: {fileID: -4529317983741355661}
-  - component: {fileID: 4620114740264893881}
   - component: {fileID: 3459896030950394398}
+  - component: {fileID: 4620114740264893881}
   m_Layer: 6
   m_Name: FX-Web-Projectile- Stun
   m_TagString: Untagged
@@ -165,19 +165,9 @@ MonoBehaviour:
   destroyTime: 3
   projectileStuns: 1
   stunTime: 1
---- !u!135 &4620114740264893881
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  projectileSlows: 0
+  slowTime: 0
+  slowModifier: 0
 --- !u!54 &3459896030950394398
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,3 +184,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &4620114740264893881
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
