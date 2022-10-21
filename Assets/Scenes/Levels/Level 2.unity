@@ -5750,17 +5750,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154394063}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1157931327 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4134731141369692421, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
-  m_PrefabInstance: {fileID: 401857432}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1165394585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1042539140766500199, guid: 54685ddcf4f40664eb587c12b6b6a3bc, type: 3}
@@ -9328,6 +9317,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1866135166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 97486242144740956, guid: 05685b4dbcd7dc74297297f720e1d4d9, type: 3}
+  m_PrefabInstance: {fileID: 401857432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1878454298
 GameObject:
   m_ObjectHideFlags: 0
@@ -9440,11 +9440,15 @@ PrefabInstance:
     - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: typeText
       value: 
-      objectReference: {fileID: 1157931327}
+      objectReference: {fileID: 0}
     - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: cooldownText
       value: 
       objectReference: {fileID: 732270057}
+    - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
+      propertyPath: descriptText
+      value: 
+      objectReference: {fileID: 1866135166}
     - target: {fileID: 39430438575155316, guid: 847241bc83823cc48aced68864334dc0, type: 3}
       propertyPath: livesLeftText
       value: 
