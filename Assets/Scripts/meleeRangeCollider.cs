@@ -10,7 +10,6 @@ public class meleeRangeCollider : MonoBehaviour
         {
             if (other.CompareTag("Base"))
             {
-
                 GetComponentInParent<enemyAI>().isInMeleeRange = true;
             }
         }
@@ -18,7 +17,7 @@ public class meleeRangeCollider : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-
+                GetComponentInParent<enemyAI>().playerInRange = true;
                 GetComponentInParent<enemyAI>().isInMeleeRange = true;
             }
         }
@@ -29,7 +28,6 @@ public class meleeRangeCollider : MonoBehaviour
         {
             if (other.CompareTag("Base"))
             {
-
                 GetComponentInParent<enemyAI>().isInMeleeRange = false;
             }
         }
@@ -37,7 +35,7 @@ public class meleeRangeCollider : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-
+                GetComponentInParent<enemyAI>().playerInRange = true;
                 GetComponentInParent<enemyAI>().isInMeleeRange = false;
             }
         }

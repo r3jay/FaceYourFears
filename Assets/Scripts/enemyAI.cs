@@ -18,7 +18,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 180)] [SerializeField] int fovAngle;
     [Range(1, 10)] [SerializeField] float playerFaceSpeed;
     float playerFaceSpeedOrig;
-    [SerializeField] float followDistance;
     [SerializeField] float rangedStoppingDistance;
     [SerializeField] float meleeStoppingDistance;
     public bool targetHouse;
@@ -61,7 +60,7 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     Vector3 playerDir;
     Vector3 startingPosition;
-    bool playerInRange;
+    public bool playerInRange;
     Vector3 lastPlayerPos;
     //bool searchingForPlayer;
     float speedOrig;
@@ -80,7 +79,6 @@ public class enemyAI : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SphereCollider>().radius = followDistance;
         playerFaceSpeedOrig = playerFaceSpeed;
         if (gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count != 0)
         {

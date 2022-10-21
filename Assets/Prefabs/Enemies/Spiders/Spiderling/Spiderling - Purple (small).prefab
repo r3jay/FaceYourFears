@@ -530,7 +530,6 @@ GameObject:
   - component: {fileID: 6622115033061038101}
   - component: {fileID: 6622115033061038099}
   - component: {fileID: 6622115033070860274}
-  - component: {fileID: 6622115033061038089}
   - component: {fileID: 6622115033061038103}
   m_Layer: 7
   m_Name: Spiderling - Purple (small)
@@ -594,7 +593,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 8
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 1
   targetHouse: 0
@@ -673,19 +671,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &6622115033061038089
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6622115033061458994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &6622115033061038103
 SphereCollider:
   m_ObjectHideFlags: 0

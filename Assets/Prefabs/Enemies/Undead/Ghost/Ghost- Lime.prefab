@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 128334175590306783}
   - component: {fileID: 4231000123603741377}
   - component: {fileID: 2818469575632274623}
-  - component: {fileID: 3029720713426174170}
   - component: {fileID: 5339570949888164381}
   m_Layer: 7
   m_Name: Ghost- Lime
@@ -74,7 +73,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 2
   targetHouse: 1
@@ -152,19 +150,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &3029720713426174170
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2818469575624996549}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &5339570949888164381
 CapsuleCollider:
   m_ObjectHideFlags: 0

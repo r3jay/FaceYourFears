@@ -17,7 +17,6 @@ public class batController : MonoBehaviour
     [Range(1, 50)] [SerializeField] int roamRadius;
     [Range(1, 180)] [SerializeField] int fovAngle;
     [Range(1, 10)] [SerializeField] int playerFaceSpeed;
-    [SerializeField] float followDistance;
     [SerializeField] float rangedStoppingDistance;
     [SerializeField] float meleeStoppingDistance;
     public bool targetHouse;
@@ -70,7 +69,6 @@ public class batController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SphereCollider>().radius = followDistance;
         if (gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count != 0)
         {
             int rand = Random.Range(0, gameManager.instance.houseTarget.GetComponent<baseController>().targetPositions.Count - 1);

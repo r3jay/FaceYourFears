@@ -725,7 +725,6 @@ GameObject:
   - component: {fileID: 4472782160255458621}
   - component: {fileID: 1736953651719658001}
   - component: {fileID: 3712206921024386350}
-  - component: {fileID: 2624105177904742438}
   - component: {fileID: 3712206920316151709}
   m_Layer: 7
   m_Name: Mad Clown-Purple (small) (H)
@@ -774,7 +773,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 1.9
   targetHouse: 1
@@ -851,19 +849,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &2624105177904742438
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712206921033762464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &3712206920316151709
 CapsuleCollider:
   m_ObjectHideFlags: 0

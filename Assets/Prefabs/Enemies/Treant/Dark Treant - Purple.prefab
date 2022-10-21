@@ -5554,7 +5554,6 @@ GameObject:
   - component: {fileID: 7549267730038174021}
   - component: {fileID: 3965534167940713130}
   - component: {fileID: 3537556946724435498}
-  - component: {fileID: 7348680038523939815}
   - component: {fileID: 6974320730260119160}
   m_Layer: 7
   m_Name: Dark Treant - Purple
@@ -5616,7 +5615,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 1
   targetHouse: 1
@@ -5693,19 +5691,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &7348680038523939815
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477416147009011914}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &6974320730260119160
 CapsuleCollider:
   m_ObjectHideFlags: 0

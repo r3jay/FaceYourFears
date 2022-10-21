@@ -25533,7 +25533,6 @@ GameObject:
   - component: {fileID: 8490815680163773905}
   - component: {fileID: 8250622205147870848}
   - component: {fileID: 6492577404720299836}
-  - component: {fileID: 1750023193472476329}
   - component: {fileID: 2323902149088097893}
   m_Layer: 7
   m_Name: Lich-Cyan
@@ -25602,7 +25601,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 7
   meleeStoppingDistance: 0
   targetHouse: 0
@@ -25678,19 +25676,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &1750023193472476329
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6492577404727708954}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &2323902149088097893
 CapsuleCollider:
   m_ObjectHideFlags: 0

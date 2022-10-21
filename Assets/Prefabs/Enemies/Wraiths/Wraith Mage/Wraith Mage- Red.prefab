@@ -6504,7 +6504,6 @@ GameObject:
   - component: {fileID: 5328500162863357256}
   - component: {fileID: 5331347027253739042}
   - component: {fileID: 3344184265955675901}
-  - component: {fileID: 4619962750143412308}
   - component: {fileID: -6422426240275884672}
   m_Layer: 7
   m_Name: Wraith Mage- Red
@@ -6588,7 +6587,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 6
   meleeStoppingDistance: 0
   targetHouse: 0
@@ -6664,19 +6662,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &4619962750143412308
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3344184265946201313}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &-6422426240275884672
 CapsuleCollider:
   m_ObjectHideFlags: 0

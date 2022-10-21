@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 4248761960045918397}
   - component: {fileID: 5053106651336673328}
   - component: {fileID: 6912478843649540757}
-  - component: {fileID: 5175962629004081337}
   - component: {fileID: 25977342089827260}
   m_Layer: 7
   m_Name: Wraith Spearman- Red
@@ -213,7 +212,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 2.3
   targetHouse: 0
@@ -290,19 +288,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &5175962629004081337
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6912478843659038837}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &25977342089827260
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1167,7 +1167,6 @@ GameObject:
   - component: {fileID: 1133066751261024860}
   - component: {fileID: 1133066751261024861}
   - component: {fileID: 1133066751261024848}
-  - component: {fileID: 1133066751261024850}
   - component: {fileID: 1133066751261024851}
   m_Layer: 7
   m_Name: Spider - Red
@@ -1236,7 +1235,6 @@ MonoBehaviour:
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
-  followDistance: 15
   rangedStoppingDistance: 0
   meleeStoppingDistance: 2.7
   targetHouse: 1
@@ -1314,19 +1312,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &1133066751261024850
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133066751251665296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 18
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &1133066751261024851
 SphereCollider:
   m_ObjectHideFlags: 0
