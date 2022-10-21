@@ -6,6 +6,7 @@ using UnityEngine;
 public class projectileStats : ScriptableObject
 {
     public float shootRate;
+    public float cooldownTimer;
     public int proDist;
     public int shootDamage;
     //public Vector3 proVelocity;

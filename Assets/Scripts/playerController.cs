@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("----- Components ------ ")]
     [SerializeField] CharacterController controller;
     [SerializeField] Animator anime;
-    [SerializeField] LayerMask shootableLayers; 
+    [SerializeField] LayerMask shootableLayers;
 
     [Header("------ Player Attributes -----")]
     [SerializeField] int currentHP;
@@ -45,6 +45,7 @@ public class playerController : MonoBehaviour, IDamageable
     int selectedWeapon;
     [SerializeField] GameObject weaponModel;
     public List<projectileStats> proList = new List<projectileStats>();
+    public List<float> cooldownList = new List<float>();
     public int selectedPro;
     public Transform shootPos;
     public Vector3 destination;
@@ -141,6 +142,15 @@ public class playerController : MonoBehaviour, IDamageable
                 StartCoroutine(stunTimer());
             }
             StartCoroutine(shoot());
+
+            for (int i = 0; i < cooldownList.Count; i++)
+            {
+                if (cooldownList[i] < proList[i].shootRate)
+                {
+                    cooldownList[i] += Time.deltaTime;
+                }
+            }
+
             projectileSelect();
             weaponSelect();
 
@@ -285,10 +295,11 @@ public class playerController : MonoBehaviour, IDamageable
 
                 isAoe = proList[selectedPro].isAoe;
                 aoeRadius = proList[selectedPro].aoeRadius;
-                
+
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+                isShooting = false;
 
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedPro > 0)
@@ -319,7 +330,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 isAoe = proList[selectedPro].isAoe;
                 aoeRadius = proList[selectedPro].aoeRadius;
-
+                isShooting = false;
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
                 aud.PlayOneShot(pickupSound, pickUpSoundVolume);
@@ -366,8 +377,12 @@ public class playerController : MonoBehaviour, IDamageable
 
     IEnumerator shoot()
     {
-        if (!isShooting && Input.GetButtonDown("Shoot") && proList.Count > 0)
+        if (!isShooting && Input.GetButtonDown("Shoot") && proList.Count > 0 && cooldownList[selectedPro] >= proList[selectedPro].shootRate)
         {
+            if (cooldownList[selectedPro] == proList[selectedPro].shootRate)
+            {
+                cooldownList[selectedPro] = 0;
+            }
             isShooting = true;
 
             aud.PlayOneShot(proList[selectedPro].shotSound, proShotSoundVolume);
@@ -387,7 +402,7 @@ public class playerController : MonoBehaviour, IDamageable
             }
             anime.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
-            
+
             shootPos.LookAt(destination);
             Vector3 heading = destination - shootPos.transform.position;
             destination = heading;
@@ -449,6 +464,7 @@ public class playerController : MonoBehaviour, IDamageable
     }
     public void projectilePickup(projectileStats stats)
     {
+        fireRate = stats.shootRate;
         shootDistance = stats.proDist;
         playerDamage = stats.shootDamage;
         projectile = stats.projectile;
@@ -475,6 +491,8 @@ public class playerController : MonoBehaviour, IDamageable
         typeText.text = stats.type;
 
         proList.Add(stats);
+        cooldownList.Add(stats.shootRate);
+
         selectedPro = proList.Count - 1;
         aud.PlayOneShot(pickupSound, pickUpSoundVolume);
     }
