@@ -166,7 +166,7 @@ public class gameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
 
-            if(currentScene != 9)
+            if(currentScene != 10)
             {
                 currentMenu = levelWinMenu;
             }
