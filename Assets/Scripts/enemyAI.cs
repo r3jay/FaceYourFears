@@ -208,33 +208,43 @@ public class enemyAI : MonoBehaviour, IDamageable
                         StartCoroutine(stunTimer());
                     }
 
-                    if (agent.remainingDistance <= rangedStoppingDistance)
+                    if (!isMeleeAttacker)
                     {
-                        if (!isShooting && !isMeleeAttacker)
+                        if (agent.remainingDistance <= rangedStoppingDistance)
                         {
-                            if (!isLich)
+                            if (!isShooting && !isMeleeAttacker)
                             {
-                                if (!stunStatusEffectActive)
+                                if (!isLich)
                                 {
-                                    StartCoroutine(shoot());
+                                    if (!stunStatusEffectActive)
+                                    {
+                                        StartCoroutine(shoot());
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                if (!stunStatusEffectActive)
+                                else
                                 {
-                                    StartCoroutine(lichSpawnHands());
+                                    if (!stunStatusEffectActive)
+                                    {
+                                        StartCoroutine(lichSpawnHands());
+                                    }
                                 }
-                            }
-                        }
-                        else if (!isAttacking && isMeleeAttacker && isInMeleeRange && !isDefending)
-                        {
-                            if (!stunStatusEffectActive)
-                            {
-                                StartCoroutine(meleeAttack());
                             }
                         }
                     }
+                    else if (isMeleeAttacker)
+                    {
+                        if(agent.remainingDistance <= meleeStoppingDistance)
+                        {
+                            if (!isAttacking && isMeleeAttacker && isInMeleeRange && !isDefending)
+                            {
+                                if (!stunStatusEffectActive)
+                                {
+                                    StartCoroutine(meleeAttack());
+                                }
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
