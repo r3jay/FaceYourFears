@@ -143,14 +143,15 @@ public class playerController : MonoBehaviour, IDamageable
             }
             StartCoroutine(shoot());
 
+            float timePassed = Time.deltaTime;
             for (int i = 0; i < cooldownList.Count; i++)
             {
                 if (cooldownList[i] < proList[i].shootRate)
                 {
-                    cooldownList[i] += Time.deltaTime;
+                    cooldownList[i] += timePassed;
                 }
-            }
 
+            }
             projectileSelect();
             weaponSelect();
 

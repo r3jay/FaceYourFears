@@ -112,10 +112,6 @@ public class enemyAI : MonoBehaviour, IDamageable
         // treant spawn check
         if (isTreant || isLich)
         {
-            if (isTreant)
-            {
-                gameManager.instance.enemyIncrement(1);
-            }
             StartCoroutine(spawnPause());
         }
         if (targetPlayer)
@@ -420,14 +416,21 @@ public class enemyAI : MonoBehaviour, IDamageable
 
     IEnumerator defendTimer()
     {
-        defendTimerRunning = true;
-        yield return new WaitForSeconds(defendTime);
+        if (!animator.GetBool("Dead"))
+        {
+
+            defendTimerRunning = true;
+            yield return new WaitForSeconds(defendTime);
+        }
         defendTimerRunning = false;
         isDefending = false;
         animator.SetBool("Defending", false);
         playerFaceSpeed = playerFaceSpeedOrig;
-        agent.speed = chaseSpeed;
-        agent.isStopped = false;
+        if (animator.GetBool("Dead"))
+        {
+            agent.speed = chaseSpeed;
+            agent.isStopped = false;
+        }
     }
 
     public void takePoisonDamage(int damage, float poisonTime, float timeBetweenTicks)
@@ -523,7 +526,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     IEnumerator spawnPause()
     {
         isShooting = true;
-        float rand = Random.Range(1, shootRate + 3);
+        float rand = Random.Range(shootRate - 3, shootRate + 3);
         yield return new WaitForSeconds(rand);
         isShooting = false;
     }

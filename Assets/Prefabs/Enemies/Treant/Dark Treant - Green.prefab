@@ -5610,7 +5610,7 @@ MonoBehaviour:
   agent: {fileID: 3965534167940713130}
   rend: {fileID: 3579448562523891730}
   animator: {fileID: 3537556946724435498}
-  HP: 30
+  HP: 16
   chaseSpeed: 2
   roamRadius: 15
   fovAngle: 70
@@ -5620,10 +5620,10 @@ MonoBehaviour:
   targetHouse: 1
   targetPlayer: 0
   houseInRange: 0
-  shootRate: 10
+  shootRate: 13
   bullet: {fileID: 100002, guid: b3046f9b08f58d144ac043f5c2afd11a, type: 3}
   shootPos: {fileID: 4446790809797811542}
-  meleeDamage: 10
+  meleeDamage: 40
   isInMeleeRange: 0
   meleeWeapons:
   - {fileID: 1358755457850201598}
@@ -5644,6 +5644,7 @@ MonoBehaviour:
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  playerInRange: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0

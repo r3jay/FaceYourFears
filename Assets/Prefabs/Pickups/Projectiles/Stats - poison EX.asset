@@ -20,9 +20,9 @@ MonoBehaviour:
   proSpeed: 12
   arcRange: 0
   destroyTime: 3
-  DOTdamage: 10
+  DOTdamage: 1
   DOTtime: 3
-  timeBetweenTicks: 0.5
+  timeBetweenTicks: 0.25
   stun: 0
   isAoe: 0
   aoeRadius: 0

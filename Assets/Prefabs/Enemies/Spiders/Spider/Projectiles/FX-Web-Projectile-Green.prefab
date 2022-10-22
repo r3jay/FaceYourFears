@@ -159,9 +159,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7253828959804642920}
+  impactEffect: {fileID: 0}
   damage: 10
   speed: 10
   destroyTime: 3
+  projectileStuns: 1
+  stunTime: 1.75
+  projectileSlows: 0
+  slowTime: 0
+  slowModifier: 0
 --- !u!135 &2292636373087256801
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -190,4 +196,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

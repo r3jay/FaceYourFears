@@ -768,13 +768,13 @@ MonoBehaviour:
   agent: {fileID: 1736953651719658001}
   rend: {fileID: 3712206921020099566}
   animator: {fileID: 3712206921024386350}
-  HP: 10
+  HP: 18
   chaseSpeed: 5
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
   rangedStoppingDistance: 5
-  meleeStoppingDistance: 3.8
+  meleeStoppingDistance: 3
   targetHouse: 0
   targetPlayer: 1
   houseInRange: 0

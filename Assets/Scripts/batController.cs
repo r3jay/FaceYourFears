@@ -98,7 +98,8 @@ public class batController : MonoBehaviour
         stunTime = 0;
         slowTime = 0;
 
-
+        flyingNearby = false;
+        agent.SetDestination(gameManager.instance.player.transform.position);
         ground = GameObject.FindGameObjectWithTag("Terrain");
     }
 

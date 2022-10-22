@@ -1230,8 +1230,8 @@ MonoBehaviour:
   agent: {fileID: 1133066751261024861}
   rend: {fileID: 1133066751265332368}
   animator: {fileID: 1133066751261024848}
-  HP: 10
-  chaseSpeed: 3
+  HP: 24
+  chaseSpeed: 4
   roamRadius: 15
   fovAngle: 70
   playerFaceSpeed: 5
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   - {fileID: 3595693661880387800}
   isMeleeAttacker: 1
   dealsPosionDamage: 0
-  poisonDamage: 1
+  poisonDamage: 15
   timeBetweenPoisonTicks: 0.5
   poisonTime: 2
   hasMultipleAttacks: 0
@@ -1265,6 +1265,7 @@ MonoBehaviour:
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  playerInRange: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0

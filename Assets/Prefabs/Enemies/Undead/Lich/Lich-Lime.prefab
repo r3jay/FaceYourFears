@@ -25596,7 +25596,7 @@ MonoBehaviour:
   agent: {fileID: 8250622205147870848}
   rend: {fileID: 6492577404724527612}
   animator: {fileID: 6492577404720299836}
-  HP: 40
+  HP: 14
   chaseSpeed: 3
   roamRadius: 15
   fovAngle: 70
@@ -25629,6 +25629,7 @@ MonoBehaviour:
   boost: []
   key: []
   lootLocation: {x: 0, y: 0, z: 0}
+  playerInRange: 0
   stunStatusEffectActive: 0
   stunTime: 0
   slowStatusEffectActive: 0

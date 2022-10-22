@@ -16,8 +16,8 @@ MonoBehaviour:
   cooldownTimer: 0
   proDist: 1000
   shootDamage: 0
-  descript: Slows the enemy down for 3 seconds.
-  proSpeed: 2
+  descript: Slows the enemy down for 5 seconds.
+  proSpeed: 7
   arcRange: 0
   destroyTime: 3
   DOTdamage: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   aoeRadius: 0
   slowDown: 0.3
   statusEffectTime_poison: 0
-  statusEffectTime_slow: 3
+  statusEffectTime_slow: 5
   statusEffectTime_stun: 0
   name: Slow your roll
   type: Slowing

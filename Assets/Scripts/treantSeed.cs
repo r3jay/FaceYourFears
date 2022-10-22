@@ -25,6 +25,7 @@ public class treantSeed : MonoBehaviour
         if (collision.collider.CompareTag("Terrain"))
         {
             Instantiate(seedSpawnObject, transform.localPosition, transform.localRotation);
+            gameManager.instance.enemyIncrement(1);
         }
         Instantiate(impactEffect, transform.localPosition, transform.localRotation);
         Destroy(gameObject);
