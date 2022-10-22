@@ -8,7 +8,7 @@ public class volumeSettings : MonoBehaviour
 {
     [SerializeField] AudioMixer mixer;
     [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
+    [SerializeField] public Slider sfxSlider;
     [SerializeField] Slider masterSlider;
 
     public const string MIXER_SFX = "SfxVolume";
@@ -19,8 +19,10 @@ public class volumeSettings : MonoBehaviour
     public const string MUSIC_KEY = "MusicVolume";
     public const string MASTER_KEY = "MasterVolume";
 
+    public static volumeSettings instance;
     void Awake()
     {
+        instance = this;
         sfxSlider.onValueChanged.AddListener(setSFXVolume);
         musicSlider.onValueChanged.AddListener(setMusicVolume);
         masterSlider.onValueChanged.AddListener(setMasterVolume);
