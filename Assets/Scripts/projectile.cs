@@ -76,7 +76,7 @@ public class projectile : MonoBehaviour
                     }
                 }
             }
-            AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position);
+            AudioSource.PlayClipAtPoint(projectileImpactSound, transform.position, volumeSettings.instance.sfxSlider.value);
             if (isAoe == true)
             {
                 if (aoeCol != null)

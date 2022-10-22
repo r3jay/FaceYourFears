@@ -75,18 +75,18 @@ public class playerController : MonoBehaviour, IDamageable
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip[] damagedSound;
-    [Range(0, 1)] [SerializeField] float damagedSoundVolume;
+    //[Range(0, 1)] [SerializeField] float damagedSoundVolume;
     [SerializeField] AudioClip[] jumpSound;
-    [Range(0, 1)] [SerializeField] float jumpSoundVolume;
+    //[Range(0, 1)] [SerializeField] float jumpSoundVolume;
     [SerializeField] AudioClip[] footstepSound;
-    [Range(0, 1)] [SerializeField] float footstepSoundVolume;
-    [Range(0, 1)] [SerializeField] float weaponShotSoundVolume;
+    //[Range(0, 1)] [SerializeField] float footstepSoundVolume;
+    //[Range(0, 1)] [SerializeField] float weaponShotSoundVolume;
 
     [SerializeField] AudioClip pickupSound;
-    [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
+   // [Range(0, 1)] [SerializeField] float pickUpSoundVolume;
 
     [SerializeField] AudioClip projectileShotSound;
-    [Range(0, 1)] [SerializeField] float proShotSoundVolume;
+    //[Range(0, 1)] [SerializeField] float proShotSoundVolume;
 
 
     private Vector3 playerVelocity;
@@ -188,7 +188,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             playerVelocity.y = jumpHeight;
             timesJumped++;
-            aud.PlayOneShot(jumpSound[Random.Range(0, jumpSound.Length)], jumpSoundVolume);
+            aud.PlayOneShot(jumpSound[Random.Range(0, jumpSound.Length)]);
         }
 
 
@@ -216,7 +216,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (!playingFootsteps && controller.isGrounded && move.normalized.magnitude > 0.3f)
         {
             playingFootsteps = true;
-            aud.PlayOneShot(footstepSound[Random.Range(0, footstepSound.Length)], footstepSoundVolume);
+            aud.PlayOneShot(footstepSound[Random.Range(0, footstepSound.Length)]);
 
             if (isSprinting)
             {
@@ -258,7 +258,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound);
 
             }
         }
@@ -298,7 +298,7 @@ public class playerController : MonoBehaviour, IDamageable
 
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound);
                 isShooting = false;
 
             }
@@ -333,7 +333,7 @@ public class playerController : MonoBehaviour, IDamageable
                 isShooting = false;
                 //weaponModel.GetComponent<MeshFilter>().sharedMesh = weaponStat[selectedWeapon].model.GetComponent<MeshFilter>().sharedMesh;
                 //weaponModel.GetComponent<MeshRenderer>().sharedMaterial = weaponStat[selectedWeapon].model.GetComponent<MeshRenderer>().sharedMaterial;
-                aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+                aud.PlayOneShot(pickupSound);
 
             }
         }
@@ -345,7 +345,7 @@ public class playerController : MonoBehaviour, IDamageable
     public void takeDamage(int _damage)
     {
         currentHP -= _damage;
-        aud.PlayOneShot(damagedSound[Random.Range(0, damagedSound.Length)], damagedSoundVolume);
+        aud.PlayOneShot(damagedSound[Random.Range(0, damagedSound.Length)]);
         updatePlayerHPBar();
 
         if (currentHP <= 0)
@@ -385,7 +385,7 @@ public class playerController : MonoBehaviour, IDamageable
             }
             isShooting = true;
 
-            aud.PlayOneShot(proList[selectedPro].shotSound, proShotSoundVolume);
+            aud.PlayOneShot(proList[selectedPro].shotSound);
 
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
 
@@ -461,7 +461,7 @@ public class playerController : MonoBehaviour, IDamageable
 
         weaponStat.Add(stats);
         selectedWeapon = weaponStat.Count - 1;
-        aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+        aud.PlayOneShot(pickupSound);
     }
     public void projectilePickup(projectileStats stats)
     {
@@ -496,7 +496,7 @@ public class playerController : MonoBehaviour, IDamageable
         cooldownList.Add(stats.shootRate);
 
         selectedPro = proList.Count - 1;
-        aud.PlayOneShot(pickupSound, pickUpSoundVolume);
+        aud.PlayOneShot(pickupSound);
     }
     //============================================================================================================
     //    UNCOMMENT WHEN GUNSTAT IS ADDED
