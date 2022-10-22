@@ -406,9 +406,10 @@ public class playerController : MonoBehaviour, IDamageable
             shootPos.LookAt(destination);
             Vector3 heading = destination - shootPos.transform.position;
             destination = heading;
+            var muzzleClone = Instantiate(proList[selectedPro].muzzle, shootPos.transform.position, shootPos.transform.rotation);
             Instantiate(proList[selectedPro].projectile, shootPos.transform.position, shootPos.transform.rotation);
 
-
+            Destroy(muzzleClone, 1.5f);
             //if (hit.collider.GetComponent<IDamageable>() != null)
             //    hit.collider.GetComponent<IDamageable>().takeDamage(playerDamage);
 

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958563405675184518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.32}
+  m_LocalPosition: {x: 0, y: 0.292, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -173,7 +173,7 @@ Transform:
   - {fileID: 9106983223087225338}
   - {fileID: 7424942998107734225}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 1.106, z: 0}
 --- !u!33 &8501373860880922712
 MeshFilter:
@@ -278,7 +278,7 @@ MonoBehaviour:
   minHP: 0
   maxHP: 1000
   basicAttack: {fileID: 11400000, guid: e8a85cb9bb5e2ee40af3008b60076356, type: 2}
-  playerSpeed: 5
+  playerSpeed: 3
   sprintModifier: 2
   jumpHeight: 10
   gravityValue: 25
@@ -348,7 +348,6 @@ MonoBehaviour:
   proShotSoundVolume: 0.8
   livesLeft: 3
   nameText: {fileID: 0}
-  typeText: {fileID: 0}
   cooldownText: {fileID: 0}
   descriptText: {fileID: 0}
   livesLeftText: {fileID: 0}
@@ -372,7 +371,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.1147615
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
