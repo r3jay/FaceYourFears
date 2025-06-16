@@ -45,7 +45,7 @@ I was responsible for **all player-side systems**, including:
 
 ---
 
-## 📷 Screenshots (optional)
+## 📷 Screenshots
 
 <p align="center">
   <img src="images/GameScreenshot1.PNG" width="45%" />
