@@ -59,8 +59,11 @@ I was responsible for **all player-side systems**, including:
 
 ## 🎥 Video Demo
 
-[![Demo Video Preview](https://img.youtube.com/vi/SHXQwAPDEpQ/hqdefault.jpg)](https://youtube.com/shorts/SHXQwAPDEpQ?feature=share)
-
+<p align="center">
+  <a href="https://youtu.be/p5Ywm48EJu4">
+    <img src="https://img.youtube.com/vi/p5Ywm48EJu4/hqdefault.jpg" width="70%" />
+  </a>
+</p>
 ---
 
 ## 🛠️ How to Run
