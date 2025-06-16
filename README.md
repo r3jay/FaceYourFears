@@ -3,6 +3,8 @@ This is a 3D first-person wave-based castle defense game built in Unity. You pla
 
 The project was a collaborative game development effort during college, and I focused heavily on player systems, effects, and gameplay feel.
 
+---
+
 ## 💡 Why This Project Matters
 
 This project was my first time developing a complete combat system in Unity from scratch, as part of a team. While the enemy AI and level design were handled by other members, I was fully in charge of everything that made the player feel responsive and powerful.
@@ -45,7 +47,13 @@ I was responsible for **all player-side systems**, including:
 
 ## 📷 Screenshots (optional)
 
-> *(Insert images of gameplay if available)*
+<p align="center">
+  <img src="images/GameScreenshot1.PNG" width="45%" />
+  <img src="images/GameScreenshot2.PNG" width="45%" />
+</p>
+<p align="center">
+  <img src="images/GameScreenshot3.PNG" width="45%" />
+</p>
 
 ---
 
