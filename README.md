@@ -75,7 +75,7 @@ I was responsible for **all player-side systems**, including:
 
 This project was a team collaboration:
 
-- **Player Systems, UI, FX, Combat:** Me
+- **Player Systems, UI, FX, Combat:** Me (Ricardo Rodriguez)
 - **Level Design / Enemy Waves:** Nicholas Barger
 - **Enemy Logic / Game Flow:** Joshua Luvene
 - **Animation / Lighting / Assets:** Jenna Hendrix
