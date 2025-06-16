@@ -7,7 +7,7 @@ The project was a collaborative game development effort during college, and I fo
 
 ## 💡 Why This Project Matters
 
-This project was my first time developing a complete combat system in Unity from scratch, as part of a team. While the enemy AI and level design were handled by other members, I was fully in charge of everything that made the player feel responsive and powerful.
+This project was my first time developing a complete combat system in Unity from scratch, as part of a team. While the enemies and level design were handled by other members, I was fully in charge of everything that made the player feel responsive and powerful.
 
 It taught me how to:
 - Collaborate on Unity projects using Git and Trello
