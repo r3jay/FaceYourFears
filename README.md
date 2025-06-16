@@ -19,7 +19,7 @@ It taught me how to:
 
 ## 🚀 Core Features
 
-- Fast-paced first-person controller (custom made, not prefab)
+- Fast-paced first-person (custom made, not prefab)
 - Basic & special projectile attacks with cooldowns
 - Animated ability feedback and visual effects
 - UI for player HP, reticle, ability feedback, pause/win menus
@@ -33,15 +33,15 @@ It taught me how to:
 
 I was responsible for **all player-side systems**, including:
 
-- 🎯 First-person controller (WASD, mouse look)
-- 💥 Player projectiles, attacks, hit logic
-- 🌟 Special effects on abilities (VFX/SFX triggers)
-- 🎵 Player audio cues
-- 🔁 Animation state control for player actions
-- 🎯 Dynamic reticle & UI feedback for attacks
-- ❤️ HP bar and damage UI
-- ⏸️ Pause menu and win condition UI
-- ⌨️ Input bindings and gameplay feel tuning
+- First-person controller (WASD, mouse look)
+- Player projectiles, attacks, hit logic
+- Special effects on abilities (VFX/SFX triggers)
+- Player audio cues
+- Animation state control for player actions
+- Dynamic reticle & UI feedback for attacks
+- HP bar and damage UI
+- Pause menu and win condition UI
+- Input bindings and gameplay feel tuning
 
 ---
 
