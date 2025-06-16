@@ -57,11 +57,17 @@ I was responsible for **all player-side systems**, including:
 
 ---
 
+## 🎥 Video Demo
+
+[![Demo Video Preview](https://img.youtube.com/vi/SHXQwAPDEpQ/hqdefault.jpg)](https://youtube.com/shorts/SHXQwAPDEpQ?feature=share)
+
+---
+
 ## 🛠️ How to Run
 
 1. Download or clone the repo
-2. Open in Unity Hub (recommended version: 2020.3 LTS or later)
-3. Load the main scene and hit Play
+2. Run FaceYourFears.exe
+3. Hope you have fun!
 
 ---
 
